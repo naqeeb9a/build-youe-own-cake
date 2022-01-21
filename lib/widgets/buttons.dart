@@ -47,7 +47,7 @@ Widget retry(context) {
         coloredButton(
           context,
           "Retry",
-          myOrange,
+          myPink,
           width: dynamicWidth(context, .4),
           function: () {},
         ),

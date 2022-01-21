@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-const myWhite = Color(0xffffffff);
-const myGrey = Colors.grey;
-const myBlack = Color(0xff000000);
-const myOrange = Color(0xffff6624);
-const myGreen = Color(0xFF008000);
-const myRed = Color(0xFFff0000);
-const myLightPink = Color(0xFFFFB6C1);
+const myWhite = Color(0xfffefefe);
+const myGrey = Color(0xff646464);
+const myBlack = Color(0xff1e1e1e);
+const myPink = Color(0xffd62764);
+const myLightPink = Color(0xffe580a4);
+const myLightPink1 = Color(0xffebaec6);
+const myBrown = Color(0xff891a3d);
+const myRed = Color(0xff9c0434);
 const noColor = Colors.transparent;
 
 bool obscureText = true;
-
