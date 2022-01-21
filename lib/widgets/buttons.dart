@@ -16,7 +16,7 @@ Widget coloredButton(context, text, color,
               color: color, border: Border.all(width: 1, color: myWhite))
           : BoxDecoration(
               color: color,
-            ),
+              borderRadius: BorderRadius.circular(dynamicWidth(context, 0.04))),
       child: Center(
         child: Text(
           text,

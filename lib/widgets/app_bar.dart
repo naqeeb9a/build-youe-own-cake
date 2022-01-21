@@ -3,7 +3,7 @@ import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-Widget appBar(context) {
+appBar(context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -16,7 +16,6 @@ Widget appBar(context) {
         "BuildYourCake",
         0.06,
         myBlack,
-        // bold: true,
         font: true,
       ),
     ],
