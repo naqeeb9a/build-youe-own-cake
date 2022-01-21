@@ -1,5 +1,4 @@
-import 'package:build_own_cake/app%20screens/decoration_screen.dart';
-import 'package:build_own_cake/app%20screens/flavour_screen.dart';
+import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -8,14 +7,14 @@ import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-class ColorScreen extends StatefulWidget {
-  const ColorScreen({Key? key}) : super(key: key);
+class DecorationScreen extends StatefulWidget {
+  const DecorationScreen({ Key? key }) : super(key: key);
 
   @override
-  _ColorScreenState createState() => _ColorScreenState();
+  _DecorationScreenState createState() => _DecorationScreenState();
 }
 
-class _ColorScreenState extends State<ColorScreen> {
+class _DecorationScreenState extends State<DecorationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,7 @@ class _ColorScreenState extends State<ColorScreen> {
             horizontal: dynamicWidth(context, 0.04),
             vertical: dynamicHeight(context, 0.01),
           ),
-          color: myWhite.withOpacity(0.2),
+          color: myRed.withOpacity(0.5),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -36,7 +35,7 @@ class _ColorScreenState extends State<ColorScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  text(context, "Choose the Color.", 0.1, myBlack, bold: true),
+                  Expanded(child: text(context, "Choose the Decoration.", 0.1, myBlack, bold: true)),
                 ],
               ),
               heightBox(context, 0.006),
@@ -56,35 +55,35 @@ class _ColorScreenState extends State<ColorScreen> {
               heightBox(context, 0.04),
               coloredButton(
                 context,
-                "Red",
-                myRed,
+                "Chocolate bar",
+                myGrey,
                 width: dynamicWidth(context, 0.5),
               ),
               heightBox(context, 0.015),
               coloredButton(
                 context,
-                "Chocolate",
-                myBrown,
+                "Pineapple",
+                myGrey,
                 width: dynamicWidth(context, 0.5),
               ),
               heightBox(context, 0.015),
               coloredButton(
                 context,
-                "Pink",
-                myPink,
+                "Cream icing",
+                myGrey,
                 width: dynamicWidth(context, 0.5),
               ),
               heightBox(context, 0.015),
               coloredButton(
                 context,
-                "LightPink",
-                myLightPink1,
+                "Bunty",
+                myGrey,
                 width: dynamicWidth(context, 0.5),
               ),
               heightBox(context, 0.1),
               downBar(
                 context,
-                const DecorationScreen(),
+                const SpecialWishesScreen(),
               ),
             ],
           ),
