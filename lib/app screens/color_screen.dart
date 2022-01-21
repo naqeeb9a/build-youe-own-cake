@@ -1,23 +1,20 @@
 import 'package:build_own_cake/app%20screens/flavour_screen.dart';
-import 'package:build_own_cake/utils/app_routes.dart';
-import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
-import 'package:build_own_cake/widgets/toggle_button.dart';
 import 'package:flutter/material.dart';
 
-class SizeScreen extends StatefulWidget {
-  const SizeScreen({Key? key}) : super(key: key);
+class ColorScreen extends StatefulWidget {
+  const ColorScreen({ Key? key }) : super(key: key);
 
   @override
-  _SizeScreenState createState() => _SizeScreenState();
+  _ColorScreenState createState() => _ColorScreenState();
 }
 
-class _SizeScreenState extends State<SizeScreen> {
+class _ColorScreenState extends State<ColorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,18 +22,11 @@ class _SizeScreenState extends State<SizeScreen> {
           child: Container(
         width: dynamicWidth(context, 1),
         height: dynamicHeight(context, 1),
-        padding: EdgeInsets.all(
-          dynamicWidth(context, 0.025),
+        padding: EdgeInsets.symmetric(
+          horizontal :dynamicWidth(context, 0.04),
+          vertical  : dynamicHeight(context, 0.01),
         ),
-        color: myGrey.withOpacity(0.2),
-        // decoration: const BoxDecoration(
-        //   color: myWhite,
-        //   image: DecorationImage(
-        //     fit: BoxFit.cover,
-        //     image: NetworkImage(
-        //         'https://images.pexels.com/photos/264892/pexels-photo-264892.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-        //   ),
-        // ),
+        color: myWhite.withOpacity(0.2),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -45,7 +35,7 @@ class _SizeScreenState extends State<SizeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                text(context, "Choose the Size.", 0.1, myBlack, bold: true),
+                text(context, "Choose the Color.", 0.1, myBlack, bold: true),
               ],
             ),
            heightBox(context, 0.006),
@@ -63,22 +53,41 @@ class _SizeScreenState extends State<SizeScreen> {
               ],
             ),
             heightBox(context, 0.04),
-            toggleButton(context, '1 Pound'),
-            toggleButton(context, '2 Pound'),
-            toggleButton(context, '4 Pound'),
-            toggleButton(context, '6 Pound'),
-           heightBox(context, 0.02),
             coloredButton(
-              context,
-              "Choose",
-              myGrey,
-              width: dynamicWidth(context, 0.5),
-            ),
-            Padding(
-              padding: EdgeInsets.all(
-                dynamicWidth(context, 0.085),
-              ),
-            ),
+            context,
+            "Red",
+            myRed,
+            width: dynamicWidth(context, 0.5),
+          ),
+          heightBox(context, 0.015),
+          coloredButton(
+            context,
+            "Chocolate",
+            myBrown,
+            width: dynamicWidth(context, 0.5),
+          ),
+          heightBox(context, 0.015),
+          coloredButton(
+            context,
+            "Pink",
+            myPink,
+            width: dynamicWidth(context, 0.5),
+          ),
+          heightBox(context, 0.015),
+          coloredButton(
+            context,
+            "LightPink",
+            myLightPink1,
+            width: dynamicWidth(context, 0.5),
+          ),
+          //  heightBox(context, 0.03),
+          //   // coloredButton(
+          //   //   context,
+          //   //   "Choose",
+          //   //   myGrey,
+          //   //   width: dynamicWidth(context, 0.5),
+          //   // ),
+            heightBox(context, 0.1),
             downBar(context,const FlavourScreen(),),
           ],
         ),

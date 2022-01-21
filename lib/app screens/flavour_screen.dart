@@ -1,3 +1,4 @@
+import 'package:build_own_cake/app%20screens/color_screen.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -86,7 +87,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
           heightBox(context, 0.15),
           downBar(
             context,
-            const FlavourScreen(),
+            const ColorScreen(),
           ),
         ],
       ),
