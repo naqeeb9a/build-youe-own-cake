@@ -8,6 +8,7 @@ Widget text(context, text, size, color,
     text,
     textAlign: alignText,
     maxLines: maxLines,
+    
     overflow: TextOverflow.ellipsis,
     style: font == false
         ? TextStyle(

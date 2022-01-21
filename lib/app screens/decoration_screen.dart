@@ -34,28 +34,22 @@ class _DecorationScreenState extends State<DecorationScreen> {
               heightBox(context, .1),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Expanded(
-                  child: text(
-                    context,
-                    "Choose Decoration.",
-                    .09,
-                    myBlack,
-                    bold: true,
-                  ),
+                child: text(
+                  context,
+                  "Choose Decoration.",
+                  .09,
+                  myBlack,
+                  bold: true,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: text(
-                      context,
-                      "Select the decoration of cake and then proceed.",
-                      .044,
-                      myGrey.withOpacity(0.7),
-                    ),
-                  ),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: text(
+                  context,
+                  "Select decoration of cake to then proceed.",
+                  .044,
+                  myGrey.withOpacity(0.7),
+                ),
               ),
               heightBox(context, 0.04),
               coloredButton(

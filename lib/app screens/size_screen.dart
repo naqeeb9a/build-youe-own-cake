@@ -26,36 +26,36 @@ class _SizeScreenState extends State<SizeScreen> {
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
           ),
-          color: myGrey.withOpacity(0.2),
+          decoration: BoxDecoration(
+              color: myGrey.withOpacity(0.2),
+              image: const DecorationImage(
+                  opacity: 0.4,
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      "https://cdn.wallpapersafari.com/25/39/1TZAwj.jpg"))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               appBar(context),
               heightBox(context, 0.06),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  text(
-                    context,
-                    "Choose Size.",
-                    .09,
-                    myBlack,
-                    bold: true,
-                  ),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: text(
+                  context,
+                  "Choose Size.",
+                  .09,
+                  myBlack,
+                  bold: true,
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: text(
-                      context,
-                      "Choose weight of cake to proceed.",
-                      0.044,
-                      myGrey.withOpacity(0.7),
-                    ),
-                  ),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: text(
+                  context,
+                  "Choose weight of cake to proceed.",
+                  0.044,
+                  myGrey.withOpacity(0.7),
+                ),
               ),
               heightBox(context, 0.04),
               coloredButton(

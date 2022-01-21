@@ -44,13 +44,11 @@ class _ColorScreenState extends State<ColorScreen> {
               ),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Expanded(
-                  child: text(
-                    context,
-                    "Choose the color of your cake and then proceed.",
-                    .044,
-                    myGrey.withOpacity(0.7),
-                  ),
+                child: text(
+                  context,
+                  "Choose color of your cake to then proceed.",
+                  .044,
+                  myGrey.withOpacity(0.7),
                 ),
               ),
               heightBox(context, 0.04),
@@ -74,7 +72,7 @@ class _ColorScreenState extends State<ColorScreen> {
               ),
               coloredButton(
                 context,
-                "LightP ink",
+                "Light Pink",
                 myLightPink1,
                 width: dynamicWidth(context, 0.4),
               ),

@@ -42,18 +42,14 @@ class _FlavourScreenState extends State<FlavourScreen> {
                   bold: true,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: text(
-                      context,
-                      "Choose flavour of your taste to proceed.",
-                      0.044,
-                      myGrey.withOpacity(0.7),
-                    ),
-                  ),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: text(
+                  context,
+                  "Choose flavour of your taste to proceed.",
+                  0.044,
+                  myGrey.withOpacity(0.7),
+                ),
               ),
               heightBox(context, 0.04),
               coloredButton(
