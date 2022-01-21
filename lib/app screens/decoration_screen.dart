@@ -8,7 +8,7 @@ import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class DecorationScreen extends StatefulWidget {
-  const DecorationScreen({ Key? key }) : super(key: key);
+  const DecorationScreen({Key? key}) : super(key: key);
 
   @override
   _DecorationScreenState createState() => _DecorationScreenState();
@@ -17,37 +17,42 @@ class DecorationScreen extends StatefulWidget {
 class _DecorationScreenState extends State<DecorationScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
           width: dynamicWidth(context, 1),
           height: dynamicHeight(context, 1),
           padding: EdgeInsets.symmetric(
-            horizontal: dynamicWidth(context, 0.04),
-            vertical: dynamicHeight(context, 0.01),
+            horizontal: dynamicWidth(context, .04),
+            vertical: dynamicHeight(context, .01),
           ),
-          color: myRed.withOpacity(0.5),
+          color: myLightPink1,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               appBar(context),
-              heightBox(context, 0.06),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(child: text(context, "Choose the Decoration.", 0.1, myBlack, bold: true)),
-                ],
+              heightBox(context, .1),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Expanded(
+                  child: text(
+                    context,
+                    "Choose Decoration.",
+                    .09,
+                    myBlack,
+                    bold: true,
+                  ),
+                ),
               ),
-              heightBox(context, 0.006),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
                     child: text(
                       context,
-                      "Log in to view personalized recommendations, follow creatives and more.",
-                      0.05,
-                      myGrey.withOpacity(0.8),
+                      "Select the decoration of cake and then proceed.",
+                      .044,
+                      myGrey.withOpacity(0.7),
                     ),
                   ),
                 ],
@@ -55,32 +60,29 @@ class _DecorationScreenState extends State<DecorationScreen> {
               heightBox(context, 0.04),
               coloredButton(
                 context,
-                "Chocolate bar",
+                "Chocolate Bar",
                 myGrey,
-                width: dynamicWidth(context, 0.5),
+                width: dynamicWidth(context, 0.4),
               ),
-              heightBox(context, 0.015),
               coloredButton(
                 context,
                 "Pineapple",
                 myGrey,
-                width: dynamicWidth(context, 0.5),
+                width: dynamicWidth(context, 0.4),
               ),
-              heightBox(context, 0.015),
               coloredButton(
                 context,
-                "Cream icing",
+                "Cream Icing",
                 myGrey,
-                width: dynamicWidth(context, 0.5),
+                width: dynamicWidth(context, 0.4),
               ),
-              heightBox(context, 0.015),
               coloredButton(
                 context,
                 "Bunty",
                 myGrey,
-                width: dynamicWidth(context, 0.5),
+                width: dynamicWidth(context, 0.4),
               ),
-              heightBox(context, 0.1),
+              heightBox(context, .14),
               downBar(
                 context,
                 const SpecialWishesScreen(),
