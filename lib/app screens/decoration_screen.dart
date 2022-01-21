@@ -26,9 +26,9 @@ class _DecorationScreenState extends State<DecorationScreen> {
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
           ),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: myLightPink1,
-            image: const DecorationImage(
+            image: DecorationImage(
               opacity: 0.4,
               fit: BoxFit.cover,
               image: NetworkImage(

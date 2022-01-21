@@ -31,7 +31,7 @@ Widget inputTextField(context, label, myController,
         ),
         decoration: InputDecoration(
           hintText: "Type Something",
-          hintStyle: TextStyle(color: myWhite),
+          hintStyle: const TextStyle(color: myWhite),
           enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: noColor),
           ),
