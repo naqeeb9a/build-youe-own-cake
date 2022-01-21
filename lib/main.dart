@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Build Your Own Cake',
+      title: 'Build Your Cake',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: primaryColor,
