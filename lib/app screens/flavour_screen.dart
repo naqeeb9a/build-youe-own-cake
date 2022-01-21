@@ -17,80 +17,78 @@ class FlavourScreen extends StatefulWidget {
 class _FlavourScreenState extends State<FlavourScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-            child: Container(
-      width: dynamicWidth(context, 1),
-      height: dynamicHeight(context, 1),
-      padding: EdgeInsets.all(
-        dynamicWidth(context, 0.025),
-      ),
-      color: myLightPink.withOpacity(0.3),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          appBar(context),
-          heightBox(context, 0.06),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              text(context, "Choose the flavour.", 0.1, myBlack, bold: true),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          width: dynamicWidth(context, 1),
+          height: dynamicHeight(context, 1),
+          padding: EdgeInsets.symmetric(
+            horizontal: dynamicWidth(context, .04),
+            vertical: dynamicHeight(context, .01),
           ),
-          heightBox(context, 0.006),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+          color: myLightPink1,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              appBar(context),
+              heightBox(context, 0.1),
+              Align(
+                alignment: Alignment.centerLeft,
                 child: text(
                   context,
-                  "Log in to view personalized recommendations, follow creatives and more.",
-                  0.05,
-                  myGrey.withOpacity(0.8),
+                  "Choose Flavour.",
+                  .09,
+                  myBlack,
+                  bold: true,
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: text(
+                      context,
+                      "Choose flavour of your taste to proceed.",
+                      0.044,
+                      myGrey.withOpacity(0.7),
+                    ),
+                  ),
+                ],
+              ),
+              heightBox(context, 0.04),
+              coloredButton(
+                context,
+                "Vanilla",
+                myGrey.withOpacity(.8),
+                width: dynamicWidth(context, 0.4),
+              ),
+              coloredButton(
+                context,
+                "Chocolate",
+                myGrey.withOpacity(.8),
+                width: dynamicWidth(context, 0.4),
+              ),
+              coloredButton(
+                context,
+                "Strawberry",
+                myGrey.withOpacity(.8),
+                width: dynamicWidth(context, 0.4),
+              ),
+              coloredButton(
+                context,
+                "Another",
+                myGrey.withOpacity(.8),
+                width: dynamicWidth(context, 0.4),
+              ),
+              heightBox(context, 0.14),
+              downBar(
+                context,
+                const ColorScreen(),
               ),
             ],
           ),
-          heightBox(context, 0.04),
-          coloredButton(
-            context,
-            "Vanilla",
-            myGrey,
-            width: dynamicWidth(context, 0.5),
-          ),
-          heightBox(context, 0.015),
-          // Padding(
-          //   padding: EdgeInsets.all(
-          //     dynamicWidth(context, 0.05),
-          //   ),
-          // ),
-          coloredButton(
-            context,
-            "Chocolate",
-            myGrey,
-            width: dynamicWidth(context, 0.5),
-          ),
-          heightBox(context, 0.015),
-          coloredButton(
-            context,
-            "Strawberry",
-            myGrey,
-            width: dynamicWidth(context, 0.5),
-          ),
-          heightBox(context, 0.015),
-          coloredButton(
-            context,
-            "Another",
-            myGrey,
-            width: dynamicWidth(context, 0.5),
-          ),
-          heightBox(context, 0.15),
-          downBar(
-            context,
-            const ColorScreen(),
-          ),
-        ],
+        ),
       ),
-    )));
+    );
   }
 }

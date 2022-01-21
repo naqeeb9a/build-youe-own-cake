@@ -42,29 +42,29 @@ class _GetStartedState extends State<GetStarted> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        text(context, "You Design it.\nWe Bake it.", 0.1,
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: text(
+                            context,
+                            "You Design it.\nWe Bake it.",
+                            0.09,
                             myBlack,
-                            bold: true),
-                        text(
-                          context,
-                          "Log in to view personalized recommendations, follow creatives and more.",
-                          0.045,
-                          myBlack.withOpacity(0.6),
+                            bold: true,
+                          ),
                         ),
                       ],
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: coloredButton(context, "Start designing", myGrey,
-                          width: dynamicWidth(context, 0.5), function: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                              return const SizeScreen();
-                            },
-                          ),
-                        );
-                      }),
+                      child: coloredButton(
+                        context,
+                        "Start Designing",
+                        myBlack,
+                        width: dynamicWidth(context, 0.5),
+                        function: () {
+                          push(context, const SizeScreen());
+                        },
+                      ),
                     ),
                   ],
                 ),
