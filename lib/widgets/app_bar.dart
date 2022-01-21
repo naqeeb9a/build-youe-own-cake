@@ -14,9 +14,10 @@ Widget appBar(context) {
       text(
         context,
         "BuildYourCake",
-        0.05,
+        0.06,
         myBlack,
-        bold: true,
+        // bold: true,
+        font: true,
       ),
     ],
   );
