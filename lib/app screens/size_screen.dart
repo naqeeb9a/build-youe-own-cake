@@ -85,7 +85,7 @@ class _SizeScreenState extends State<SizeScreen> {
               heightBox(context, 0.1),
               downBar(
                 context,
-                const FlavourScreen(),
+               nextPage:  const FlavourScreen(),
               ),
             ],
           ),

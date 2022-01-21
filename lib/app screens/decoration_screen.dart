@@ -26,7 +26,16 @@ class _DecorationScreenState extends State<DecorationScreen> {
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
           ),
-          color: myLightPink1,
+          decoration: BoxDecoration(
+            color: myLightPink1,
+            image: const DecorationImage(
+              opacity: 0.4,
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                  "https://i.pinimg.com/originals/20/a9/b1/20a9b1a50644a3c140205a163e696147.jpg"),
+            ),
+          ),
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -79,7 +88,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
               heightBox(context, .14),
               downBar(
                 context,
-                const SpecialWishesScreen(),
+                nextPage: const SpecialWishesScreen(),
               ),
             ],
           ),

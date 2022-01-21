@@ -3,6 +3,7 @@ import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:build_own_cake/widgets/buttons.dart';
+import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -27,9 +28,9 @@ class _CakePreviewState extends State<CakePreview> {
          decoration: BoxDecoration(
           color:  myRed.withOpacity(0.7),
           image: const DecorationImage(
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
             image: NetworkImage(
-                'https://thumbs.dreamstime.com/b/birthday-cake-one-candle-58477626.jpg'),
+                'https://previews.123rf.com/images/rraya/rraya2006/rraya200601460/149906476-t%C5%82o-produkt%C3%B3w-piekarniczych-ciasteczka-ciastka-p%C4%85czki-szkic-ilustracji-wektorowych-.jpg'),
           ),
         ),
         child: Column(
@@ -67,41 +68,7 @@ class _CakePreviewState extends State<CakePreview> {
                     width: dynamicWidth(context, 0.4),
                   ),
                   heightBox(context, 0.1),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          pop(context);
-                        },
-                        child: SizedBox(
-                          width: dynamicWidth(context, 0.18),
-                          height: dynamicHeight(context, .05),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.arrow_back_ios_new_outlined,
-                                    size: dynamicHeight(context, .03),
-                                  ),
-                                  text(
-                                    context,
-                                    "Back",
-                                    0.042,
-                                    myBlack,
-                                    bold: true,
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  downBar(context,optionalNextButton: true)
                 
                  
                ],

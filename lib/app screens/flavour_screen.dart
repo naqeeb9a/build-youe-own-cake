@@ -26,7 +26,14 @@ class _FlavourScreenState extends State<FlavourScreen> {
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
           ),
-          color: myLightPink1,
+          decoration: BoxDecoration(
+              color: myLightPink1,
+              image: const DecorationImage(
+                  opacity: 0.4,
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      "https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-hand-drawn-cartoon-dessert-poster-background-image_154710.jpg"),),),
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -79,7 +86,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
               heightBox(context, 0.14),
               downBar(
                 context,
-                const ColorScreen(),
+               nextPage:  const ColorScreen(),
               ),
             ],
           ),

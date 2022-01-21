@@ -26,7 +26,15 @@ class _ColorScreenState extends State<ColorScreen> {
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
           ),
-          color: myGrey.withOpacity(0.2),
+          decoration: BoxDecoration(
+            color: myGrey.withOpacity(0.2),
+            image: const DecorationImage(
+              opacity: 0.4,
+              fit: BoxFit.cover,
+              image: NetworkImage(
+                  "https://i.pinimg.com/originals/0a/8b/06/0a8b06f665bfbcd575b2802251888fc5.jpg"),
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -79,7 +87,7 @@ class _ColorScreenState extends State<ColorScreen> {
               heightBox(context, .14),
               downBar(
                 context,
-                const DecorationScreen(),
+                nextPage: const DecorationScreen(),
               ),
             ],
           ),

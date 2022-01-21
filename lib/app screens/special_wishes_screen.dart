@@ -27,49 +27,53 @@ class _SpecialWishesScreenState extends State<SpecialWishesScreen> {
           height: dynamicHeight(context, 1),
           padding: EdgeInsets.symmetric(
               horizontal: dynamicWidth(context, 0.04), vertical: 0.01),
-          color: myGrey.withOpacity(0.2),
+          decoration: BoxDecoration(
+            color: myGrey.withOpacity(0.2),
+            image: const DecorationImage(
+              opacity: 0.4,
+              fit: BoxFit.contain,
+              image: AssetImage(
+                  "assets/specialWishes.png"),
+            ),
+          ),
+
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               appBar(context),
               heightBox(context, .1),
                Align(
                 alignment: Alignment.centerLeft,
-                child: Expanded(
-                  child: text(
-                    context,
-                    "Write Special Wishes for your Beloved one's.",
-                    .09,
-                    myBlack,
-                    bold: true,
-                  ),
+                child: text(
+                  context,
+                  "Write Special Wishes for your Beloved one's.",
+                  .09,
+                  myBlack,
+                  bold: true,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: text(
-                      context,
-                      "Write the Special wishes on cake and then proceed.",
-                      .044,
-                      myGrey.withOpacity(0.7),
-                    ),
-                  ),
-                ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: text(
+                  context,
+                  "Write the Special wishes on cake and then proceed.",
+                  .044,
+                  myGrey.withOpacity(0.7),
+                ),
               ),
-              heightBox(context, 0.15),
+              heightBox(context, 0.2),
               inputTextField(context, "Wishes", specialWishes),
-              heightBox(context, 0.13),
+              heightBox(context, 0.02),
               coloredButton(
                 context,
                 "Submit",
                 myBlack,
                 width: dynamicWidth(context, 0.4),
               ),
-              heightBox(context, .16),
+              heightBox(context, .008),
               downBar(
                 context,
-                const CakePreview(),
+                nextPage: const CakePreview(),
               ),
             ],
           ),
