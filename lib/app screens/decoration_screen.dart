@@ -55,7 +55,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
                 alignment: Alignment.centerLeft,
                 child: text(
                   context,
-                  "Select decoration of cake to then proceed.",
+                  "Select decoration of cake then proceed.",
                   .044,
                   myGrey.withOpacity(0.7),
                 ),
@@ -81,7 +81,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
               ),
               coloredButton(
                 context,
-                "Bunty",
+                "Bounty",
                 myGrey,
                 width: dynamicWidth(context, 0.4),
               ),
