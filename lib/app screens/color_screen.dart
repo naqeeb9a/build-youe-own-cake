@@ -1,4 +1,5 @@
 import 'package:build_own_cake/app%20screens/decoration_screen.dart';
+import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -28,12 +29,13 @@ class _ColorScreenState extends State<ColorScreen> {
           ),
           decoration: BoxDecoration(
             color: myGrey.withOpacity(0.2),
-            image: const DecorationImage(
-              opacity: 0.4,
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/0a/8b/06/0a8b06f665bfbcd575b2802251888fc5.jpg"),
-            ),
+            // image: const DecorationImage(
+            //   opacity: 0.4,
+            //   fit: BoxFit.cover,
+            //   image: NetworkImage(
+            //     "https://i.pinimg.com/originals/0a/8b/06/0a8b06f665bfbcd575b2802251888fc5.jpg",
+            //   ),
+            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +89,9 @@ class _ColorScreenState extends State<ColorScreen> {
               heightBox(context, .14),
               downBar(
                 context,
-                nextPage: const DecorationScreen(),
+                nextPage: () {
+                  push(context, const DecorationScreen());
+                },
               ),
             ],
           ),

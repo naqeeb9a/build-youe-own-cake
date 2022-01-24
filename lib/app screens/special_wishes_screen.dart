@@ -32,11 +32,11 @@ class _SpecialWishesScreenState extends State<SpecialWishesScreen> {
           ),
           decoration: BoxDecoration(
             color: myGrey.withOpacity(0.2),
-            image: const DecorationImage(
-              opacity: 0.4,
-              fit: BoxFit.contain,
-              image: AssetImage("assets/specialWishes.png"),
-            ),
+            // image: const DecorationImage(
+            //   opacity: 0.4,
+            //   fit: BoxFit.contain,
+            //   image: AssetImage("assets/specialWishes.png"),
+            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,7 +62,7 @@ class _SpecialWishesScreenState extends State<SpecialWishesScreen> {
                   myGrey.withOpacity(0.7),
                 ),
               ),
-              heightBox(context, 0.2),
+              // heightBox(context, 0.2),
               inputTextField(context, "Wishes", specialWishes),
               heightBox(context, 0.02),
               coloredButton(context, "Submit", myBlack,
@@ -72,10 +72,12 @@ class _SpecialWishesScreenState extends State<SpecialWishesScreen> {
                   const CakePreview(),
                 );
               }),
-              heightBox(context, .008),
+              heightBox(context, .04),
               downBar(
                 context,
-                nextPage: const CakePreview(),
+                nextPage: () {
+                  push(context, const CakePreview());
+                },
               ),
             ],
           ),

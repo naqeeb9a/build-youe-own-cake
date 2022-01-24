@@ -1,4 +1,5 @@
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
+import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -28,14 +29,14 @@ class _DecorationScreenState extends State<DecorationScreen> {
           ),
           decoration: const BoxDecoration(
             color: myLightPink1,
-            image: DecorationImage(
-              opacity: 0.4,
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/20/a9/b1/20a9b1a50644a3c140205a163e696147.jpg"),
-            ),
+            // image: DecorationImage(
+            //   opacity: 0.4,
+            //   fit: BoxFit.cover,
+            //   image: NetworkImage(
+            //     "https://i.pinimg.com/originals/20/a9/b1/20a9b1a50644a3c140205a163e696147.jpg",
+            //   ),
+            // ),
           ),
-
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -88,7 +89,9 @@ class _DecorationScreenState extends State<DecorationScreen> {
               heightBox(context, .14),
               downBar(
                 context,
-                nextPage: const SpecialWishesScreen(),
+                nextPage: () {
+                  push(context, const SpecialWishesScreen());
+                },
               ),
             ],
           ),

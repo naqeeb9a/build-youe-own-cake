@@ -1,4 +1,5 @@
 import 'package:build_own_cake/app%20screens/color_screen.dart';
+import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -27,13 +28,15 @@ class _FlavourScreenState extends State<FlavourScreen> {
             vertical: dynamicHeight(context, .01),
           ),
           decoration: const BoxDecoration(
-              color: myLightPink1,
-              image: DecorationImage(
-                  opacity: 0.4,
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                      "https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-hand-drawn-cartoon-dessert-poster-background-image_154710.jpg"),),),
-
+            color: myLightPink1,
+            // image: DecorationImage(
+            //   opacity: 0.4,
+            //   fit: BoxFit.cover,
+            //   image: NetworkImage(
+            //     "https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-hand-drawn-cartoon-dessert-poster-background-image_154710.jpg",
+            //   ),
+            // ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -86,7 +89,9 @@ class _FlavourScreenState extends State<FlavourScreen> {
               heightBox(context, 0.14),
               downBar(
                 context,
-               nextPage:  const ColorScreen(),
+                nextPage: () {
+                  push(context, const ColorScreen());
+                },
               ),
             ],
           ),

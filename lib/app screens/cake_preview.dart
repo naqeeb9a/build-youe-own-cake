@@ -27,12 +27,12 @@ class _CakePreviewState extends State<CakePreview> {
           //color: myRed.withOpacity(0.6),
           decoration: const BoxDecoration(
             color: myLightPink1,
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(
-                'https://previews.123rf.com/images/rraya/rraya2006/rraya200601460/149906476-t%C5%82o-produkt%C3%B3w-piekarniczych-ciasteczka-ciastka-p%C4%85czki-szkic-ilustracji-wektorowych-.jpg',
-              ),
-            ),
+            // image: DecorationImage(
+            //   fit: BoxFit.cover,
+            //   image: NetworkImage(
+            //     'https://previews.123rf.com/images/rraya/rraya2006/rraya200601460/149906476-t%C5%82o-produkt%C3%B3w-piekarniczych-ciasteczka-ciastka-p%C4%85czki-szkic-ilustracji-wektorowych-.jpg',
+            //   ),
+            // ),
           ),
           child: Column(
             children: [
