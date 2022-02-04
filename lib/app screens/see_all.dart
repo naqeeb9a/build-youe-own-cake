@@ -33,9 +33,7 @@ class _SeeAllState extends State<SeeAll> {
                           childAspectRatio: (170.0 / 200.0),
                         ),
                         itemBuilder: (BuildContext context, int index) {
-print("\n\n array ${cake[0]['images'][0]}");
-
-                          return  accessories(context, cake[index]['images'][0]);
+                          return  accessories(context, cake[index]['images'][0],cake[index]['name']);
                         },),
               ],
             ),
@@ -46,7 +44,7 @@ print("\n\n array ${cake[0]['images'][0]}");
   }
 }
 
-Widget accessories (context,image) {
+Widget accessories (context,image,name) {
   return Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: dynamicWidth(context, 0.04),
@@ -87,9 +85,9 @@ Widget accessories (context,image) {
                                         image:  AssetImage(
                                           image,
                                         ),
-                                        // colorFilter: ColorFilter.mode(
-                                        //     myBlack.withOpacity(.5),
-                                        //     BlendMode.colorBurn),
+                                        // colorFilter: ColorFilter.matrix(
+                                        //   ColorFilter
+                                        // ),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -99,7 +97,7 @@ Widget accessories (context,image) {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       //widthBox(context,0.02),
-                                      text(context, "name", 0.03, myWhite,
+                                      text(context, name, 0.03, myWhite,
                                           bold: true),
                                       //text(context, "Rs500", 0.03, myOrange),
                                     ],

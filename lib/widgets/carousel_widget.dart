@@ -29,7 +29,7 @@ Widget cakeShow(context,image,name,price) {
                 borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
                 child: Container(
                   width: dynamicWidth(context, 0.7),
-                  height: dynamicHeight(context, 0.15),
+                  height: dynamicHeight(context, 0.1),
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -52,12 +52,12 @@ Widget cakeShow(context,image,name,price) {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           text(context, name, 0.04, myWhite, bold: true),
-                          text(
-                            context,
-                            price,
-                            0.034,
-                            myWhite,
-                          ),
+                          // text(
+                          //   context,
+                          //   price,
+                          //   0.034,
+                          //   myWhite,
+                          // ),
                           //heightBox(context, 0.02),
                           
                         ],
