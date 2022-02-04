@@ -58,7 +58,7 @@ Widget accessories (context,image,name) {
                               width: dynamicWidth(context, 0.43),
                               height: dynamicHeight(context, 0.28),
                               decoration: BoxDecoration(
-                                color: myBlack,
+                                color: myLightPink,
                                 borderRadius: BorderRadius.circular(
                                   dynamicWidth(context, 0.04),
                                 ),
@@ -85,10 +85,10 @@ Widget accessories (context,image,name) {
                                         image:  AssetImage(
                                           image,
                                         ),
-                                        // colorFilter: ColorFilter.matrix(
-                                        //   ColorFilter
-                                        // ),
-                                        fit: BoxFit.cover,
+                                        colorFilter: ColorFilter.mode(
+                                            myBlack.withOpacity(.5),
+                                            BlendMode.colorDodge),
+                                        fit: BoxFit.fitWidth,
                                       ),
                                     ),
                                   ),
