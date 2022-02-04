@@ -17,7 +17,7 @@ Widget cakeShow(context,image,name,price) {
               child: SizedBox(
                 height: dynamicHeight(context, 0.55),
                 width: dynamicWidth(context, 0.7),
-                child: Image.network(
+                child: Image.asset(
                   image,
                   fit: BoxFit.cover,
                 ),

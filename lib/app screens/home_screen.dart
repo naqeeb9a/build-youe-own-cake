@@ -1,3 +1,4 @@
+import 'package:build_own_cake/app%20screens/see_all.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
@@ -15,7 +16,124 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
-
+List cake = [
+  {
+    "name": "Anniversary Cake",
+    "images" :[
+      
+        "assets/4K8A7063.JPG",
+        "assets/4K8A7108.JPG",
+        "assets/4K8A7119.JPG",
+        "assets/4K8A7112.JPG",
+      
+    ],
+    
+  },
+  {
+    "name" : "Elephant Cake",
+    "images": [
+      
+         "assets/4K8A7354.JPG",
+         "assets/4K8A7369.JPG",
+         "assets/4K8A7374.JPG",
+         "assets/4K8A7376.JPG",
+      
+    ]
+  },
+  {
+    "name" : "Floral Dream",
+    "images": [
+      
+         "assets/4K8A7261.JPG",
+         "assets/4K8A7286.JPG",
+      
+    ]
+  },
+  {
+    "name": "Sweet Swan",
+    "images": [
+      
+        "assets/4K8A7393.JPG",
+         "assets/4K8A7395.JPG",
+        "assets/4K8A7410.JPG",
+      
+    ] 
+  },
+  {
+    "name": "Party In Pink",
+    "images": [
+       "assets/4K8A7147.JPG",
+      
+    ] 
+  },
+  {
+    "name": "Lilac Love",
+    "images": [
+       "assets/4K8A7601.JPG",
+         "assets/4K8A75616.JPG",
+         "assets/4K8A7617.JPG",
+      
+    ] 
+  },
+  {
+    "name": "Sunflower Cake",
+    "images": [
+       "assets/4K8A7456.JPG",
+         "assets/4K8A75491.JPG",
+      
+    ] 
+  },
+  {
+    "name": "Bird Song",
+    "images": [
+       "assets/4K8A7215.JPG",
+       "assets/4K8A75229.JPG",
+      
+    ]
+  },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // {
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+  // { 
+  //   "image": "assets/4K8A7063.JPG",
+  // },
+];
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -25,8 +143,15 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Container(
             width: dynamicWidth(context, 1),
             height: dynamicHeight(context, 1),
-            decoration: BoxDecoration(
-              color: myGrey.withOpacity(0.2),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    myWhite,
+                    myLightPink,
+                  ],
+                ),
             ),
             child: Column(
               children: [
@@ -44,11 +169,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      text(
-                        context,
-                        "See All",
-                        0.035,
-                        myBlack,
+                      InkWell(
+                        onTap: () => push(context, const SeeAll()),
+                        child: text(
+                          context,
+                          "See All",
+                          0.035,
+                          myBlack,
+                        ),
                       ),
                     ],
                   ),
@@ -62,22 +190,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         items: [
                           cakeShow(
                               context,
-                              "https://i.ytimg.com/vi/qtlhdIfojmc/maxresdefault.jpg",
+                              "assets/4K8A7063.JPG",
                               "Classic Vanilla Cake",
                               "1200/-"),
                           cakeShow(
                               context,
-                              "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/triple-chocolate-peanut-butter-layer-cake-2-06eee24.jpg",
+                              "assets/4K8A7108.JPG",
                               "Triple Chocolate Peanut Butter Layer Cake",
                               "1800/-"),
                           cakeShow(
                               context,
-                              "https://thecaketown.com/wp-content/uploads/2020/11/Vanilla-Cake-with-Buttercream.jpg",
+                              "assets/4K8A7119.JPG",
                               "Vanilla Cake With Buttercream",
                               "1500/-"),
                           cakeShow(
                               context,
-                              "https://www.hersheyland.com/content/dam/hersheyland/en-us/recipes/recipe-images/2_Hersheys_Perfectly_Chocolate_Cake_11-18.jpeg?im=Resize=(412)",
+                              "assets/4K8A7122.JPG",
                               "Hershey Perfect Chocolate Cake",
                               "1400/-"),
                         ],
