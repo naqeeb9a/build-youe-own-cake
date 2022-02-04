@@ -97,6 +97,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        endDrawer: SizedBox(
+          width: dynamicWidth(context, 0.7),
+          child: Drawer(
+            child: Column(
+              children: [
+
+              ],
+            ),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: myBlack,
+          onPressed: (){
+
+          },
+          child: Icon(Icons.shopping_cart,color: myWhite,),
+        ),
         body: Container(
           width: dynamicWidth(context, 1),
           height: dynamicHeight(context, 1),
