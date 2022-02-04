@@ -1,3 +1,4 @@
+import 'package:build_own_cake/app%20screens/see_all.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -61,17 +62,11 @@ class _CakeViewState extends State<CakeView> {
             color: myGrey.withOpacity(0.2),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        pop(context);
-                      },
-                      child: const Icon(Icons.arrow_back_ios_new_sharp),
-                    ),
-                  ],
-                ),
+                bar( context,
+                  true,
+                  centerCheck: true,
+                  back: true,
+                  centerText: widget.name,),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(
                     dynamicWidth(context, 0.1),
@@ -89,8 +84,8 @@ class _CakeViewState extends State<CakeView> {
                   ),
                 ),
                 
-                text(context, widget.name, 0.04, myBlack),
-                heightBox(context, 0.008),
+                // text(context, widget.name, 0.04, myBlack),
+                // heightBox(context, 0.008),
                 text(context, widget.price, 0.04, myBrown),
                 heightBox(context, 0.008),
                 Align(
