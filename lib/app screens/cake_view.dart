@@ -61,7 +61,7 @@ List extraTopping = [
 
 class _CakeViewState extends State<CakeView> {
   dynamic index = 0, fvt = 0;
-  dynamic sizeIndex = 0;
+  dynamic sizeIndex = 1;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -99,7 +99,7 @@ class _CakeViewState extends State<CakeView> {
                     ),
                   ),
                 ),
-                text(context, sizeIndex ==0 ?"3500" :sizeIndex ==1 ?"3500":sizeIndex ==2 ? "4500" : sizeIndex ==3 ? "5000" : sizeIndex ==4 ?"6000" :sizeIndex ==5 ?"7400" : sizeIndex ==6 ? "8800" : "3500", 0.04, myBrown),
+                text(context, sizeIndex ==1 ?"3500/-":sizeIndex ==2 ? "4500/-" : sizeIndex ==3 ? "5000/-" : sizeIndex ==4 ?"6000/-" :sizeIndex ==5 ?"7400/-" : sizeIndex ==6 ? "8800/-" : "3500/-", 0.04, myBrown),
                 heightBox(context, 0.008),
                 text(context, "Size :", 0.04, myBlack,bold:true),
                 SizedBox(
@@ -111,8 +111,9 @@ class _CakeViewState extends State<CakeView> {
                       InkWell(
                         onTap: (){
                           setState(() {
+                            //sizeIndex =1;
                             if (sizeIndex == 1) {
-                              sizeIndex = 0;
+                              sizeIndex = 1;
                             } else if (sizeIndex != 1) {
                               sizeIndex = 1;
                             }
