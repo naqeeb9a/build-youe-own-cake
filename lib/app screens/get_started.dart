@@ -62,7 +62,7 @@ class _GetStartedState extends State<GetStarted> {
                         myBlack,
                         width: dynamicWidth(context, 0.5),
                         function: () {
-                          push(context, const HomeScreen());
+                          push(context, HomeScreen());
                         },
                       ),
                     ),

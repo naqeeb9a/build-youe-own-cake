@@ -6,12 +6,13 @@ import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:build_own_cake/widgets/carousel_widget.dart';
+import 'package:build_own_cake/widgets/drawer_widgets.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import "package:flutter/material.dart";
 import 'package:carousel_slider/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -98,21 +99,38 @@ List cake = [
 ];
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        endDrawer: SizedBox(
-          width: dynamicWidth(context, 0.7),
+        key: _scaffoldKey,
+        endDrawer: Container(
+          width: dynamicWidth(context, 0.85),
           child: Drawer(
-            child: Column(
-              children: [],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
+              ),
+            ),
+            child: ListView(
+              children: [
+                Container(
+                  height: dynamicHeight(context, 0.12),
+                  child: DrawerHeader(
+                    child: text(context, "Cart", 0.08, myBlack),
+                  ),
+                ),
+                itemCard(context, "Item 1", "2 Pounds", "1200Rs")
+              ],
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: myBlack,
-          onPressed: () {},
+          onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
           child: const Icon(
             Icons.shopping_cart,
             color: myWhite,
