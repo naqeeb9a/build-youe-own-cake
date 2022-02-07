@@ -16,82 +16,87 @@ class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
+
 List cake = [
   {
     "name": "Anniversary Cake",
-    "images" :[
-      
-        "assets/4K8A7063.JPG",
-        "assets/4K8A7108.JPG",
-        "assets/4K8A7119.JPG",
-        "assets/4K8A7112.JPG",
-      
+    "images": [
+      "assets/4K8A7063.JPG",
+      "assets/4K8A7108.JPG",
+      "assets/4K8A7119.JPG",
+      "assets/4K8A7122.JPG",
     ],
-    
+    "description":
+        "Anniversary Cake is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
-    "name" : "Elephant Cake",
+    "name": "Elephant Cake",
     "images": [
-      
-         "assets/4K8A7354.JPG",
-         "assets/4K8A7369.JPG",
-         "assets/4K8A7374.JPG",
-         "assets/4K8A7376.JPG",
-      
-    ]
+      "assets/4K8A7354.JPG",
+      "assets/4K8A7369.JPG",
+      "assets/4K8A7374.JPG",
+      "assets/4K8A7376.JPG",
+    ],
+    "description":
+        "Elephant Cake is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
-    "name" : "Floral Dream",
+    "name": "Floral Dream",
     "images": [
-      
-         "assets/4K8A7261.JPG",
-         "assets/4K8A7286.JPG",
-      
-    ]
+      "assets/4K8A7261.JPG",
+      "assets/4K8A7286.JPG",
+    ],
+    "description":
+        "Floral Dream is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
     "name": "Sweet Swan",
     "images": [
-      
-        "assets/4K8A7393.JPG",
-         "assets/4K8A7395.JPG",
-        "assets/4K8A7410.JPG",
-      
-    ] 
+      "assets/4K8A7393.JPG",
+      "assets/4K8A7395.JPG",
+      "assets/4K8A7410.JPG",
+    ],
+    "description":
+        "Sweet Swan is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
     "name": "Party In Pink",
     "images": [
-       "assets/4K8A7147.JPG",
-      
-    ] 
+      "assets/4K8A7147.JPG",
+    ],
+    "description":
+        "Party In Pink is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
     "name": "Lilac Love",
     "images": [
-       "assets/4K8A7601.JPG",
-         "assets/4K8A75616.JPG",
-         "assets/4K8A7617.JPG",
-      
-    ] 
+      "assets/4K8A7601.JPG",
+      "assets/4K8A7616.JPG",
+      "assets/4K8A7617.JPG",
+    ],
+    "description":
+        "Lilac Love is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
     "name": "Sunflower Cake",
     "images": [
-       "assets/4K8A7456.JPG",
-         "assets/4K8A75491.JPG",
-      
-    ] 
+      "assets/4K8A7456.JPG",
+      "assets/4K8A7491.JPG",
+    ],
+    "description":
+        "Sunflower Cake is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
     "name": "Bird Song",
     "images": [
-       "assets/4K8A7215.JPG",
-       "assets/4K8A75229.JPG",
-      
-    ]
+      "assets/4K8A7215.JPG",
+      "assets/4K8A7229.JPG",
+    ],
+    "description":
+        "Bird Song is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
 ];
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -101,31 +106,30 @@ class _HomeScreenState extends State<HomeScreen> {
           width: dynamicWidth(context, 0.7),
           child: Drawer(
             child: Column(
-              children: [
-
-              ],
+              children: [],
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: myBlack,
-          onPressed: (){
-
-          },
-          child: Icon(Icons.shopping_cart,color: myWhite,),
+          onPressed: () {},
+          child: const Icon(
+            Icons.shopping_cart,
+            color: myWhite,
+          ),
         ),
         body: Container(
           width: dynamicWidth(context, 1),
           height: dynamicHeight(context, 1),
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  myWhite,
-                  myLightPink,
-                ],
-              ),
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                myWhite,
+                myLightPink,
+              ],
+            ),
           ),
           child: Column(
             children: [
@@ -166,22 +170,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             "assets/4K8A7063.JPG",
                             cake[0]['name'],
-                            "1200/-"),
-                        cakeShow(
-                            context,
-                            cake[2]['images'][0],
-                            cake[2]["name"],
-                            "1800/-"),
-                        cakeShow(
-                            context,
-                            cake[4]['images'][0],
-                            cake[4]['name'],
-                            "1500/-"),
-                        cakeShow(
-                            context,
-                            cake[5]['images'][0],
-                            cake[5]['name'],
-                            "1400/-"),
+                            "1200/-",
+                            cake[0]['description'],
+                            0),
+                        cakeShow(context, cake[2]['images'][0], cake[2]["name"],
+                            "1800/-", cake[2]['description'], 2),
+                        cakeShow(context, cake[4]['images'][0], cake[4]['name'],
+                            "1500/-", cake[4]['description'], 4),
+                        cakeShow(context, cake[5]['images'][0], cake[5]['name'],
+                            "1400/-", cake[5]['description'], 5),
                       ],
                       options: CarouselOptions(
                         autoPlay: true,

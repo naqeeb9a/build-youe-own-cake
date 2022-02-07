@@ -1,3 +1,4 @@
+import 'package:build_own_cake/app%20screens/cake_view.dart';
 import 'package:build_own_cake/app%20screens/home_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
@@ -22,7 +23,7 @@ class _SeeAllState extends State<SeeAll> {
             alignment: Alignment.bottomCenter,
             child: Column(
               children: [
-                 bar(
+                bar(
                   context,
                   true,
                   centerCheck: true,
@@ -40,7 +41,12 @@ class _SeeAllState extends State<SeeAll> {
                   ),
                   itemBuilder: (BuildContext context, int index) {
                     return card(
-                        context, cake[index]['images'][0], cake[index]['name']);
+                        context,
+                        cake[index]['images'][0],
+                        cake[index]['name'],
+                        "1500/-",
+                        cake[index]['description'],
+                        index);
                   },
                 ),
               ],
@@ -52,14 +58,19 @@ class _SeeAllState extends State<SeeAll> {
   }
 }
 
-Widget card(context, image, name) {
+Widget card(context, image, name, price, description, index) {
   return Padding(
     padding: EdgeInsets.symmetric(
       horizontal: dynamicWidth(context, 0.04),
       vertical: dynamicHeight(context, 0.02),
     ),
     child: InkWell(
-      onTap: () {},
+      onTap: () {
+        push(
+            context,
+            CakeView(
+                name: name, price: price, description: description, i: index));
+      },
       child: Container(
         width: dynamicWidth(context, 0.43),
         height: dynamicHeight(context, 0.28),
@@ -129,8 +140,7 @@ Widget bar(context, leadingIcon,
                     pop(context);
                   },
                   child: Padding(
-                    padding:
-                        EdgeInsets.only(left: dynamicWidth(context, 0.04)),
+                    padding: EdgeInsets.only(left: dynamicWidth(context, 0.04)),
                     child: Icon(
                       Icons.arrow_back_ios,
                       color: myBlack,
