@@ -69,7 +69,7 @@ Widget card(context, image, name, price, description, index) {
         push(
             context,
             CakeView(
-                name: name, price: price, description: description, i: index));
+                name: name,  description: description, i: index));
       },
       child: Container(
         width: dynamicWidth(context, 0.43),

@@ -5,15 +5,15 @@ import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import "package:flutter/material.dart";
 import 'package:motion_toast/motion_toast.dart';
-
 import 'package:card_swiper/card_swiper.dart';
+import 'package:get/get.dart';
 
 class CakeView extends StatefulWidget {
-  final String name, price, description;
+  final String name, description;
   final int i;
   const CakeView(
       {required this.name,
-      required this.price,
+      // required this.price,
       required this.description,
       required this.i,
       Key? key})
@@ -23,6 +23,7 @@ class CakeView extends StatefulWidget {
   _CakeViewState createState() => _CakeViewState();
 }
 
+var cart = [].obs;
 List size = [
   "2 Pound",
   '2.5 Pound',
@@ -62,6 +63,8 @@ List extraTopping = [
 class _CakeViewState extends State<CakeView> {
   dynamic index = 0, fvt = 0;
   dynamic sizeIndex = 1;
+  var price ;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -99,17 +102,32 @@ class _CakeViewState extends State<CakeView> {
                     ),
                   ),
                 ),
-                text(context, sizeIndex ==1 ?"3500/-":sizeIndex ==2 ? "4500/-" : sizeIndex ==3 ? "5000/-" : sizeIndex ==4 ?"6000/-" :sizeIndex ==5 ?"7400/-" : sizeIndex ==6 ? "8800/-" : "3500/-", 0.04, myBrown),
+                text(
+                    context,
+                    sizeIndex == 1
+                        ? price ="3500"
+                        : sizeIndex == 2
+                            ?price = "4500"
+                            : sizeIndex == 3
+                                ? price ="5000"
+                                : sizeIndex == 4
+                                    ? price ="6000"
+                                    : sizeIndex == 5
+                                        ?price = "7400"
+                                        : sizeIndex == 6
+                                            ? price ="8800"
+                                            : price ="3500",
+                    0.04,
+                    myBrown),
                 heightBox(context, 0.008),
-                text(context, "Size :", 0.04, myBlack,bold:true),
+                text(context, "Size :", 0.04, myBlack, bold: true),
                 SizedBox(
                   height: dynamicHeight(context, 0.05),
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      
                       InkWell(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             //sizeIndex =1;
                             if (sizeIndex == 1) {
@@ -120,7 +138,7 @@ class _CakeViewState extends State<CakeView> {
                           });
                         },
                         child: Padding(
-                           padding: EdgeInsets.symmetric(
+                          padding: EdgeInsets.symmetric(
                               horizontal: dynamicWidth(context, 0.01),
                               vertical: dynamicHeight(context, 0.005)),
                           child: ClipRRect(
@@ -132,14 +150,15 @@ class _CakeViewState extends State<CakeView> {
                                 vertical: dynamicHeight(context, 0.008),
                                 horizontal: dynamicWidth(context, 0.03),
                               ),
-                              color: sizeIndex ==1 ?myLightPink :myWhite,
+                              color: sizeIndex == 1 ? myLightPink : myWhite,
                               child: Center(
-                                  child: text(context, "2 Pound", 0.03, sizeIndex == 1 ? myWhite : myBlack)),
+                                  child: text(context, "2 Pound", 0.03,
+                                      sizeIndex == 1 ? myWhite : myBlack)),
                             ),
                           ),
                         ),
                       ),
-                     InkWell(
+                      InkWell(
                         onTap: () {
                           setState(() {
                             if (sizeIndex == 2) {
@@ -299,7 +318,8 @@ class _CakeViewState extends State<CakeView> {
                 ),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: text(context, "Description :", 0.04, myBlack,bold:true),
+                  child:
+                      text(context, "Description :", 0.04, myBlack, bold: true),
                 ),
                 text(context, widget.description, 0.035, myBlack, maxLines: 3),
                 heightBox(context, 0.012),
@@ -354,6 +374,17 @@ class _CakeViewState extends State<CakeView> {
                     ),
                     InkWell(
                       onTap: () {
+                       
+                      //    print("cart -> $cart");
+                      //  cart.add({
+                      //     "image": cake[widget.i]['images'][0],
+                      //     'name': widget.name,
+                      //     'price': price,
+                      //   });
+                      //  print("cart -> $cart");
+                        
+                        
+
                         setState(() {
                           if (index == 1) {
                             index = 0;
@@ -362,9 +393,32 @@ class _CakeViewState extends State<CakeView> {
                           }
                         });
                         if (index == 0) {
-                          remove(context, "Cart");
-                        } else {
-                          success(context, "Cart");
+                             MotionToast.error(
+                            title: "Removed Successfully",
+                            titleStyle:
+                                const TextStyle(fontWeight: FontWeight.bold),
+                            description: "Item removed from cart",
+                            animationDuration:
+                                const Duration(milliseconds: 400),
+                          ).show(context);
+                          cart.remove(widget.i);
+                        } else if (index ==1) {
+                            cart.add({
+                            "image": cake[widget.i]['images'][0],
+                            'name': widget.name,
+                            'price': price,
+                          });
+                          MotionToast.success(
+                            title: "Added Successfully",
+                            titleStyle:
+                                const TextStyle(fontWeight: FontWeight.bold),
+                            description: "Item added to cart",
+                            descriptionStyle: const TextStyle(fontSize: 12),
+                            width: 300,
+                            animationDuration:
+                                const Duration(milliseconds: 400),
+                          ).show(context);
+                         
                         }
                       },
                       child: ClipRRect(
@@ -494,24 +548,23 @@ Widget swiper(context, image) {
   );
 }
 
-Widget pound(context,size) {
+Widget pound(context, size) {
   return Padding(
-                         padding: EdgeInsets.symmetric(
-                            horizontal: dynamicWidth(context, 0.01),
-                            vertical: dynamicHeight(context, 0.005)),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                            dynamicWidth(context, 0.03),
-                          ),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              vertical: dynamicHeight(context, 0.008),
-                              horizontal: dynamicWidth(context, 0.03),
-                            ),
-                            color: myWhite,
-                            child: Center(
-                                child: text(context, size, 0.03, myBlack)),
-                          ),
-                        ),
-                      );
+    padding: EdgeInsets.symmetric(
+        horizontal: dynamicWidth(context, 0.01),
+        vertical: dynamicHeight(context, 0.005)),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(
+        dynamicWidth(context, 0.03),
+      ),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          vertical: dynamicHeight(context, 0.008),
+          horizontal: dynamicWidth(context, 0.03),
+        ),
+        color: myWhite,
+        child: Center(child: text(context, size, 0.03, myBlack)),
+      ),
+    ),
+  );
 }

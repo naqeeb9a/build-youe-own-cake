@@ -11,7 +11,7 @@ Widget cakeShow(context, image, name, price, description, index) {
       push(
           context,
           CakeView(
-              name: name, price: price, description: description, i: index));
+              name: name,  description: description, i: index));
     },
     child: Container(
       height: dynamicHeight(context, 0.55),

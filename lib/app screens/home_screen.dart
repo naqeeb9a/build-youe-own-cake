@@ -1,3 +1,7 @@
+import 'dart:developer';
+import 'dart:ffi';
+
+import 'package:build_own_cake/app%20screens/cake_view.dart';
 import 'package:build_own_cake/app%20screens/see_all.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
@@ -10,6 +14,7 @@ import 'package:build_own_cake/widgets/drawer_widgets.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import "package:flutter/material.dart";
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -100,31 +105,80 @@ List cake = [
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  dynamic _counter = 1;
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    if (_counter <= 1) {
+      return;
+    }
+    setState(() {
+      _counter--;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        endDrawer: Container(
+        endDrawer: SizedBox(
           width: dynamicWidth(context, 0.85),
           child: Drawer(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 bottomLeft: Radius.circular(20),
               ),
             ),
-            child: ListView(
-              children: [
-                Container(
-                  height: dynamicHeight(context, 0.12),
-                  child: DrawerHeader(
-                    child: text(context, "Cart", 0.08, myBlack),
-                  ),
+            child: Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20),
                 ),
-                itemCard(context, "Item 1", "2 Pounds", "1200Rs")
-              ],
+                // gradient: LinearGradient(
+                //   begin: Alignment.topRight,
+                //   end: Alignment.bottomLeft,
+                //   colors: [
+                //     myWhite,
+                //     myLightPink,
+                //   ],
+                // ),
+              ),
+              child: ListView(
+                children: [
+                  SizedBox(
+                    height: dynamicHeight(context, 0.12),
+                    child: DrawerHeader(
+                      child: text(context, "Cart", 0.08, myBlack),
+                    ),
+                  ),
+
+                  // text(context, array[0]['name'], 0.03, myBlack),
+                  Obx(() => SizedBox(
+                    height:dynamicHeight(context, 0.7),
+                    child: ListView.builder(
+                          itemCount: cart.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return itemCard(
+                                context,
+                                cart[index]['image'],
+                                cart[index]['name'],
+                                "size",
+                                cart[index]['price'],
+                                _counter,
+                                _incrementCounter,
+                                _decrementCounter);
+                          },
+                        ),
+                  ))
+                ],
+              ),
             ),
           ),
         ),
@@ -184,19 +238,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     CarouselSlider(
                       items: [
-                        cakeShow(
-                            context,
-                            "assets/4K8A7063.JPG",
-                            cake[0]['name'],
-                            "1200/-",
-                            cake[0]['description'],
-                            0),
+                        cakeShow(context, "assets/4K8A7063.JPG",
+                            cake[0]['name'], "1200", cake[0]['description'], 0),
                         cakeShow(context, cake[2]['images'][0], cake[2]["name"],
-                            "1800/-", cake[2]['description'], 2),
+                            "1800", cake[2]['description'], 2),
                         cakeShow(context, cake[4]['images'][0], cake[4]['name'],
-                            "1500/-", cake[4]['description'], 4),
+                            "1500", cake[4]['description'], 4),
                         cakeShow(context, cake[5]['images'][0], cake[5]['name'],
-                            "1400/-", cake[5]['description'], 5),
+                            "1400", cake[5]['description'], 5),
                       ],
                       options: CarouselOptions(
                         autoPlay: true,
