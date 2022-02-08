@@ -106,7 +106,7 @@ List cake = [
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   dynamic _counter = 1;
-  var sum = 0;
+  var temp = 0, sum=0;
 
   void _incrementCounter() {
     setState(() {
@@ -168,7 +168,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListView.builder(
                         itemCount: cart.length,
                         itemBuilder: (BuildContext context, int index) {
-                          sum = sum + int.parse( cart[index]["price"]);
+                           temp = temp + int.parse(cart[index]["price"]);
+                          // setState(() {
+                         
+                             
+                          // });
                           return itemCard(
                               context,
                               cart[index]['image'],
@@ -179,8 +183,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               _incrementCounter,
                               _decrementCounter);
                         },
-
+                      
                       ),
+                     
                     ),
                   ),
                   Divider(),
@@ -190,7 +195,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         text(context, "Total:", 0.04, myBlack),
-                        text(context, sum.toString(), 0.036, myBlack),
+                        text(context, ( sum = temp).toString(), 0.036, myBlack),
+                      
                       ],
                     ),
                   ),

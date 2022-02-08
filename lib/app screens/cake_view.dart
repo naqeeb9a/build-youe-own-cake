@@ -404,24 +404,34 @@ class _CakeViewState extends State<CakeView> {
                           }
                         });
                         if (index == 0) {
-                          // if (cart.contains(
-                          //   {
-                          //     "image": cake[widget.i]['images'][0],
-                          //     'name': widget.name,
-                          //     'price': price,
-                          //     "size": pound,
-                          //   },
-                          // )) {
-                          //   cart.remove();
-                          //   MotionToast.error(
-                          //     title: "Removed Successfully",
-                          //     titleStyle:
-                          //         const TextStyle(fontWeight: FontWeight.bold),
-                          //     description: "Item removed from cart",
-                          //     animationDuration:
-                          //         const Duration(milliseconds: 400),
-                          //   ).show(context);
-                          // }
+                         if( cart.contains(
+                            {
+                              "image": cake[widget.i]['images'][0],
+                              'name': widget.name,
+                              'price': price,
+                              "size": pound,
+                            },
+                          )){
+                            // cart.remove( cart.contains(
+                            // {
+                            //   "image": cake[widget.i]['images'][0],
+                            //   'name': widget.name,
+                            //   'price': price,
+                            //   "size": pound,
+                            // },
+                         //));
+                          MotionToast.error(
+                              title: "Removed Successfully",
+                              titleStyle:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                              description: "Item removed from cart",
+                              animationDuration:
+                                  const Duration(milliseconds: 400),
+                            ).show(context);
+                          
+                          }
+                           //cart.remove();
+                            
                         } else if (index == 1) {
                           cart.add({
                             "image": cake[widget.i]['images'][0],
