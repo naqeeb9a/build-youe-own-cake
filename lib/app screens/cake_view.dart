@@ -63,7 +63,8 @@ List extraTopping = [
 class _CakeViewState extends State<CakeView> {
   dynamic index = 0, fvt = 0;
   dynamic sizeIndex = 1;
-  var price ;
+  var price;
+  dynamic pound;
 
   @override
   Widget build(BuildContext context) {
@@ -105,18 +106,18 @@ class _CakeViewState extends State<CakeView> {
                 text(
                     context,
                     sizeIndex == 1
-                        ? price ="3500"
+                        ? price = "3500"
                         : sizeIndex == 2
-                            ?price = "4500"
+                            ? price = "4500"
                             : sizeIndex == 3
-                                ? price ="5000"
+                                ? price = "5000"
                                 : sizeIndex == 4
-                                    ? price ="6000"
+                                    ? price = "6000"
                                     : sizeIndex == 5
-                                        ?price = "7400"
+                                        ? price = "7400"
                                         : sizeIndex == 6
-                                            ? price ="8800"
-                                            : price ="3500",
+                                            ? price = "8800"
+                                            : price = "3500",
                     0.04,
                     myBrown),
                 heightBox(context, 0.008),
@@ -374,16 +375,26 @@ class _CakeViewState extends State<CakeView> {
                     ),
                     InkWell(
                       onTap: () {
-                       
-                      //    print("cart -> $cart");
-                      //  cart.add({
-                      //     "image": cake[widget.i]['images'][0],
-                      //     'name': widget.name,
-                      //     'price': price,
-                      //   });
-                      //  print("cart -> $cart");
-                        
-                        
+                        //    print("cart -> $cart");
+                        //  cart.add({
+                        //     "image": cake[widget.i]['images'][0],
+                        //     'name': widget.name,
+                        //     'price': price,
+                        //   });
+                        //  print("cart -> $cart");
+                        pound = sizeIndex == 1
+                            ? "2 Pound"
+                            : sizeIndex == 2
+                                ? "2.5 Pound"
+                                : sizeIndex == 3
+                                    ? "3 Pound"
+                                    : sizeIndex == 4
+                                        ? "4 Pound"
+                                        : sizeIndex == 5
+                                            ? "5 Pound"
+                                            : sizeIndex == 6
+                                                ? "6 Pound"
+                                                : "2 Pound";
 
                         setState(() {
                           if (index == 1) {
@@ -393,20 +404,30 @@ class _CakeViewState extends State<CakeView> {
                           }
                         });
                         if (index == 0) {
-                             MotionToast.error(
-                            title: "Removed Successfully",
-                            titleStyle:
-                                const TextStyle(fontWeight: FontWeight.bold),
-                            description: "Item removed from cart",
-                            animationDuration:
-                                const Duration(milliseconds: 400),
-                          ).show(context);
-                          cart.remove(widget.i);
-                        } else if (index ==1) {
-                            cart.add({
+                          // if (cart.contains(
+                          //   {
+                          //     "image": cake[widget.i]['images'][0],
+                          //     'name': widget.name,
+                          //     'price': price,
+                          //     "size": pound,
+                          //   },
+                          // )) {
+                          //   cart.remove();
+                          //   MotionToast.error(
+                          //     title: "Removed Successfully",
+                          //     titleStyle:
+                          //         const TextStyle(fontWeight: FontWeight.bold),
+                          //     description: "Item removed from cart",
+                          //     animationDuration:
+                          //         const Duration(milliseconds: 400),
+                          //   ).show(context);
+                          // }
+                        } else if (index == 1) {
+                          cart.add({
                             "image": cake[widget.i]['images'][0],
                             'name': widget.name,
                             'price': price,
+                            "size": pound,
                           });
                           MotionToast.success(
                             title: "Added Successfully",
@@ -418,7 +439,6 @@ class _CakeViewState extends State<CakeView> {
                             animationDuration:
                                 const Duration(milliseconds: 400),
                           ).show(context);
-                         
                         }
                       },
                       child: ClipRRect(

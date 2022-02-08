@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context,
                                 cart[index]['image'],
                                 cart[index]['name'],
-                                "size",
+                                cart[index]['size'].toString(),
                                 cart[index]['price'],
                                 _counter,
                                 _incrementCounter,
