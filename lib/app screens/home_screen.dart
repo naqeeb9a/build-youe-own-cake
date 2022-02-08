@@ -106,6 +106,8 @@ List cake = [
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   dynamic _counter = 1;
+  var sum = 0;
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -160,23 +162,50 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
 
                   // text(context, array[0]['name'], 0.03, myBlack),
-                  Obx(() => SizedBox(
-                    height:dynamicHeight(context, 0.7),
-                    child: ListView.builder(
-                          itemCount: cart.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return itemCard(
-                                context,
-                                cart[index]['image'],
-                                cart[index]['name'],
-                                cart[index]['size'].toString(),
-                                cart[index]['price'],
-                                _counter,
-                                _incrementCounter,
-                                _decrementCounter);
-                          },
-                        ),
-                  ))
+                  Obx(
+                    () => SizedBox(
+                      height: dynamicHeight(context, 0.68),
+                      child: ListView.builder(
+                        itemCount: cart.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          sum = sum + int.parse( cart[index]["price"]);
+                          return itemCard(
+                              context,
+                              cart[index]['image'],
+                              cart[index]['name'],
+                              cart[index]['size'].toString(),
+                              cart[index]['price'],
+                              _counter,
+                              _incrementCounter,
+                              _decrementCounter);
+                        },
+
+                      ),
+                    ),
+                  ),
+                  Divider(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.03)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        text(context, "Total:", 0.04, myBlack),
+                        text(context, sum.toString(), 0.036, myBlack),
+                      ],
+                    ),
+                  ),
+                  heightBox(context, 0.035),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      coloredButton(
+                        context,
+                        "Checkout",
+                        myBlack,
+                        width: dynamicWidth(context, 0.5),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
