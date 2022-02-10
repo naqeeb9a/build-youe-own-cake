@@ -1,6 +1,3 @@
-import 'dart:developer';
-import 'dart:ffi';
-
 import 'package:build_own_cake/app%20screens/cake_view.dart';
 import 'package:build_own_cake/app%20screens/see_all.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
@@ -15,9 +12,12 @@ import 'package:build_own_cake/widgets/text_widget.dart';
 import "package:flutter/material.dart";
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:motion_toast/motion_toast.dart';
+import 'package:badges/badges.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -104,27 +104,14 @@ List cake = [
 ];
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  dynamic _counter = 1;
-  var temp = 0, sum=0;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    if (_counter <= 1) {
-      return;
-    }
-    setState(() {
-      _counter--;
-    });
-  }
+  int sum = 0;
+  
 
   @override
   Widget build(BuildContext context) {
+   
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
@@ -155,48 +142,63 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListView(
                 children: [
                   SizedBox(
+                    //width:dynamicWidth(context,)
                     height: dynamicHeight(context, 0.12),
                     child: DrawerHeader(
                       child: text(context, "Cart", 0.08, myBlack),
                     ),
                   ),
 
-                  // text(context, array[0]['name'], 0.03, myBlack),
                   Obx(
                     () => SizedBox(
                       height: dynamicHeight(context, 0.68),
                       child: ListView.builder(
                         itemCount: cart.length,
                         itemBuilder: (BuildContext context, int index) {
-                           temp = temp + int.parse(cart[index]["price"]);
-                          // setState(() {
                          
-                             
-                          // });
-                          return itemCard(
-                              context,
-                              cart[index]['image'],
-                              cart[index]['name'],
-                              cart[index]['size'].toString(),
-                              cart[index]['price'],
-                              _counter,
-                              _incrementCounter,
-                              _decrementCounter);
-                        },
+                          return Slidable(
+                             endActionPane:
+                            ActionPane(motion: const ScrollMotion(), children: [
+                          SlidableAction(
+                            onPressed: (BuildContext context) {
                       
+                              cart.removeAt(index);
+                              MotionToast.delete(
+                                      title:  Text("Removed"),
+                                      
+                                      description:Text("The item is Removed"),
+                                      toastDuration:const  Duration(milliseconds: 2200),
+                              )
+                                  .show(context);
+                            
+                              
+                            },
+                            backgroundColor: const Color(0xFFFE4A49),
+                            foregroundColor: Colors.white,
+                            icon: Icons.delete_outlined,
+                            label: 'Delete',
+                          ),
+                           ]),
+                            child: ItemCard(
+                                image: cart[index]['image'],
+                                name: cart[index]['name'],
+                                size: cart[index]['size'],
+                                price: cart[index]['price']),
+                          );
+                        },
                       ),
-                     
                     ),
                   ),
+
                   Divider(),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.03)),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: dynamicWidth(context, 0.03)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         text(context, "Total:", 0.04, myBlack),
-                        text(context, ( sum = temp).toString(), 0.036, myBlack),
-                      
+                        text(context,(sum ).toString(), 0.035, myBlack),
                       ],
                     ),
                   ),
@@ -220,9 +222,13 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: myBlack,
           onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
-          child: const Icon(
-            Icons.shopping_cart,
-            color: myWhite,
+          child: Badge(
+             badgeContent: Obx(()=> text(context, cart.length.toString(), 0.025, myBlack,bold:true)),
+             badgeColor: myWhite,
+            child: const Icon(
+              Icons.shopping_cart,
+              color: myWhite,
+            ),
           ),
         ),
         body: Container(

@@ -59,11 +59,11 @@ List extraTopping = [
     "name": "Biscuits",
   },
 ];
-
+var price;
 class _CakeViewState extends State<CakeView> {
   dynamic index = 0, fvt = 0;
   dynamic sizeIndex = 1;
-  var price;
+ 
   dynamic pound;
 
   @override
@@ -404,35 +404,16 @@ class _CakeViewState extends State<CakeView> {
                           }
                         });
                         if (index == 0) {
-                         if( cart.contains(
-                            {
-                              "image": cake[widget.i]['images'][0],
-                              'name': widget.name,
-                              'price': price,
-                              "size": pound,
-                            },
-                          )){
-                            // cart.remove( cart.contains(
-                            // {
-                            //   "image": cake[widget.i]['images'][0],
-                            //   'name': widget.name,
-                            //   'price': price,
-                            //   "size": pound,
-                            // },
-                         //));
-                          MotionToast.error(
-                              title: "Removed Successfully",
-                              titleStyle:
-                                  const TextStyle(fontWeight: FontWeight.bold),
-                              description: "Item removed from cart",
-                              animationDuration:
-                                  const Duration(milliseconds: 400),
-                            ).show(context);
-                          
-                          }
-                           //cart.remove();
+                          cart.removeAt(index);
+                          MotionToast.delete(
+                              title: const Text("Removed Successfully"),
                             
+                              description: const Text("Item removed from cart"),
+                              animationDuration:
+                                  const Duration(milliseconds: 2000),
+                            ).show(context);
                         } else if (index == 1) {
+                         
                           cart.add({
                             "image": cake[widget.i]['images'][0],
                             'name': widget.name,
@@ -440,14 +421,12 @@ class _CakeViewState extends State<CakeView> {
                             "size": pound,
                           });
                           MotionToast.success(
-                            title: "Added Successfully",
-                            titleStyle:
-                                const TextStyle(fontWeight: FontWeight.bold),
-                            description: "Item added to cart",
-                            descriptionStyle: const TextStyle(fontSize: 12),
-                            width: 300,
+                            title: const Text("Added Successfully"),
+                            
+                            description: const Text("Item added to cart"),
+                            
                             animationDuration:
-                                const Duration(milliseconds: 400),
+                                const Duration(milliseconds: 2000),
                           ).show(context);
                         }
                       },
@@ -543,23 +522,22 @@ Widget downList(context, image, name) {
   );
 }
 
-Widget success(context, title) {
+void success(context, title) {
   return MotionToast.success(
-    title: "Added Successfully",
-    titleStyle: const TextStyle(fontWeight: FontWeight.bold),
-    description: "Item added to ${title}",
-    descriptionStyle: const TextStyle(fontSize: 12),
-    width: 300,
-    animationDuration: const Duration(milliseconds: 400),
+    title: const Text("Added Successfully"),
+    description: Text("Item added to $title"),
+ 
+    animationDuration: const Duration(milliseconds: 2000),
   ).show(context);
 }
 
-Widget remove(context, title) {
-  return MotionToast.error(
-    title: "Removed Successfully",
-    titleStyle: const TextStyle(fontWeight: FontWeight.bold),
-    description: "Item removed from ${title}",
-    animationDuration: const Duration(milliseconds: 400),
+void remove(context, title) {
+  return MotionToast.delete(
+
+    title: const Text("Removed Successfully"),
+  
+    description: Text("Item removed from $title"),
+    animationDuration: const Duration(milliseconds: 2000),
   ).show(context);
 }
 

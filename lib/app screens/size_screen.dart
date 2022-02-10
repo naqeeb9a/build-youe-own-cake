@@ -131,10 +131,9 @@ class _SizeScreenState extends State<SizeScreen> {
                 nextPage: sizeIndex == 0
                     ? () {
                         MotionToast.warning(
-                          title: "Warning",
-                          titleStyle:
-                              const TextStyle(fontWeight: FontWeight.bold),
-                          description: "Select size to proceed!!",
+                          title: Text("Warning"),
+                        
+                          description: Text("Select size to proceed!!"),
                           animationCurve: Curves.ease,
                           borderRadius: 0,
                           animationDuration: const Duration(milliseconds: 400),
