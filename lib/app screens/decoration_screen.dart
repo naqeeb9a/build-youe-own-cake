@@ -7,6 +7,7 @@ import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 class DecorationScreen extends StatefulWidget {
   const DecorationScreen({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class DecorationScreen extends StatefulWidget {
 
 class _DecorationScreenState extends State<DecorationScreen> {
   @override
+  dynamic decorationIndex = 0;
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -65,31 +68,78 @@ class _DecorationScreenState extends State<DecorationScreen> {
               coloredButton(
                 context,
                 "Chocolate Bar",
-                myGrey,
+                decorationIndex == 1 ? myBrown : myGrey,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (decorationIndex == 1) {
+                      decorationIndex = 0;
+                    } else if (decorationIndex != 1) {
+                      decorationIndex = 1;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Pineapple",
-                myGrey,
+                decorationIndex == 2 ? myBrown : myGrey,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (decorationIndex == 2) {
+                      decorationIndex = 0;
+                    } else if (decorationIndex != 2) {
+                      decorationIndex = 2;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Cream Icing",
-                myGrey,
+                decorationIndex == 3 ? myBrown : myGrey,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (decorationIndex == 3) {
+                      decorationIndex = 0;
+                    } else if (decorationIndex != 3) {
+                      decorationIndex = 3;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Bounty",
-                myGrey,
+                decorationIndex == 4 ? myBrown : myGrey,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (decorationIndex == 4) {
+                      decorationIndex = 0;
+                    } else if (decorationIndex != 4) {
+                      decorationIndex = 4;
+                    }
+                  });
+                },
               ),
               heightBox(context, .14),
               downBar(
                 context,
-                nextPage: () {
+                nextPage: decorationIndex == 0
+                    ? () {
+                  MotionToast.warning(
+                    title: Text("Warning"),
+
+                    description: Text("Select decoration to proceed!!"),
+                    animationCurve: Curves.ease,
+                    borderRadius: 0,
+                    animationDuration: const Duration(milliseconds: 400),
+                  ).show(context);
+                }
+                    : () {
                   push(context, const SpecialWishesScreen());
                 },
               ),

@@ -7,6 +7,7 @@ import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 class FlavourScreen extends StatefulWidget {
   const FlavourScreen({Key? key}) : super(key: key);
@@ -16,7 +17,10 @@ class FlavourScreen extends StatefulWidget {
 }
 
 class _FlavourScreenState extends State<FlavourScreen> {
+  dynamic flavourIndex = 0;
+
   @override
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -65,31 +69,78 @@ class _FlavourScreenState extends State<FlavourScreen> {
               coloredButton(
                 context,
                 "Vanilla",
-                myGrey.withOpacity(.8),
+                flavourIndex == 1 ? myRed : myGrey.withOpacity(.8),
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (flavourIndex == 1) {
+                      flavourIndex = 0;
+                    } else if (flavourIndex != 1) {
+                      flavourIndex = 1;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Chocolate",
-                myGrey.withOpacity(.8),
+                flavourIndex == 2 ? myRed : myGrey.withOpacity(.8),
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (flavourIndex == 2) {
+                      flavourIndex = 0;
+                    } else if (flavourIndex != 2) {
+                      flavourIndex = 2;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Strawberry",
-                myGrey.withOpacity(.8),
+                flavourIndex == 3 ? myRed : myGrey.withOpacity(.8),
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (flavourIndex == 3) {
+                      flavourIndex = 0;
+                    } else if (flavourIndex != 3) {
+                      flavourIndex = 3;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Another",
-                myGrey.withOpacity(.8),
+                flavourIndex == 4 ?  myRed: myGrey.withOpacity(.8),
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (flavourIndex == 4) {
+                      flavourIndex = 0;
+                    } else if (flavourIndex != 4) {
+                      flavourIndex = 4;
+                    }
+                  });
+                },
               ),
               heightBox(context, 0.14),
               downBar(
                 context,
-                nextPage: () {
+                nextPage: flavourIndex == 0
+                    ? () {
+                  MotionToast.warning(
+                    title: Text("Warning"),
+
+                    description: Text("Select flavour to proceed!!"),
+                    animationCurve: Curves.ease,
+                    borderRadius: 0,
+                    animationDuration: const Duration(milliseconds: 400),
+                  ).show(context);
+                }
+                    : () {
                   push(context, const ColorScreen());
                 },
               ),

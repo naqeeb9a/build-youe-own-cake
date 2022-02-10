@@ -7,6 +7,7 @@ import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 class ColorScreen extends StatefulWidget {
   const ColorScreen({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class ColorScreen extends StatefulWidget {
 }
 
 class _ColorScreenState extends State<ColorScreen> {
+  dynamic colorIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -65,31 +67,78 @@ class _ColorScreenState extends State<ColorScreen> {
               coloredButton(
                 context,
                 "Black",
-                myBlack,
+                colorIndex == 1 ? myGrey : myBlack,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (colorIndex == 1) {
+                      colorIndex = 0;
+                    } else if (colorIndex != 1) {
+                      colorIndex = 1;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Chocolate",
-                myBrown,
+                colorIndex == 2 ? myGrey : myBrown,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (colorIndex == 2) {
+                      colorIndex = 0;
+                    } else if (colorIndex != 2) {
+                      colorIndex = 2;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Pink",
-                myPink,
+                colorIndex == 3 ? myGrey : myPink,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (colorIndex == 3) {
+                      colorIndex = 0;
+                    } else if (colorIndex != 3) {
+                      colorIndex = 3;
+                    }
+                  });
+                },
               ),
               coloredButton(
                 context,
                 "Light Pink",
-                myLightPink1,
+                colorIndex == 4 ? myGrey : myLightPink1,
                 width: dynamicWidth(context, 0.4),
+                function: () {
+                  setState(() {
+                    if (colorIndex == 4) {
+                      colorIndex = 0;
+                    } else if (colorIndex != 4) {
+                      colorIndex = 4;
+                    }
+                  });
+                },
               ),
               heightBox(context, .14),
               downBar(
                 context,
-                nextPage: () {
+                nextPage: colorIndex == 0
+                    ? () {
+                  MotionToast.warning(
+                    title: Text("Warning"),
+
+                    description: Text("Select color to proceed!!"),
+                    animationCurve: Curves.ease,
+                    borderRadius: 0,
+                    animationDuration: const Duration(milliseconds: 400),
+                  ).show(context);
+                }
+                    : () {
                   push(context, const DecorationScreen());
                 },
               ),
