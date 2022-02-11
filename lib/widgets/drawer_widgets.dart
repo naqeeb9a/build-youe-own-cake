@@ -1,17 +1,21 @@
+
 import 'package:build_own_cake/app%20screens/cake_view.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ItemCard extends StatefulWidget {
   final dynamic image;
   final String name, size, price;
-  const ItemCard(
+  dynamic quantity;
+  ItemCard(
       {required this.image,
       required this.name,
       required this.size,
       required this.price,
+      required this.quantity,
       Key? key})
       : super(key: key);
 
@@ -21,21 +25,23 @@ class ItemCard extends StatefulWidget {
 
 class _ItemCardState extends State<ItemCard> {
   
-  dynamic counter = 1;
+ 
+  
     void _incrementCounter() {
     setState(() {
-      counter++;
-      //price +=price;
+      widget.quantity++;
+      // tPrice += price;
     });
   }
 
   void _decrementCounter() {
-    if (counter <= 1) {
+    if (widget.quantity <= 1) {
       return;
     }
     setState(() {
-      counter--;
-      //price -=price;
+       widget.quantity--;
+    //  tPrice -=price;
+      
     });
   }
 
@@ -72,9 +78,17 @@ class _ItemCardState extends State<ItemCard> {
                   text(context, widget.size, 0.03, myPink),
                   Row(
                     children: [
-                      text(context, (int.parse(widget.price) * counter).toString(),
-                          0.035, myBrown),
-                      widthBox(context, 0.17),
+                      // Obx(()=> text(
+                      //     context,
+                      //     (int.parse(widget.price) * counter).toString(),
+                      //     0.035,
+                      //     myBrown)),
+                          text(
+                          context,
+                          "${widget.price}*${widget.quantity}\n=${(int.parse(widget.price) * widget.quantity)}".toString(),
+                          0.035,
+                          myBrown),
+                      widthBox(context, 0.15),
                       Row(
                         children: [
                           Container(
@@ -118,7 +132,7 @@ class _ItemCardState extends State<ItemCard> {
                                   width: dynamicWidth(context, 0.062),
                                   height: dynamicHeight(context, 0.033),
                                   child: Center(
-                                      child: text(context, counter.toString(),
+                                      child: text(context, (widget.quantity).toString(),
                                           0.035, myBlack)),
                                 ),
                                 GestureDetector(

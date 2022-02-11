@@ -59,11 +59,13 @@ List extraTopping = [
     "name": "Biscuits",
   },
 ];
-var price;
+
+
+
 class _CakeViewState extends State<CakeView> {
   dynamic index = 0, fvt = 0;
   dynamic sizeIndex = 1;
- 
+  dynamic price;
   dynamic pound;
 
   @override
@@ -117,7 +119,7 @@ class _CakeViewState extends State<CakeView> {
                                         ? price = "7400"
                                         : sizeIndex == 6
                                             ? price = "8800"
-                                            : price = "3500",
+                                            : price = "0",
                     0.04,
                     myBrown),
                 heightBox(context, 0.008),
@@ -419,6 +421,7 @@ class _CakeViewState extends State<CakeView> {
                             'name': widget.name,
                             'price': price,
                             "size": pound,
+                            "quantity" : "1",
                           });
                           MotionToast.success(
                             title: const Text("Added Successfully"),

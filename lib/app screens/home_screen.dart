@@ -1,3 +1,5 @@
+
+
 import 'package:build_own_cake/app%20screens/cake_view.dart';
 import 'package:build_own_cake/app%20screens/see_all.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
@@ -15,6 +17,7 @@ import 'package:get/get.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:motion_toast/motion_toast.dart';
 import 'package:badges/badges.dart';
+import 'package:image_picker/image_picker.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -106,7 +109,24 @@ List cake = [
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  int sum = 0;
+  var sum = 0.obs;
+  final ImagePicker _picker = ImagePicker();
+   XFile? _Image;
+    /// Get from gallery
+  getFromGallery() async {
+     final XFile? image = await _picker.pickImage(
+       source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+       );
+       if(image == null){
+         return;
+       }
+       setState(() {
+         _Image = image;
+       });
+       
+  }
   
 
   @override
@@ -155,6 +175,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListView.builder(
                         itemCount: cart.length,
                         itemBuilder: (BuildContext context, int index) {
+                         //sum =sum+(int.parse(cart[index]['price']) * cart[index]['quantity']);
                          
                           return Slidable(
                              endActionPane:
@@ -164,9 +185,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       
                               cart.removeAt(index);
                               MotionToast.delete(
-                                      title:  Text("Removed"),
+                                      title: const Text("Removed"),
                                       
-                                      description:Text("The item is Removed"),
+                                      description:const Text("The item is Removed"),
                                       toastDuration:const  Duration(milliseconds: 2200),
                               )
                                   .show(context);
@@ -183,7 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 image: cart[index]['image'],
                                 name: cart[index]['name'],
                                 size: cart[index]['size'],
-                                price: cart[index]['price']),
+                                price: cart[index]['price'],
+                                quantity : cart[index]['quantity']),
                           );
                         },
                       ),
@@ -198,7 +220,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         text(context, "Total:", 0.04, myBlack),
-                        text(context,(sum ).toString(), 0.035, myBlack),
+                        Obx(()=>text(
+                              context, sum.toString(), 0.035, myBlack)),
+                              //  text(context, sum.toString(), 0.035, myBlack)
+                        
                       ],
                     ),
                   ),
@@ -212,6 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         myBlack,
                         width: dynamicWidth(context, 0.5),
                       ),
+                  heightBox(context, 0.02),
                     ],
                   ),
                 ],
@@ -224,6 +250,8 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
           child: Badge(
              badgeContent: Obx(()=> text(context, cart.length.toString(), 0.025, myBlack,bold:true)),
+            //  shape: BadgeShape.square,
+            //  borderRadius: BorderRadius.circular(8),
              badgeColor: myWhite,
             child: const Icon(
               Icons.shopping_cart,
@@ -231,126 +259,140 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: Container(
-          width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, 1),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                myWhite,
-                myLightPink,
-              ],
+        body: SingleChildScrollView(
+          child: Container(
+            width: dynamicWidth(context, 1),
+            height: dynamicHeight(context, 1),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  myWhite,
+                  myLightPink,
+                ],
+              ),
             ),
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: dynamicWidth(context, .04),
-                  vertical: dynamicHeight(context, .01),
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: dynamicWidth(context, .04),
+                    vertical: dynamicHeight(context, .01),
+                  ),
+                  child: appBar(context),
                 ),
-                child: appBar(context),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: dynamicWidth(context, .04),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: () => push(context, const SeeAll()),
-                      child: text(
-                        context,
-                        "See All",
-                        0.035,
-                        myBlack,
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: dynamicWidth(context, .04),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () => push(context, const SeeAll()),
+                        child: text(
+                          context,
+                          "See All",
+                          0.035,
+                          myBlack,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              heightBox(context, 0.01),
-              SizedBox(
-                height: dynamicHeight(context, 0.55),
-                child: ListView(
-                  children: [
-                    CarouselSlider(
-                      items: [
-                        cakeShow(context, "assets/4K8A7063.JPG",
-                            cake[0]['name'], "1200", cake[0]['description'], 0),
-                        cakeShow(context, cake[2]['images'][0], cake[2]["name"],
-                            "1800", cake[2]['description'], 2),
-                        cakeShow(context, cake[4]['images'][0], cake[4]['name'],
-                            "1500", cake[4]['description'], 4),
-                        cakeShow(context, cake[5]['images'][0], cake[5]['name'],
-                            "1400", cake[5]['description'], 5),
-                      ],
-                      options: CarouselOptions(
-                        autoPlay: true,
-                        height: dynamicHeight(context, 0.55),
-                        enlargeCenterPage: true,
-                        enableInfiniteScroll: true,
-                        aspectRatio: 16 / 9,
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
-                        viewportFraction: .7,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              heightBox(context, 0.05),
-              coloredButton(
-                context,
-                "Build Your Cake",
-                myBlack,
-                width: dynamicWidth(context, 0.5),
-                function: () {
-                  push(
-                    context,
-                    const SizeScreen(),
-                  );
-                },
-              ),
-              heightBox(context, 0.01),
-              text(context, "OR", 0.04, myGrey),
-              heightBox(context, 0.01),
-              Container(
-                width: dynamicWidth(context, 0.4),
-                height: dynamicWidth(context, .2),
-                decoration: BoxDecoration(
-                  color: myBlack,
-                  borderRadius: BorderRadius.circular(
-                    dynamicWidth(
-                      context,
-                      0.03,
+                heightBox(context, 0.01),
+                SizedBox(
+                  height: dynamicHeight(context, 0.55),
+                  child: CarouselSlider(
+                    items: [
+                      cakeShow(context, "assets/4K8A7063.JPG",
+                          cake[0]['name'], "1200", cake[0]['description'], 0),
+                      cakeShow(context, cake[2]['images'][0], cake[2]["name"],
+                          "1800", cake[2]['description'], 2),
+                      cakeShow(context, cake[4]['images'][0], cake[4]['name'],
+                          "1500", cake[4]['description'], 4),
+                      cakeShow(context, cake[5]['images'][0], cake[5]['name'],
+                          "1400", cake[5]['description'], 5),
+                    ],
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      height: dynamicHeight(context, 0.55),
+                      enlargeCenterPage: true,
+                      enableInfiniteScroll: true,
+                      aspectRatio: 16 / 9,
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      viewportFraction: .7,
                     ),
                   ),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.camera_alt,
-                        size: dynamicHeight(context, 0.04), color: myWhite),
-                    Text(
-                      "Upload Image",
-                      style: TextStyle(
-                        color: myWhite,
-                        fontWeight: FontWeight.bold,
-                        fontSize: dynamicWidth(context, 0.04),
+                heightBox(context, 0.05),
+                coloredButton(
+                  context,
+                  "Build Your Cake",
+                  myBlack,
+                  width: dynamicWidth(context, 0.5),
+                  function: () {
+                    push(
+                      context,
+                      const SizeScreen(),
+                    );
+                  },
+                ),
+                heightBox(context, 0.01),
+                text(context, "OR", 0.04, myGrey),
+                heightBox(context, 0.01),
+                InkWell(
+                  onTap: ()=>getFromGallery(),
+                  child: Container(
+                    width: dynamicWidth(context, 0.4),
+                    height: dynamicWidth(context, .2),
+                    decoration: BoxDecoration(
+                      color: myBlack,
+                      borderRadius: BorderRadius.circular(
+                        dynamicWidth(
+                          context,
+                          0.03,
+                        ),
                       ),
                     ),
-                  ],
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.camera_alt,
+                            size: dynamicHeight(context, 0.04), color: myWhite),
+                        Text(
+                          "Upload Image",
+                          style: TextStyle(
+                            color: myWhite,
+                            fontWeight: FontWeight.bold,
+                            fontSize: dynamicWidth(context, 0.04),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
-  }
+
+   
+   }
+  //  late File imageFile;
+  // getFromGallery() async {
+  //   final pickedFile = await ImagePicker().pickImage(
+  //     source: ImageSource.gallery,
+  //     maxWidth: 1800,
+  //     maxHeight: 1800,
+  //   );
+  //   setState(() {
+  //     imageFile = pickedFile as File;
+  //   });
+  // }
 }
