@@ -1,4 +1,3 @@
-
 import 'package:build_own_cake/app%20screens/cake_view.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -24,14 +23,10 @@ class ItemCard extends StatefulWidget {
 }
 
 class _ItemCardState extends State<ItemCard> {
-  
- 
-  
-    void _incrementCounter() {
+  void _incrementCounter() {
     setState(() {
-      widget.quantity++;
-      // tPrice += price;
-    });
+      int.parse(widget.quantity)+1;
+    },);
   }
 
   void _decrementCounter() {
@@ -39,9 +34,7 @@ class _ItemCardState extends State<ItemCard> {
       return;
     }
     setState(() {
-       widget.quantity--;
-    //  tPrice -=price;
-      
+      int.parse(widget.quantity)-1;
     });
   }
 
@@ -73,19 +66,15 @@ class _ItemCardState extends State<ItemCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   heightBox(context, 0.008),
-                  text(context,widget.name, 0.04, myBlack),
+                  text(context, widget.name, 0.04, myBlack),
                   heightBox(context, 0.001),
                   text(context, widget.size, 0.03, myPink),
                   Row(
                     children: [
-                      // Obx(()=> text(
-                      //     context,
-                      //     (int.parse(widget.price) * counter).toString(),
-                      //     0.035,
-                      //     myBrown)),
-                          text(
+                      text(
                           context,
-                          "${widget.price}*${widget.quantity}\n=${(int.parse(widget.price) * widget.quantity)}".toString(),
+                          "${widget.price}*${widget.quantity}\n=${(int.parse(widget.price) * int.parse(widget.quantity))}"
+                              .toString(),
                           0.035,
                           myBrown),
                       widthBox(context, 0.15),
@@ -132,8 +121,12 @@ class _ItemCardState extends State<ItemCard> {
                                   width: dynamicWidth(context, 0.062),
                                   height: dynamicHeight(context, 0.033),
                                   child: Center(
-                                      child: text(context, (widget.quantity).toString(),
-                                          0.035, myBlack)),
+                                    child: text(
+                                        context,
+                                       " ${int.parse(widget.quantity).toString()}",
+                                        0.035,
+                                        myBlack),
+                                  ),
                                 ),
                                 GestureDetector(
                                   onTap: _incrementCounter,
