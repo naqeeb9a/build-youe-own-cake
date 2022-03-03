@@ -24,22 +24,10 @@ class _FlavourScreenState extends State<FlavourScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, 1),
-          padding: EdgeInsets.symmetric(
+        body: Padding(
+            padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
-          ),
-          decoration: const BoxDecoration(
-            color: myLightPink1,
-            // image: DecorationImage(
-            //   opacity: 0.4,
-            //   fit: BoxFit.cover,
-            //   image: NetworkImage(
-            //     "https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-hand-drawn-cartoon-dessert-poster-background-image_154710.jpg",
-            //   ),
-            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,7 +57,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
               coloredButton(
                 context,
                 "Vanilla",
-                flavourIndex == 1 ? myRed : myGrey.withOpacity(.8),
+                flavourIndex == 1 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -84,7 +72,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
               coloredButton(
                 context,
                 "Chocolate",
-                flavourIndex == 2 ? myRed : myGrey.withOpacity(.8),
+                flavourIndex == 2 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -99,7 +87,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
               coloredButton(
                 context,
                 "Strawberry",
-                flavourIndex == 3 ? myRed : myGrey.withOpacity(.8),
+                flavourIndex == 3 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -114,7 +102,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
               coloredButton(
                 context,
                 "Another",
-                flavourIndex == 4 ?  myRed: myGrey.withOpacity(.8),
+                flavourIndex == 4 ?  myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {

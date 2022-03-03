@@ -17,22 +17,10 @@ class _CakePreviewState extends State<CakePreview> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, 1),
-          padding: EdgeInsets.symmetric(
-            horizontal: dynamicWidth(context, 0.04),
-            vertical: dynamicHeight(context, 0.01),
-          ),
-          //color: myRed.withOpacity(0.6),
-          decoration: const BoxDecoration(
-            color: myLightPink1,
-            // image: DecorationImage(
-            //   fit: BoxFit.cover,
-            //   image: NetworkImage(
-            //     'https://previews.123rf.com/images/rraya/rraya2006/rraya200601460/149906476-t%C5%82o-produkt%C3%B3w-piekarniczych-ciasteczka-ciastka-p%C4%85czki-szkic-ilustracji-wektorowych-.jpg',
-            //   ),
-            // ),
+        body: Padding(
+           padding: EdgeInsets.symmetric(
+            horizontal: dynamicWidth(context, .04),
+            vertical: dynamicHeight(context, .01),
           ),
           child: Column(
             children: [

@@ -23,15 +23,10 @@ class _SpecialWishesScreenState extends State<SpecialWishesScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, 1),
-          padding: EdgeInsets.symmetric(
+        body: Padding(
+           padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
-          ),
-          decoration: BoxDecoration(
-            color: myGrey.withOpacity(0.2),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

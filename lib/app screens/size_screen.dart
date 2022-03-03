@@ -23,22 +23,10 @@ class _SizeScreenState extends State<SizeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, 1),
-          padding: EdgeInsets.symmetric(
+        body: Padding(
+           padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
-          ),
-          decoration: BoxDecoration(
-            color: myGrey.withOpacity(0.2),
-            // image: const DecorationImage(
-            //   opacity: 0.4,
-            //   fit: BoxFit.cover,
-            //   image: NetworkImage(
-            //     "https://cdn.wallpapersafari.com/25/39/1TZAwj.jpg",
-            //   ),
-            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

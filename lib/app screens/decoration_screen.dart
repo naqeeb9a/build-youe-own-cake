@@ -23,22 +23,10 @@ class _DecorationScreenState extends State<DecorationScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, 1),
-          padding: EdgeInsets.symmetric(
+        body: Padding(
+           padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
-          ),
-          decoration: const BoxDecoration(
-            color: myLightPink1,
-            // image: DecorationImage(
-            //   opacity: 0.4,
-            //   fit: BoxFit.cover,
-            //   image: NetworkImage(
-            //     "https://i.pinimg.com/originals/20/a9/b1/20a9b1a50644a3c140205a163e696147.jpg",
-            //   ),
-            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,7 +56,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
               coloredButton(
                 context,
                 "Chocolate Bar",
-                decorationIndex == 1 ? myBrown : myGrey,
+                decorationIndex == 1 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -83,7 +71,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
               coloredButton(
                 context,
                 "Pineapple",
-                decorationIndex == 2 ? myBrown : myGrey,
+                decorationIndex == 2 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -98,7 +86,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
               coloredButton(
                 context,
                 "Cream Icing",
-                decorationIndex == 3 ? myBrown : myGrey,
+                decorationIndex == 3 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -113,7 +101,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
               coloredButton(
                 context,
                 "Bounty",
-                decorationIndex == 4 ? myBrown : myGrey,
+                decorationIndex == 4 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {

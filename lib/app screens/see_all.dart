@@ -83,7 +83,7 @@ Widget card(context, image, name, price, description, index) {
             BoxShadow(
               color: myGrey,
               blurRadius: 4,
-              offset: Offset(0, 1), // Shadow position
+              offset: Offset(0, 1),
             ),
           ],
         ),
@@ -111,9 +111,8 @@ Widget card(context, image, name, price, description, index) {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //widthBox(context,0.02),
+               
                 text(context, name, 0.03, myWhite, bold: true),
-                //text(context, "Rs500", 0.03, myOrange),
               ],
             ),
             heightBox(context, 0.01),

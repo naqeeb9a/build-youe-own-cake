@@ -22,22 +22,10 @@ class _ColorScreenState extends State<ColorScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, 1),
+        body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
-          ),
-          decoration: BoxDecoration(
-            color: myGrey.withOpacity(0.2),
-            // image: const DecorationImage(
-            //   opacity: 0.4,
-            //   fit: BoxFit.cover,
-            //   image: NetworkImage(
-            //     "https://i.pinimg.com/originals/0a/8b/06/0a8b06f665bfbcd575b2802251888fc5.jpg",
-            //   ),
-            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +55,7 @@ class _ColorScreenState extends State<ColorScreen> {
               coloredButton(
                 context,
                 "Black",
-                colorIndex == 1 ? myGrey : myBlack,
+                colorIndex == 1 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -82,7 +70,7 @@ class _ColorScreenState extends State<ColorScreen> {
               coloredButton(
                 context,
                 "Chocolate",
-                colorIndex == 2 ? myGrey : myBrown,
+                colorIndex == 2 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -97,7 +85,7 @@ class _ColorScreenState extends State<ColorScreen> {
               coloredButton(
                 context,
                 "Pink",
-                colorIndex == 3 ? myGrey : myPink,
+                colorIndex == 3 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
@@ -112,7 +100,7 @@ class _ColorScreenState extends State<ColorScreen> {
               coloredButton(
                 context,
                 "Light Pink",
-                colorIndex == 4 ? myGrey : myLightPink1,
+                colorIndex == 4 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
