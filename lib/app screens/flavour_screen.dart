@@ -1,4 +1,5 @@
 import 'package:build_own_cake/app%20screens/color_screen.dart';
+import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class FlavourScreen extends StatefulWidget {
+  
   const FlavourScreen({Key? key}) : super(key: key);
 
   @override
@@ -114,7 +116,31 @@ class _FlavourScreenState extends State<FlavourScreen> {
                   });
                 },
               ),
-              heightBox(context, 0.14),
+             SizedBox(
+                width: dynamicWidth(context, .9),
+                height: dynamicHeight(context, .15),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: sizeIndex == 4
+                      ? Image.asset(
+                          "assets/9.png",
+                          width: dynamicWidth(context, 0.5),
+                          color : myVanilla
+                        )
+                      : sizeIndex == 3
+                          ? Image.asset("assets/9.png",
+                              width: dynamicWidth(context, 0.45))
+                          : sizeIndex == 2
+                              ? Image.asset("assets/9.png",
+                                  width: dynamicWidth(context, 0.4))
+                              : sizeIndex == 1
+                                  ? Image.asset("assets/9.png",
+                                      width: dynamicWidth(context, 0.35))
+                                  : sizeIndex == 0
+                                      ? SizedBox()
+                                      : SizedBox(),
+                ),
+              ),
               downBar(
                 context,
                 nextPage: flavourIndex == 0

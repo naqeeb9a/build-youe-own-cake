@@ -15,9 +15,9 @@ class SizeScreen extends StatefulWidget {
   @override
   _SizeScreenState createState() => _SizeScreenState();
 }
-
+int sizeIndex = 0;
 class _SizeScreenState extends State<SizeScreen> {
-  dynamic sizeIndex = 0;
+  // int sizeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _SizeScreenState extends State<SizeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               appBar(context),
-              heightBox(context, 0.06),
+              heightBox(context, 0.04),
               Align(
                 alignment: Alignment.centerLeft,
                 child: text(
@@ -113,7 +113,24 @@ class _SizeScreenState extends State<SizeScreen> {
                   });
                 },
               ),
-              heightBox(context, 0.1),
+             SizedBox(
+               width: dynamicWidth(context, .9),
+               height: dynamicHeight(context, .15),
+               child: Align(
+                alignment: Alignment.bottomCenter,
+                child: sizeIndex ==4 ? Image.asset(
+                    "assets/9.png",
+                    width: dynamicWidth(context, 0.5),
+                  ): sizeIndex ==3 ? Image.asset(
+                    "assets/9.png",
+                    width: dynamicWidth(context, 0.45)): sizeIndex == 2? Image.asset(
+                    "assets/9.png",
+                    width: dynamicWidth(context, 0.4)): sizeIndex == 1? Image.asset(
+                    "assets/9.png",
+                    width: dynamicWidth(context, 0.35)): sizeIndex == 0 ?SizedBox(): SizedBox(),
+                  
+               ),
+             ),
               downBar(
                 context,
                 nextPage: sizeIndex == 0

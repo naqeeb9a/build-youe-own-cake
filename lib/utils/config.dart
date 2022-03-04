@@ -9,5 +9,6 @@ const myLightPink1 = Color(0xffebaec6);
 const myBrown = Color(0xff891a3d);
 const myRed = Color(0xff9c0434);
 const noColor = Colors.transparent;
+ const myVanilla =Color(0xffF3E5AB);
 
 bool obscureText = true;

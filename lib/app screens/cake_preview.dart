@@ -18,7 +18,7 @@ class _CakePreviewState extends State<CakePreview> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-           padding: EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
           ),
@@ -52,8 +52,76 @@ class _CakePreviewState extends State<CakePreview> {
                     SizedBox(
                       width: dynamicWidth(context, .9),
                       height: dynamicHeight(context, .5),
-                      child: Image.network(
-                        "https://www.pngmart.com/files/16/Fresh-Chocolate-Cake-Transparent-Background.png",
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Image.asset(
+                            "assets/9.png",
+                            //width: dynamicWidth(context, 0.6),
+                            width: 220,
+                            // color: myWhite,
+                          ),
+                          Positioned(
+                            //  bottom: dynamicHeight(context, 0.025),
+                            bottom: 20,
+                            child: Image.asset(
+                              "assets/8.png",
+                              //width: dynamicWidth(context, 0.65),
+                              width: 240,
+                            ),
+                          ),
+                          //
+                          Positioned(
+                            // bottom: dynamicHeight(context, 0.09),
+                            bottom: 75,
+                            child: Image.asset(
+                              "assets/6.png",
+                              // width: dynamicWidth(context, 0.58),
+                              width: 200,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 65,
+                            child: Image.asset(
+                              "assets/7.png",
+                              width: 235,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 90,
+                            child: Image.asset(
+                              "assets/5.png",
+                              width: 200,
+                            ),
+                          ),
+
+                          Positioned(
+                            bottom: 140,
+                            child: Image.asset(
+                              "assets/3.png",
+                              width: 170,
+                            ),
+                          ),
+                               Positioned(
+                            bottom: 125,
+                            child: Image.asset(
+                              "assets/4.png",
+                              width: 190,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 152,
+                            child: Image.asset("assets/2.png",
+                              width: 170,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 200,
+                            child: Image.asset("assets/1.png",
+                              width: 50,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     downBar(context, optionalNextButton: true)
