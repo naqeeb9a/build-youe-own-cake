@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         // textTheme: GoogleFonts.nunitoTextTheme(
         //   Theme.of(context).textTheme,
         // ),
-        textTheme: GoogleFonts.corbenTextTheme(
+        textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme,
         ),
         colorScheme: const ColorScheme.light(),

@@ -215,7 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         text(context, "Total:", 0.04, myBlack),
                         Obx(()=>text(
                               context, sum.toString(), 0.035, myBlack)),
-                              //  text(context, sum.toString(), 0.035, myBlack)
+                           
                         
                       ],
                     ),
@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: myBlack,
+          backgroundColor: myLightPink,
           onPressed: () => _scaffoldKey.currentState!.openEndDrawer(),
           child: Badge(
              badgeContent: Obx(()=> text(context, cart.length.toString(), 0.025, myBlack,bold:true)),
@@ -262,25 +262,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: appBar(context),
               ),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(
-              //     horizontal: dynamicWidth(context, .04),
-              //   ),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.end,
-              //     children: [
-              //       InkWell(
-              //         onTap: () => push(context, const SeeAll()),
-              //         child: text(
-              //           context,
-              //           "See All",
-              //           0.035,
-              //           myBlack,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
               heightBox(context, 0.01),
               SizedBox(
                 height: dynamicHeight(context, 0.55),
@@ -308,53 +289,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-            //   heightBox(context, 0.05),
-            //   coloredButton(
-            //     context,
-            //     "Build Your Cake",
-            //     myBlack,
-            //     width: dynamicWidth(context, 0.5),
-            //     function: () {
-            //       push(
-            //         context,
-            //         const SizeScreen(),
-            //       );
-            //     },
-            //   ),
-            //   heightBox(context, 0.01),
-            //   text(context, "OR", 0.04, myGrey),
-            //   heightBox(context, 0.01),
-            //   InkWell(
-            //     onTap: ()=>getFromGallery(),
-            //     child: Container(
-            //       width: dynamicWidth(context, 0.4),
-            //       height: dynamicWidth(context, .2),
-            //       decoration: BoxDecoration(
-            //         color: myBlack,
-            //         borderRadius: BorderRadius.circular(
-            //           dynamicWidth(
-            //             context,
-            //             0.03,
-            //           ),
-            //         ),
-            //       ),
-            //       child: Column(
-            //         mainAxisAlignment: MainAxisAlignment.center,
-            //         children: [
-            //           Icon(Icons.camera_alt,
-            //               size: dynamicHeight(context, 0.04), color: myWhite),
-            //           Text(
-            //             "Upload Image",
-            //             style: TextStyle(
-            //               color: myWhite,
-            //               fontWeight: FontWeight.bold,
-            //               fontSize: dynamicWidth(context, 0.04),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //    ),
-            //  ),
             SizedBox(
               height: dynamicHeight(context, 1.12),
               child: GridView.builder(
@@ -377,19 +311,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
             ),
-                coloredButton(
-                  context,
-                  "Build Your Cake",
-                  myBlack,
-                  width: dynamicWidth(context, 0.5),
-                  function: () {
-                    push(
-                      context,
-                      const SizeScreen(),
-                    );
-                  },
-                ),
-                  heightBox(context, 0.01),
+               
             ],
           ),
         ),

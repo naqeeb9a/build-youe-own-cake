@@ -18,6 +18,7 @@ Widget cakeShow(context, image, name, price, description, index) {
       width: dynamicWidth(context, 0.7),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1)),
+        border: Border.all(color: myLightPink,width: dynamicWidth(context, 0.02)),
         image: DecorationImage(
           image: AssetImage(
             image,
