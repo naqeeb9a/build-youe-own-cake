@@ -10,5 +10,6 @@ const myBrown = Color(0xff891a3d);
 const myRed = Color(0xff9c0434);
 const noColor = Colors.transparent;
  const myVanilla =Color(0xffF3E5AB);
+  const myChocolate =Color(0xff7B3F00);
 
 bool obscureText = true;

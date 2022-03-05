@@ -1,4 +1,4 @@
-import 'package:build_own_cake/app%20screens/tier_screen.dart';
+import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -11,15 +11,17 @@ import 'package:motion_toast/motion_toast.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/flavour_screen.dart';
 import 'package:build_own_cake/app%20screens/color_screen.dart';
+import 'package:build_own_cake/app%20screens/decoration_screen.dart';
 
-class DecorationScreen extends StatefulWidget {
-  const DecorationScreen({Key? key}) : super(key: key);
+
+class TierScreen extends StatefulWidget {
+  const TierScreen({Key? key}) : super(key: key);
 
   @override
-  _DecorationScreenState createState() => _DecorationScreenState();
+  _TierScreenState createState() => _TierScreenState();
 }
-int decorationIndex = 0;
-class _DecorationScreenState extends State<DecorationScreen> {
+int tierIndex = 0;
+class _TierScreenState extends State<TierScreen> {
   @override
   
 
@@ -35,12 +37,12 @@ class _DecorationScreenState extends State<DecorationScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               appBar(context),
-              heightBox(context, .1),
+             
               Align(
                 alignment: Alignment.centerLeft,
                 child: text(
                   context,
-                  "Choose Decoration.",
+                  "Choose tier.",
                   .09,
                   myBlack,
                   bold: true,
@@ -50,75 +52,75 @@ class _DecorationScreenState extends State<DecorationScreen> {
                 alignment: Alignment.centerLeft,
                 child: text(
                   context,
-                  "Select decoration of cake then proceed.",
+                  "Select tier of cake then proceed.",
                   .044,
                   myGrey.withOpacity(0.7),
                 ),
               ),
-              heightBox(context, 0.04),
+             
               coloredButton(
                 context,
-                "Chocolate Bar",
-                decorationIndex == 1 ? myPink : myLightPink,
+                "2 tier",
+                tierIndex == 1 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
-                    if (decorationIndex == 1) {
-                      decorationIndex = 0;
-                    } else if (decorationIndex != 1) {
-                      decorationIndex = 1;
+                    if (tierIndex == 1) {
+                      tierIndex = 0;
+                    } else if (tierIndex != 1) {
+                      tierIndex = 1;
                     }
                   });
                 },
               ),
               coloredButton(
                 context,
-                "Pineapple",
-                decorationIndex == 2 ? myPink : myLightPink,
+                "3 tier",
+                tierIndex == 2 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
-                    if (decorationIndex == 2) {
-                      decorationIndex = 0;
-                    } else if (decorationIndex != 2) {
-                      decorationIndex = 2;
+                    if (tierIndex == 2) {
+                      tierIndex = 0;
+                    } else if (tierIndex != 2) {
+                      tierIndex = 2;
                     }
                   });
                 },
               ),
               coloredButton(
                 context,
-                "Cream Icing",
-                decorationIndex == 3 ? myPink : myLightPink,
+                "4 tier",
+                tierIndex == 3 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
-                    if (decorationIndex == 3) {
-                      decorationIndex = 0;
-                    } else if (decorationIndex != 3) {
-                      decorationIndex = 3;
+                    if (tierIndex == 3) {
+                      tierIndex = 0;
+                    } else if (tierIndex != 3) {
+                      tierIndex = 3;
                     }
                   });
                 },
               ),
               coloredButton(
                 context,
-                "Bounty",
-                decorationIndex == 4 ? myPink : myLightPink,
+                "5 tier",
+                tierIndex == 4 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
-                    if (decorationIndex == 4) {
-                      decorationIndex = 0;
-                    } else if (decorationIndex != 4) {
-                      decorationIndex = 4;
+                    if (tierIndex == 4) {
+                      tierIndex = 0;
+                    } else if (tierIndex != 4) {
+                      tierIndex = 4;
                     }
                   });
                 },
               ),
                SizedBox(
                 width: dynamicWidth(context, .9),
-                height: dynamicHeight(context, .15),
+                height: dynamicHeight(context, .3),
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
@@ -155,31 +157,74 @@ class _DecorationScreenState extends State<DecorationScreen> {
                                 width: dynamicWidth(context, 0.52)),
                           )
                         : SizedBox(),
-                      decorationIndex == 3
+                        
+                    tierIndex == 2
+                        ? Positioned(
+                            bottom: dynamicHeight(context, 0.08),
+                            child: Image.asset("assets/6.png",
+                                width: dynamicWidth(context, 0.48)),
+                          )
+                        : SizedBox(), 
+                        decorationIndex == 3
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.07),
                             child: Image.asset("assets/7.png",
                                 width: dynamicWidth(context, 0.52)),
                           )
-                        : SizedBox(),   
+                        : SizedBox(),  
+                    tierIndex == 2
+                        ? Positioned(
+                            bottom: dynamicHeight(context, 0.09),
+                            child: Image.asset("assets/8.png",
+                                width: dynamicWidth(context, 0.48)),
+                          )
+                        : SizedBox(),
+                      tierIndex == 2
+                        ? Positioned(
+                            bottom: dynamicHeight(context, 0.14),
+                            child: Image.asset("assets/6.png",
+                                width: dynamicWidth(context, 0.42)),
+                          )
+                        : SizedBox(), 
+                       tierIndex == 2
+                        ? Positioned(
+                            bottom: dynamicHeight(context, 0.135),
+                            child: Image.asset("assets/7.png",
+                                width: dynamicWidth(context, 0.48)),
+                          )
+                        : SizedBox(), 
+                       tierIndex== 2
+                        ? Positioned(
+                            bottom: dynamicHeight(context, 0.15),
+                            child: Image.asset("assets/8.png",
+                                width: dynamicWidth(context, 0.42)),
+                          )
+                        : SizedBox(), 
+                      tierIndex == 2
+                        ? Positioned(
+                            bottom: dynamicHeight(context, 0.2),
+                            child: Image.asset("assets/1.png",
+                                width: dynamicWidth(context, 0.15)),
+                          )
+                        : SizedBox(), 
                   ],
                 ),
-              ),
+                           ),
               downBar(
                 context,
-                nextPage: decorationIndex == 0
+                nextPage: tierIndex == 0
                     ? () {
                   MotionToast.warning(
                     title: Text("Warning"),
 
-                    description: Text("Select decoration to proceed!!"),
+                    description: Text("Select tier to proceed!!"),
                     animationCurve: Curves.ease,
                     borderRadius: 0,
                     animationDuration: const Duration(milliseconds: 400),
                   ).show(context);
                 }
                     : () {
-                  push(context, const TierScreen());
+                  push(context, const SpecialWishesScreen());
                 },
               ),
             ],

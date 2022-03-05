@@ -31,24 +31,24 @@ Widget cakeShow(context, image, name, price, description, index) {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(
-            width: dynamicWidth(context, 0.7),
-            height: dynamicHeight(context, 0.08),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(dynamicWidth(context, 0.2)),
-              boxShadow: [
-                BoxShadow(
-                  color: myWhite.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 8,
-                  offset: const Offset(0, 3), // changes position of shadow
-                ),
-              ],
-              color: myBlack.withOpacity(0.8),
-            ),
-            child:
-                Center(child: text(context, name, 0.04, myWhite, bold: true)),
-          ),
+          // Container(
+          //   width: dynamicWidth(context, 0.7),
+          //   height: dynamicHeight(context, 0.08),
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(dynamicWidth(context, 0.2)),
+          //     boxShadow: [
+          //       BoxShadow(
+          //         color: myWhite.withOpacity(0.2),
+          //         spreadRadius: 2,
+          //         blurRadius: 8,
+          //         offset: const Offset(0, 3), // changes position of shadow
+          //       ),
+          //     ],
+          //     color: myBlack.withOpacity(0.8),
+          //   ),
+          //   child:
+          //       Center(child: text(context, name, 0.04, myWhite, bold: true)),
+          // ),
         ],
       ),
     ),

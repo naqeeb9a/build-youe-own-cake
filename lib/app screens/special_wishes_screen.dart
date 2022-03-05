@@ -54,7 +54,7 @@ class _SpecialWishesScreenState extends State<SpecialWishesScreen> {
               ),
               inputTextField(context, "Wishes", specialWishes),
               heightBox(context, 0.02),
-              coloredButton(context, "Submit", myBlack,
+              coloredButton(context, "Submit", myWhite,
                   width: dynamicWidth(context, 0.4), function: () {
                 push(
                   context,

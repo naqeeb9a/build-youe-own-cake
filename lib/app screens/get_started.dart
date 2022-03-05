@@ -68,9 +68,10 @@ class _GetStartedState extends State<GetStarted> {
                                 "Build Your Cake",
                                 myWhite,
                                 width: dynamicWidth(context, 0.5),
-                                function: () {
-                                  push(context, const HomeScreen());
+                                 function: () {
+                                  push(context, const SizeScreen());
                                 },
+                                
                               ),
                             ),
                            heightBox(context, 0.02),
@@ -81,8 +82,8 @@ class _GetStartedState extends State<GetStarted> {
                                 "Order Your Cake",
                                 myWhite,
                                 width: dynamicWidth(context, 0.5),
-                                function: () {
-                                  push(context, const SizeScreen());
+                               function: () {
+                                  push(context, const HomeScreen());
                                 },
                               ),
                             ),

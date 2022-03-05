@@ -17,9 +17,9 @@ class FlavourScreen extends StatefulWidget {
   @override
   _FlavourScreenState createState() => _FlavourScreenState();
 }
-
+int flavourIndex = 0;
 class _FlavourScreenState extends State<FlavourScreen> {
-  dynamic flavourIndex = 0;
+  //dynamic flavourIndex = 0;
 
   @override
 
@@ -103,7 +103,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
               ),
               coloredButton(
                 context,
-                "Another",
+                "Pink",
                 flavourIndex == 4 ?  myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
@@ -119,26 +119,36 @@ class _FlavourScreenState extends State<FlavourScreen> {
              SizedBox(
                 width: dynamicWidth(context, .9),
                 height: dynamicHeight(context, .15),
-                child: Align(
+                child: Stack(
                   alignment: Alignment.bottomCenter,
-                  child: sizeIndex == 4
-                      ? Image.asset(
-                          "assets/9.png",
-                          width: dynamicWidth(context, 0.5),
-                          color : myVanilla
-                        )
-                      : sizeIndex == 3
-                          ? Image.asset("assets/9.png",
-                              width: dynamicWidth(context, 0.45))
-                          : sizeIndex == 2
-                              ? Image.asset("assets/9.png",
-                                  width: dynamicWidth(context, 0.4))
-                              : sizeIndex == 1
-                                  ? Image.asset("assets/9.png",
-                                      width: dynamicWidth(context, 0.35))
-                                  : sizeIndex == 0
-                                      ? SizedBox()
-                                      : SizedBox(),
+                  children: [
+                    sizeIndex == 4
+                        ? Image.asset(
+                            "assets/9.png",
+                            width: dynamicWidth(context, 0.5),
+                            // color : flavourIndex ==1 ? myVanilla : flavourIndex == 2 ?myChocolate : flavourIndex == 3 ?myRed: flavourIndex ==4 ?myLightPink : myPink,
+                          )
+                        : sizeIndex == 3
+                            ? Image.asset("assets/9.png",
+                                width: dynamicWidth(context, 0.45))
+                            : sizeIndex == 2
+                                ? Image.asset("assets/9.png",
+                                    width: dynamicWidth(context, 0.4))
+                                : sizeIndex == 1
+                                    ? Image.asset("assets/9.png",
+                                        width: dynamicWidth(context, 0.35))
+                                    : sizeIndex == 0
+                                        ? SizedBox()
+                                        : SizedBox(),
+                     flavourIndex == 2
+                        ? Positioned(
+                            bottom: dynamicHeight(context, 0.025),
+                            child: Image.asset("assets/8.png",
+                                width: dynamicWidth(context, 0.52)),
+                          )
+                        : SizedBox(),
+                 
+                  ],
                 ),
               ),
               downBar(
