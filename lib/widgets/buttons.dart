@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 
 import '../utils/config.dart';
 
-Widget coloredButton(context, text, color,
-    {function = "", width = "", fontSize = 0.04, }) {
+Widget coloredButton(
+  context,
+  text,
+  color, {
+  function = "",
+  width = "",
+  fontSize = 0.04,
+  font = false,
+}) {
   return GestureDetector(
     onTap: function == "" ? () {} : function,
     child: Container(
@@ -23,7 +30,6 @@ Widget coloredButton(context, text, color,
                   context,
                   0.03,
                 ),
-                 
               ),
               boxShadow: const [
                 BoxShadow(
@@ -36,11 +42,18 @@ Widget coloredButton(context, text, color,
       child: Center(
         child: Text(
           text,
-          style: TextStyle(
-            color:   myBlack,
-            fontWeight: FontWeight.bold,
-            fontSize: dynamicWidth(context, fontSize),
-          ),
+          style: font == false
+              ? TextStyle(
+                  color: myBlack,
+                  fontSize: dynamicWidth(context, fontSize),
+                  fontWeight: FontWeight.bold,
+                )
+              : TextStyle(
+                  color: myBlack,
+                  fontFamily: "Champagne",
+                  fontSize: dynamicWidth(context, fontSize),
+                  fontWeight: FontWeight.bold,
+                ),
         ),
       ),
     ),
