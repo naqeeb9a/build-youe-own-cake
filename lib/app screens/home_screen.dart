@@ -237,100 +237,128 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: dynamicWidth(context, 0.08))
           ),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: dynamicWidth(context, .04),
-                vertical: dynamicHeight(context, .01),
-              ),
-              child: appBar(context),
-            ),
-             Padding(
+        body: SizedBox(
+          width :dynamicWidth(context,1),
+          height : dynamicHeight(context,1),
+          child: Stack(
+            
+            children: [
+              Padding(
                 padding: EdgeInsets.symmetric(
-                horizontal: dynamicWidth(context, .04),
-                // vertical: dynamicHeight(context, .01),
+                  horizontal: dynamicWidth(context, .04),
+                  vertical: dynamicHeight(context, .01),
+                ),
+                child: appBar(context),
               ),
-               child: InkWell(
-                 onTap :() => push(context, const SeeAll()),
-                 child: Row(
-                   mainAxisAlignment :MainAxisAlignment.end,
-                   children: [
-                     text(context, "See all", 0.03, myBlack, bold: true),
-                   ],
-                 ),
+              //  Padding(
+              //     padding: EdgeInsets.symmetric(
+              //     horizontal: dynamicWidth(context, .04),
+              //     // vertical: dynamicHeight(context, .01),
+              //   ),
+              //    child: InkWell(
+              //      onTap :() => push(context, const SeeAll()),
+              //      child: Row(
+              //        mainAxisAlignment :MainAxisAlignment.end,
+              //        children: [
+              //          text(context, "See all", 0.03, myBlack, bold: true),
+              //        ],
+              //      ),
+              //    ),
+              //  ),
+               Positioned(
+                 bottom : dynamicHeight(context, 0),
+                 child: Container(
+                  width: dynamicWidth(context, 1),
+                  height: dynamicHeight(context, 0.15),
+                  decoration: BoxDecoration(
+                    color: myGrey.withOpacity(0.2),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(dynamicWidth(context, 0.18)),
+                      topRight: Radius.circular(
+                        dynamicWidth(context, 0.18),
+                      ),
+                    ),
+                  ),
+                  // child: Column(
+                  //   crossAxisAlignment: CrossAxisAlignment.center,
+                  //   mainAxisAlignment :MainAxisAlignment.center,
+                  //   children: [
+                  //     text(context, "Lilac Love", 0.06, myBlack,bold :true,font :true),
+                  //     text(context, "a sweet, baked, breadlike food, made with or without shortening...", 0.03, myBlack)
+                  //   ],
+                  // ),
+                           ),
                ),
-             ),
-            heightBox(context, 0.04),
-           
-            SizedBox(
-              height: dynamicHeight(context, 0.6),
-              child: CarouselSlider(
-                items: [
-                  cakeShow(context, "assets/4K8A7063.JPG", cake[0]['name'],
-                      "1200", cake[0]['description'], 0),
-                  cakeShow(context, cake[2]['images'][0], cake[2]["name"],
-                      "1800", cake[2]['description'], 2),
-                  cakeShow(context, cake[4]['images'][0], cake[4]['name'],
-                      "1500", cake[4]['description'], 4),
-                  cakeShow(context, cake[5]['images'][0], cake[5]['name'],
-                      "1400", cake[5]['description'], 5),
-                ],
-                options: CarouselOptions(
-                  autoPlay: true,
-                  height: dynamicHeight(context, 0.55),
-                  enlargeCenterPage: true,
-                  enableInfiniteScroll: true,
-                  aspectRatio: 16 / 9,
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  autoPlayAnimationDuration:
-                      const Duration(milliseconds: 800),
-                  viewportFraction: .7,
+              // heightBox(context, 0.04),
+             
+              Padding(
+                padding:  EdgeInsets.only(top : dynamicHeight(context, 0.18)),
+                child: CarouselSlider(
+                  items: [
+                    cakeShow(context, "assets/4K8A7063.JPG", cake[0]['name'],
+                        "1200", cake[0]['description'], 0),
+                    cakeShow(context, cake[2]['images'][0], cake[2]["name"],
+                        "1800", cake[2]['description'], 2),
+                    cakeShow(context, cake[4]['images'][0], cake[4]['name'],
+                        "1500", cake[4]['description'], 4),
+                    cakeShow(context, cake[5]['images'][0], cake[5]['name'],
+                        "1400", cake[5]['description'], 5),
+                  ],
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    height: dynamicHeight(context, 0.7),
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    aspectRatio: 16 / 9,
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    autoPlayAnimationDuration:
+                        const Duration(milliseconds: 800),
+                    viewportFraction: .7,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: dynamicHeight(context, 0.15),
-              child: Swiper(
-                itemBuilder: (BuildContext context, int index) {
-                  return homeSwiper(context, cake[index]['name']);
-                },
-                itemCount: 4,
-                autoplay: true,
-                autoplayDelay :4200,
-                // duration:  Duration(milliseconds: 800),
-                // // pagination: const SwiperPagination(
-                //   alignment: Alignment.centerRight,
-                //   builder: DotSwiperPaginationBuilder(activeColor: myBlack),
-                // ),
-              ),
-            ),
-            // heightBox(context, 0.1),
-            // 
-            // SizedBox(
-            //   height: dynamicHeight(context, 1.12),
-            //   child: GridView.builder(
-            //        physics: const NeverScrollableScrollPhysics(),
-            //       primary: true,
-            //       shrinkWrap: true,
-            //       itemCount: cake.length,
-            //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            //         crossAxisCount: 2,
-            //         childAspectRatio: (170.0 / 200.0),
-            //       ),
-            //       itemBuilder: (BuildContext context, int index) {
-            //         return card(
-            //             context,
-            //             cake[index]['images'][0],
-            //             cake[index]['name'],
-            //             "1500/-",
-            //             cake[index]['description'],
-            //             index);
-            //       },
-            //     ),
-            // ),
-          ],
+              // SizedBox(
+              //   height: dynamicHeight(context, 0.15),
+              //   child: Swiper(
+              //     itemBuilder: (BuildContext context, int index) {
+              //       return homeSwiper(context, cake[index]['name']);
+              //     },
+              //     itemCount: 4,
+              //     autoplay: true,
+              //     autoplayDelay :4200,
+              //     // duration:  Duration(milliseconds: 800),
+              //     // // pagination: const SwiperPagination(
+              //     //   alignment: Alignment.centerRight,
+              //     //   builder: DotSwiperPaginationBuilder(activeColor: myBlack),
+              //     // ),
+              //   ),
+              // ),
+              // heightBox(context, 0.1),
+              // 
+              // SizedBox(
+              //   height: dynamicHeight(context, 1.12),
+              //   child: GridView.builder(
+              //        physics: const NeverScrollableScrollPhysics(),
+              //       primary: true,
+              //       shrinkWrap: true,
+              //       itemCount: cake.length,
+              //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              //         crossAxisCount: 2,
+              //         childAspectRatio: (170.0 / 200.0),
+              //       ),
+              //       itemBuilder: (BuildContext context, int index) {
+              //         return card(
+              //             context,
+              //             cake[index]['images'][0],
+              //             cake[index]['name'],
+              //             "1500/-",
+              //             cake[index]['description'],
+              //             index);
+              //       },
+              //     ),
+              // ),
+            ],
+          ),
         ),
       ),
     );
