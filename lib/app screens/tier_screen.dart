@@ -148,15 +148,15 @@ class _TierScreenState extends State<TierScreen> {
                                     ? Image.asset("assets/9.png",
                                         width: dynamicWidth(context, 0.35))
                                     : sizeIndex == 0
-                                        ? SizedBox()
-                                        : SizedBox(),
+                                        ? const SizedBox()
+                                        : const SizedBox(),
                     flavourIndex == 2
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.025),
                             child: Image.asset("assets/8.png",
                                 width: dynamicWidth(context, 0.52)),
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                         
                     tierIndex == 2
                         ? Positioned(
@@ -164,49 +164,49 @@ class _TierScreenState extends State<TierScreen> {
                             child: Image.asset("assets/6.png",
                                 width: dynamicWidth(context, 0.48)),
                           )
-                        : SizedBox(), 
+                        : const SizedBox(), 
                         decorationIndex == 3
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.07),
                             child: Image.asset("assets/7.png",
                                 width: dynamicWidth(context, 0.52)),
                           )
-                        : SizedBox(),  
+                        : const SizedBox(),  
                     tierIndex == 2
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.09),
                             child: Image.asset("assets/8.png",
                                 width: dynamicWidth(context, 0.48)),
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                       tierIndex == 2
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.14),
                             child: Image.asset("assets/6.png",
                                 width: dynamicWidth(context, 0.42)),
                           )
-                        : SizedBox(), 
+                        : const SizedBox(), 
                        tierIndex == 2
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.135),
                             child: Image.asset("assets/7.png",
                                 width: dynamicWidth(context, 0.48)),
                           )
-                        : SizedBox(), 
+                        : const SizedBox(), 
                        tierIndex== 2
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.15),
                             child: Image.asset("assets/8.png",
                                 width: dynamicWidth(context, 0.42)),
                           )
-                        : SizedBox(), 
+                        : const SizedBox(), 
                       tierIndex == 2
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.2),
                             child: Image.asset("assets/1.png",
                                 width: dynamicWidth(context, 0.15)),
                           )
-                        : SizedBox(), 
+                        : const SizedBox(), 
                   ],
                 ),
                            ),
@@ -215,9 +215,9 @@ class _TierScreenState extends State<TierScreen> {
                 nextPage: tierIndex == 0
                     ? () {
                   MotionToast.warning(
-                    title: Text("Warning"),
+                    title: const Text("Warning"),
 
-                    description: Text("Select tier to proceed!!"),
+                    description: const Text("Select tier to proceed!!"),
                     animationCurve: Curves.ease,
                     borderRadius: 0,
                     animationDuration: const Duration(milliseconds: 400),

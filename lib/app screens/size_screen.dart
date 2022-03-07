@@ -7,6 +7,7 @@ import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class SizeScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _SizeScreenState extends State<SizeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    timeDilation = 5.0;
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -127,7 +129,7 @@ class _SizeScreenState extends State<SizeScreen> {
                     "assets/9.png",
                     width: dynamicWidth(context, 0.4)): sizeIndex == 1? Image.asset(
                     "assets/9.png",
-                    width: dynamicWidth(context, 0.35)): sizeIndex == 0 ?SizedBox(): SizedBox(),
+                    width: dynamicWidth(context, 0.35)): sizeIndex == 0 ?const SizedBox(): const SizedBox(),
                   
                ),
              ),
@@ -136,9 +138,9 @@ class _SizeScreenState extends State<SizeScreen> {
                 nextPage: sizeIndex == 0
                     ? () {
                         MotionToast.warning(
-                          title: Text("Warning"),
+                          title: const Text("Warning"),
                         
-                          description: Text("Select size to proceed!!"),
+                          description: const Text("Select size to proceed!!"),
                           animationCurve: Curves.ease,
                           borderRadius: 0,
                           animationDuration: const Duration(milliseconds: 400),

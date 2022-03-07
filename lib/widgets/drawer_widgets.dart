@@ -1,15 +1,13 @@
-import 'package:build_own_cake/app%20screens/cake_view.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ItemCard extends StatefulWidget {
   final dynamic image;
   final String name, size, price;
-  dynamic quantity;
-  ItemCard(
+  final dynamic quantity;
+  const ItemCard(
       {required this.image,
       required this.name,
       required this.size,

@@ -138,15 +138,15 @@ class _FlavourScreenState extends State<FlavourScreen> {
                                     ? Image.asset("assets/9.png",
                                         width: dynamicWidth(context, 0.35))
                                     : sizeIndex == 0
-                                        ? SizedBox()
-                                        : SizedBox(),
+                                        ? const SizedBox()
+                                        : const SizedBox(),
                      flavourIndex == 2
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.025),
                             child: Image.asset("assets/8.png",
                                 width: dynamicWidth(context, 0.52)),
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                  
                   ],
                 ),
@@ -156,9 +156,9 @@ class _FlavourScreenState extends State<FlavourScreen> {
                 nextPage: flavourIndex == 0
                     ? () {
                   MotionToast.warning(
-                    title: Text("Warning"),
+                    title: const Text("Warning"),
 
-                    description: Text("Select flavour to proceed!!"),
+                    description: const Text("Select flavour to proceed!!"),
                     animationCurve: Curves.ease,
                     borderRadius: 0,
                     animationDuration: const Duration(milliseconds: 400),

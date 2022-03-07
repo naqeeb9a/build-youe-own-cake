@@ -1,7 +1,4 @@
 import 'package:build_own_cake/app%20screens/cake_view.dart';
-import 'package:build_own_cake/app%20screens/see_all.dart';
-import 'package:build_own_cake/app%20screens/size_screen.dart';
-import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -16,7 +13,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:motion_toast/motion_toast.dart';
 import 'package:badges/badges.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:card_swiper/card_swiper.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -194,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  Divider(),
+                  const Divider(),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: dynamicWidth(context, 0.03)),

@@ -136,15 +136,15 @@ class _ColorScreenState extends State<ColorScreen> {
                                     ? Image.asset("assets/9.png",
                                         width: dynamicWidth(context, 0.35))
                                     : sizeIndex == 0
-                                        ? SizedBox()
-                                        : SizedBox(),
+                                        ? const SizedBox()
+                                        : const SizedBox(),
                     flavourIndex == 2
                         ? Positioned(
                           bottom : dynamicHeight(context, 0.025),
                           child: Image.asset("assets/8.png",
                               width: dynamicWidth(context, 0.52)),
                         )
-                        : SizedBox(),
+                        : const SizedBox(),
                   ],
                 ),
               ),
@@ -153,9 +153,9 @@ class _ColorScreenState extends State<ColorScreen> {
                 nextPage: colorIndex == 0
                     ? () {
                   MotionToast.warning(
-                    title: Text("Warning"),
+                    title: const Text("Warning"),
 
-                    description: Text("Select color to proceed!!"),
+                    description: const Text("Select color to proceed!!"),
                     animationCurve: Curves.ease,
                     borderRadius: 0,
                     animationDuration: const Duration(milliseconds: 400),
