@@ -1,4 +1,5 @@
 
+
 import 'package:build_own_cake/app%20screens/home_screen.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
@@ -59,17 +60,20 @@ class _GetStartedState extends State<GetStarted> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Align(
-                              alignment: Alignment.center,
-                              child: coloredButton(
-                                context,
-                                "Build Your Cake",
-                                myWhite,
-                                width: dynamicWidth(context, 0.5),
-                                 function: () {
-                                  push(context, const SizeScreen());
-                                },
-                                
+                            Hero(
+                              tag : "build",
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: coloredButton(
+                                  context,
+                                  "Build Your Cake",
+                                  myWhite,
+                                  width: dynamicWidth(context, 0.5),
+                                   function: () {
+                                    push(context, const SizeScreen());
+                                  },
+                                  
+                                ),
                               ),
                             ),
                            heightBox(context, 0.02),
