@@ -1,10 +1,12 @@
-import 'package:build_own_cake/app%20screens/cake_view.dart';
+import 'package:build_own_cake/app%20screens/cake_detail.dart';
 import 'package:build_own_cake/app%20screens/home_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/constants.dart';
 
 class SeeAll extends StatefulWidget {
   const SeeAll({Key? key}) : super(key: key);
@@ -66,10 +68,7 @@ Widget card(context, image, name, price, description, index) {
     ),
     child: InkWell(
       onTap: () {
-        push(
-            context,
-            CakeView(
-                name: name,  description: description, i: index));
+        push(context, CakeDetail(name: name, i: index));
       },
       child: Container(
         width: dynamicWidth(context, 0.43),
@@ -111,7 +110,6 @@ Widget card(context, image, name, price, description, index) {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               
                 text(context, name, 0.03, myWhite, bold: true),
               ],
             ),
