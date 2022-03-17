@@ -1,14 +1,9 @@
-import 'package:build_own_cake/app%20screens/home_screen.dart';
-import 'package:build_own_cake/app%20screens/see_all.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
-import 'package:card_swiper/card_swiper.dart';
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:motion_toast/motion_toast.dart';
-
-import '../utils/constants.dart';
 
 class CakeDetail extends StatefulWidget {
   final String name;
@@ -23,7 +18,6 @@ class CakeDetail extends StatefulWidget {
 
 var cart = [].obs;
 
-
 class _CakeDetailState extends State<CakeDetail> {
   dynamic index = 0, fvt = 0;
   dynamic sizeIndex = 1;
@@ -36,10 +30,19 @@ class _CakeDetailState extends State<CakeDetail> {
       child: Scaffold(
         body: Stack(
           children: [
-
+            Container(
+              width: 200,
+              height: 100,
+              decoration: const BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(100),
+                  bottomRight: Radius.circular(100),
+                ),
+              ),
+            ),
           ],
         ),
-
 
         // SingleChildScrollView(
         //   child: Column(
