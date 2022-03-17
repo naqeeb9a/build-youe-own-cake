@@ -28,28 +28,28 @@ Widget coloredButton(
               borderRadius: BorderRadius.circular(
                 dynamicWidth(
                   context,
-                  0.03,
+                  1,
                 ),
               ),
-              boxShadow: const [
-                BoxShadow(
-                  color: myGrey,
-                  blurRadius: 4,
-                  offset: Offset(0, 1),
-                ),
-              ],
+              // boxShadow: const [
+              //   BoxShadow(
+              //     color: myGrey,
+              //     blurRadius: 4,
+              //     offset: Offset(0, 1),
+              //   ),
+              // ],
             ),
       child: Center(
         child: Text(
           text,
           style: font == false
               ? TextStyle(
-                  color: myBlack,
+                  color: myWhite,
                   fontSize: dynamicWidth(context, fontSize),
                   fontWeight: FontWeight.bold,
                 )
               : TextStyle(
-                  color: myBlack,
+                  color: myWhite,
                   fontFamily: "Champagne",
                   fontSize: dynamicWidth(context, fontSize),
                   fontWeight: FontWeight.bold,
