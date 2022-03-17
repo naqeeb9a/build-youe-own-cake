@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         body: Center(
           child: SizedBox(
-            width: dynamicWidth(context, .86),
+            width: dynamicWidth(context, .88),
             height: dynamicHeight(context, 1),
             child: Column(
               children: [
@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+                heightBox(context, .01),
                 Expanded(
                   child: ListView.builder(
                     itemCount: cake.length,
@@ -59,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         cake[i]["name"],
                         "assets/Cakes/cake 1.png",
                         // cake[i]["images"][0],
+                        cake[i]["description"],
                         i,
                         cake[i]["images"].length,
                       );
