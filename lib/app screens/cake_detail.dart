@@ -31,14 +31,20 @@ class _CakeDetailState extends State<CakeDetail> {
         body: Stack(
           children: [
             Container(
-              width: 200,
-              height: 100,
-              decoration: const BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(100),
-                  bottomRight: Radius.circular(100),
+              width: dynamicWidth(context, 1),
+              height: dynamicHeight(context, .34),
+              decoration: BoxDecoration(
+                color: myPink,
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.elliptical(
+                    dynamicWidth(context, 1),
+                    dynamicHeight(context, .46),
+                  ),
                 ),
+                // borderRadius: BorderRadius.only(
+                //   bottomLeft: Radius.circular(100),
+                //   bottomRight: Radius.circular(100),
+                // ),
               ),
             ),
           ],
