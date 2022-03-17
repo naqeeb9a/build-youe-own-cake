@@ -63,7 +63,7 @@ class _SizeScreenState extends State<SizeScreen> {
                 function: () {
                   setState(() {
                     if (sizeIndex == 1) {
-                      sizeIndex = 0;
+                      sizeIndex = 1;
                     } else if (sizeIndex != 1) {
                       sizeIndex = 1;
                     }
@@ -78,7 +78,7 @@ class _SizeScreenState extends State<SizeScreen> {
                 function: () {
                   setState(() {
                     if (sizeIndex == 2) {
-                      sizeIndex = 0;
+                      sizeIndex = 2;
                     } else if (sizeIndex != 2) {
                       sizeIndex = 2;
                     }
@@ -93,7 +93,7 @@ class _SizeScreenState extends State<SizeScreen> {
                 function: () {
                   setState(() {
                     if (sizeIndex == 3) {
-                      sizeIndex = 0;
+                      sizeIndex =3;
                     } else if (sizeIndex != 3) {
                       sizeIndex = 3;
                     }
@@ -108,7 +108,7 @@ class _SizeScreenState extends State<SizeScreen> {
                 function: () {
                   setState(() {
                     if (sizeIndex == 4) {
-                      sizeIndex = 0;
+                      sizeIndex = 4;
                     } else if (sizeIndex != 4) {
                       sizeIndex = 4;
                     }
@@ -121,14 +121,14 @@ class _SizeScreenState extends State<SizeScreen> {
                child: Align(
                 alignment: Alignment.bottomCenter,
                 child: sizeIndex ==4 ? Image.asset(
-                    "assets/9.png",
+                    "assets/Custom_Cakes/1/9.png",
                     width: dynamicWidth(context, 0.5),
                   ): sizeIndex ==3 ? Image.asset(
-                    "assets/9.png",
+                    "assets/Custom_Cakes/1/9.png",
                     width: dynamicWidth(context, 0.45)): sizeIndex == 2? Image.asset(
-                    "assets/9.png",
+                    "assets/Custom_Cakes/1/9.png",
                     width: dynamicWidth(context, 0.4)): sizeIndex == 1? Image.asset(
-                    "assets/9.png",
+                    "assets/Custom_Cakes/1/9.png",
                     width: dynamicWidth(context, 0.35)): sizeIndex == 0 ?const SizedBox(): const SizedBox(),
                   
                ),

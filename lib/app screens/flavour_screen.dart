@@ -11,23 +11,23 @@ import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class FlavourScreen extends StatefulWidget {
-  
   const FlavourScreen({Key? key}) : super(key: key);
 
   @override
   _FlavourScreenState createState() => _FlavourScreenState();
 }
+
 int flavourIndex = 0;
+
 class _FlavourScreenState extends State<FlavourScreen> {
   //dynamic flavourIndex = 0;
 
   @override
-
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-            padding: EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: dynamicWidth(context, .04),
             vertical: dynamicHeight(context, .01),
           ),
@@ -64,7 +64,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
                 function: () {
                   setState(() {
                     if (flavourIndex == 1) {
-                      flavourIndex = 0;
+                      flavourIndex = 1;
                     } else if (flavourIndex != 1) {
                       flavourIndex = 1;
                     }
@@ -79,7 +79,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
                 function: () {
                   setState(() {
                     if (flavourIndex == 2) {
-                      flavourIndex = 0;
+                      flavourIndex = 2;
                     } else if (flavourIndex != 2) {
                       flavourIndex = 2;
                     }
@@ -94,7 +94,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
                 function: () {
                   setState(() {
                     if (flavourIndex == 3) {
-                      flavourIndex = 0;
+                      flavourIndex = 3;
                     } else if (flavourIndex != 3) {
                       flavourIndex = 3;
                     }
@@ -104,19 +104,19 @@ class _FlavourScreenState extends State<FlavourScreen> {
               coloredButton(
                 context,
                 "Pink",
-                flavourIndex == 4 ?  myPink : myLightPink,
+                flavourIndex == 4 ? myPink : myLightPink,
                 width: dynamicWidth(context, 0.4),
                 function: () {
                   setState(() {
                     if (flavourIndex == 4) {
-                      flavourIndex = 0;
+                      flavourIndex = 4;
                     } else if (flavourIndex != 4) {
                       flavourIndex = 4;
                     }
                   });
                 },
               ),
-             SizedBox(
+              SizedBox(
                 width: dynamicWidth(context, .9),
                 height: dynamicHeight(context, .15),
                 child: Stack(
@@ -124,30 +124,212 @@ class _FlavourScreenState extends State<FlavourScreen> {
                   children: [
                     sizeIndex == 4
                         ? Image.asset(
-                            "assets/9.png",
+                            "assets/Custom_Cakes/1/9.png",
                             width: dynamicWidth(context, 0.5),
                             // color : flavourIndex ==1 ? myVanilla : flavourIndex == 2 ?myChocolate : flavourIndex == 3 ?myRed: flavourIndex ==4 ?myLightPink : myPink,
                           )
                         : sizeIndex == 3
-                            ? Image.asset("assets/9.png",
+                            ? Image.asset("assets/Custom_Cakes/1/9.png",
                                 width: dynamicWidth(context, 0.45))
                             : sizeIndex == 2
-                                ? Image.asset("assets/9.png",
+                                ? Image.asset("assets/Custom_Cakes/1/9.png",
                                     width: dynamicWidth(context, 0.4))
                                 : sizeIndex == 1
-                                    ? Image.asset("assets/9.png",
+                                    ? Image.asset("assets/Custom_Cakes/1/9.png",
                                         width: dynamicWidth(context, 0.35))
                                     : sizeIndex == 0
                                         ? const SizedBox()
                                         : const SizedBox(),
-                     flavourIndex == 2
+                    sizeIndex == 1 && flavourIndex == 1
                         ? Positioned(
                             bottom: dynamicHeight(context, 0.025),
-                            child: Image.asset("assets/8.png",
-                                width: dynamicWidth(context, 0.52)),
+                            child: Image.asset(
+                              "assets/Custom_Cakes/1/8.png",
+                              width: dynamicWidth(context, 0.38),
+                              color: myVanilla,
+                            ),
                           )
-                        : const SizedBox(),
-                 
+                        : sizeIndex == 1 && flavourIndex == 2
+                            ? Positioned(
+                                bottom: dynamicHeight(context, 0.025),
+                                child: Image.asset(
+                                  "assets/Custom_Cakes/1/8.png",
+                                  width: dynamicWidth(context, 0.38),
+                                ),
+                              )
+                            : sizeIndex == 1 && flavourIndex == 3
+                                ? Positioned(
+                                    bottom: dynamicHeight(context, 0.025),
+                                    child: Image.asset(
+                                      "assets/Custom_Cakes/1/8.png",
+                                      width: dynamicWidth(context, 0.38),
+                                      color: myBrown,
+                                    ),
+                                  )
+                                : sizeIndex == 1 && flavourIndex == 4
+                                    ? Positioned(
+                                        bottom: dynamicHeight(context, 0.025),
+                                        child: Image.asset(
+                                          "assets/Custom_Cakes/1/8.png",
+                                          width: dynamicWidth(context, 0.38),
+                                          color: myPink,
+                                        ),
+                                      )
+                                    : sizeIndex == 2 && flavourIndex == 1
+                                        ? Positioned(
+                                            bottom:
+                                                dynamicHeight(context, 0.025),
+                                            child: Image.asset(
+                                              "assets/Custom_Cakes/1/8.png",
+                                              width:
+                                                  dynamicWidth(context, 0.44),
+                                              color: myVanilla,
+                                            ),
+                                          )
+                                        : sizeIndex == 2 && flavourIndex == 2
+                                            ? Positioned(
+                                                bottom: dynamicHeight(
+                                                    context, 0.025),
+                                                child: Image.asset(
+                                                  "assets/Custom_Cakes/1/8.png",
+                                                  width: dynamicWidth(
+                                                      context, 0.44),
+                                                ),
+                                              )
+                                            : sizeIndex == 2 &&
+                                                    flavourIndex == 3
+                                                ? Positioned(
+                                                    bottom: dynamicHeight(
+                                                        context, 0.025),
+                                                    child: Image.asset(
+                                                      "assets/Custom_Cakes/1/8.png",
+                                                      width: dynamicWidth(
+                                                          context, 0.44),
+                                                      color: myBrown,
+                                                    ),
+                                                  )
+                                                : sizeIndex == 2 &&
+                                                        flavourIndex == 4
+                                                    ? Positioned(
+                                                        bottom: dynamicHeight(
+                                                            context, 0.025),
+                                                        child: Image.asset(
+                                                          "assets/Custom_Cakes/1/8.png",
+                                                          width: dynamicWidth(
+                                                              context, 0.44),
+                                                          color: myPink,
+                                                        ),
+                                                      )
+                                                    : sizeIndex == 3 &&
+                                                            flavourIndex == 1
+                                                        ? Positioned(
+                                                            bottom:
+                                                                dynamicHeight(
+                                                                    context,
+                                                                    0.028),
+                                                            child: Image.asset(
+                                                              "assets/Custom_Cakes/1/8.png",
+                                                              width:
+                                                                  dynamicWidth(
+                                                                      context,
+                                                                      0.49),
+                                                              color: myVanilla,
+                                                            ),
+                                                          )
+                                                        : sizeIndex == 3 &&
+                                                                flavourIndex ==
+                                                                    2
+                                                            ? Positioned(
+                                                                bottom:
+                                                                    dynamicHeight(
+                                                                        context,
+                                                                        0.028),
+                                                                child:
+                                                                    Image.asset(
+                                                                  "assets/Custom_Cakes/1/8.png",
+                                                                  width:
+                                                                      dynamicWidth(
+                                                                          context,
+                                                                          0.49),
+                                                                ),
+                                                              )
+                                                            : sizeIndex == 3 &&
+                                                                    flavourIndex ==
+                                                                        3
+                                                                ? Positioned(
+                                                                    bottom: dynamicHeight(
+                                                                        context,
+                                                                        0.028),
+                                                                    child: Image
+                                                                        .asset(
+                                                                      "assets/Custom_Cakes/1/8.png",
+                                                                      width: dynamicWidth(
+                                                                          context,
+                                                                          0.49),
+                                                                      color:
+                                                                          myBrown,
+                                                                    ),
+                                                                  )
+                                                                : sizeIndex ==
+                                                                            3 &&
+                                                                        flavourIndex ==
+                                                                            4
+                                                                    ? Positioned(
+                                                                        bottom: dynamicHeight(
+                                                                            context,
+                                                                            0.028),
+                                                                        child: Image
+                                                                            .asset(
+                                                                          "assets/Custom_Cakes/1/8.png",
+                                                                          width: dynamicWidth(
+                                                                              context,
+                                                                              0.49),
+                                                                          color:
+                                                                              myPink,
+                                                                        ),
+                                                                      )
+                                                                    : sizeIndex ==
+                                                                                4 &&
+                                                                            flavourIndex ==
+                                                                                1
+                                                                        ? Positioned(
+                                                                            bottom:
+                                                                                dynamicHeight(context, 0.029),
+                                                                            child:
+                                                                                Image.asset(
+                                                                              "assets/Custom_Cakes/1/8.png",
+                                                                              width: dynamicWidth(context, 0.54),
+                                                                              color: myVanilla,
+                                                                            ),
+                                                                          )
+                                                                        : sizeIndex == 4 &&
+                                                                                flavourIndex == 2
+                                                                            ? Positioned(
+                                                                                bottom: dynamicHeight(context, 0.029),
+                                                                                child: Image.asset(
+                                                                                  "assets/Custom_Cakes/1/8.png",
+                                                                                  width: dynamicWidth(context, 0.54),
+                                                                                ),
+                                                                              )
+                                                                            : sizeIndex == 4 && flavourIndex == 3
+                                                                                ? Positioned(
+                                                                                    bottom: dynamicHeight(context, 0.029),
+                                                                                    child: Image.asset(
+                                                                                      "assets/Custom_Cakes/1/8.png",
+                                                                                      width: dynamicWidth(context, 0.54),
+                                                                                      color: myBrown,
+                                                                                    ),
+                                                                                  )
+                                                                                : sizeIndex == 4 && flavourIndex == 4
+                                                                                    ? Positioned(
+                                                                                        bottom: dynamicHeight(context, 0.029),
+                                                                                        child: Image.asset(
+                                                                                          "assets/Custom_Cakes/1/8.png",
+                                                                                          width: dynamicWidth(context, 0.54),
+                                                                                          color: myPink,
+                                                                                        ),
+                                                                                      )
+                                                                                    : SizedBox(),
                   ],
                 ),
               ),
@@ -155,18 +337,18 @@ class _FlavourScreenState extends State<FlavourScreen> {
                 context,
                 nextPage: flavourIndex == 0
                     ? () {
-                  MotionToast.warning(
-                    title: const Text("Warning"),
-
-                    description: const Text("Select flavour to proceed!!"),
-                    animationCurve: Curves.ease,
-                    borderRadius: 0,
-                    animationDuration: const Duration(milliseconds: 400),
-                  ).show(context);
-                }
+                        MotionToast.warning(
+                          title: const Text("Warning"),
+                          description:
+                              const Text("Select flavour to proceed!!"),
+                          animationCurve: Curves.ease,
+                          borderRadius: 0,
+                          animationDuration: const Duration(milliseconds: 400),
+                        ).show(context);
+                      }
                     : () {
-                  push(context, const ColorScreen());
-                },
+                        push(context, const ColorScreen());
+                      },
               ),
             ],
           ),

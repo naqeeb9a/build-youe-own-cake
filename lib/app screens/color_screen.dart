@@ -19,7 +19,7 @@ class ColorScreen extends StatefulWidget {
 }
 int  colorIndex = 0;
 class _ColorScreenState extends State<ColorScreen> {
-  dynamic colorIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -62,7 +62,7 @@ class _ColorScreenState extends State<ColorScreen> {
                 function: () {
                   setState(() {
                     if (colorIndex == 1) {
-                      colorIndex = 0;
+                      colorIndex = 1;
                     } else if (colorIndex != 1) {
                       colorIndex = 1;
                     }
@@ -77,7 +77,7 @@ class _ColorScreenState extends State<ColorScreen> {
                 function: () {
                   setState(() {
                     if (colorIndex == 2) {
-                      colorIndex = 0;
+                      colorIndex = 2;
                     } else if (colorIndex != 2) {
                       colorIndex = 2;
                     }
@@ -92,7 +92,7 @@ class _ColorScreenState extends State<ColorScreen> {
                 function: () {
                   setState(() {
                     if (colorIndex == 3) {
-                      colorIndex = 0;
+                      colorIndex = 3;
                     } else if (colorIndex != 3) {
                       colorIndex = 3;
                     }
@@ -107,7 +107,7 @@ class _ColorScreenState extends State<ColorScreen> {
                 function: () {
                   setState(() {
                     if (colorIndex == 4) {
-                      colorIndex = 0;
+                      colorIndex = 4;
                     } else if (colorIndex != 4) {
                       colorIndex = 4;
                     }
@@ -120,31 +120,607 @@ class _ColorScreenState extends State<ColorScreen> {
                 child: Stack(
                    alignment: Alignment.bottomCenter,
                   children: [
+                    //for size of cake
                     sizeIndex == 4
                         ? Image.asset(
-                            "assets/9.png",
-                            width: dynamicWidth(context, 0.5),
-                              color : colorIndex ==1 ? myBlack : colorIndex == 2 ?myChocolate :colorIndex == 3 ?myPink:colorIndex ==4 ?myLightPink : myChocolate,
-                          )
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                    )
                         : sizeIndex == 3
-                            ? Image.asset("assets/9.png",
-                                width: dynamicWidth(context, 0.45))
-                            : sizeIndex == 2
-                                ? Image.asset("assets/9.png",
-                                    width: dynamicWidth(context, 0.4))
-                                : sizeIndex == 1
-                                    ? Image.asset("assets/9.png",
-                                        width: dynamicWidth(context, 0.35))
-                                    : sizeIndex == 0
-                                        ? const SizedBox()
-                                        : const SizedBox(),
-                    flavourIndex == 2
-                        ? Positioned(
-                          bottom : dynamicHeight(context, 0.025),
-                          child: Image.asset("assets/8.png",
-                              width: dynamicWidth(context, 0.52)),
-                        )
+                        ? Image.asset("assets/Custom_Cakes/1/9.png",
+                        width: dynamicWidth(context, 0.45))
+                        : sizeIndex == 2
+                        ? Image.asset("assets/Custom_Cakes/1/9.png",
+                        width: dynamicWidth(context, 0.4))
+                        : sizeIndex == 1
+                        ? Image.asset("assets/Custom_Cakes/1/9.png",
+                        width: dynamicWidth(context, 0.35))
+                        : sizeIndex == 0
+                        ? const SizedBox()
                         : const SizedBox(),
+
+
+                    //for color of cake
+                    sizeIndex == 1 && flavourIndex == 1 && colorIndex==1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+                      color: myBlack,
+                    )
+                        : sizeIndex == 1 && flavourIndex == 1 && colorIndex==2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+
+                    )
+                        :sizeIndex == 1 && flavourIndex == 1 && colorIndex==3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+                      color: myPink,
+                    )
+                        :sizeIndex == 1 && flavourIndex == 1 && colorIndex==4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+                      color: myLightPink,
+                    )
+                        :sizeIndex == 1 && flavourIndex == 2 && colorIndex ==1
+                        ? Image.asset(
+                          "assets/Custom_Cakes/1/9.png",
+                          width: dynamicWidth(context, 0.35),
+                          color: myBlack,
+                        )
+                        :sizeIndex == 1 && flavourIndex == 2 && colorIndex == 2
+                        ? Image.asset(
+                          "assets/Custom_Cakes/1/9.png",
+                          width: dynamicWidth(context, 0.35),
+
+                        )
+                            : sizeIndex == 1 && flavourIndex == 2 && colorIndex ==3
+                        ? Image.asset(
+                        "assets/Custom_Cakes/1/9.png",
+                        width: dynamicWidth(context, 0.35),
+                        color: myPink,
+                        )
+                            : sizeIndex == 1 && flavourIndex == 2 && colorIndex == 4
+                        ? Image.asset(
+                        "assets/Custom_Cakes/1/9.png",
+                        width: dynamicWidth(context, 0.35),
+                        color: myLightPink,
+                        )
+                        :  sizeIndex == 1 && flavourIndex == 3 && colorIndex == 1
+                        ? Image.asset(
+                          "assets/Custom_Cakes/1/9.png",
+                          width: dynamicWidth(context, 0.35),
+                         color: myBlack,
+                        )
+                        : sizeIndex == 1 && flavourIndex == 3 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+
+                    )
+                        : sizeIndex == 1 && flavourIndex == 3 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+                      color: myPink,
+                    )
+                        : sizeIndex == 1 && flavourIndex == 3 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+                      color: myLightPink,
+                    )
+                        : sizeIndex == 1 && flavourIndex == 4 && colorIndex == 1
+                        ? Image.asset(
+                          "assets/Custom_Cakes/1/9.png",
+                          width: dynamicWidth(context, 0.35),
+                          color: myBlack,
+                        )
+                        :  sizeIndex == 1 && flavourIndex == 4 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+
+                    )
+                        :  sizeIndex == 1 && flavourIndex == 4 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),
+                      color: myPink,
+                    )
+                        :  sizeIndex == 1 && flavourIndex == 4 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.35),       // ending size index 1
+                      color: myLightPink,
+                    )
+                        : sizeIndex == 2 && flavourIndex == 1 && colorIndex==1  //starting of ssize Index 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myBlack,
+                    )
+                        : sizeIndex == 2 && flavourIndex == 1 && colorIndex==2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+
+                    )
+                        :sizeIndex == 2 && flavourIndex == 1 && colorIndex==3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myPink,
+                    )
+                        :sizeIndex == 2 && flavourIndex == 1 && colorIndex==4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myLightPink,
+                    )
+                        :sizeIndex == 2 && flavourIndex == 2 && colorIndex ==1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myBlack,
+                    )
+                        :sizeIndex == 2 && flavourIndex == 2 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+
+                    )
+                        : sizeIndex == 2 && flavourIndex == 2 && colorIndex ==3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myPink,
+                    )
+                        : sizeIndex == 2 && flavourIndex == 2 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myLightPink,
+                    )
+                        :  sizeIndex == 2 && flavourIndex == 3 && colorIndex == 1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myBlack,
+                    )
+                        : sizeIndex == 2 && flavourIndex == 3 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+
+                    )
+                        : sizeIndex == 2 && flavourIndex == 3 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myPink,
+                    )
+                        : sizeIndex == 2 && flavourIndex == 3 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myLightPink,
+                    )
+                        : sizeIndex == 2 && flavourIndex == 4 && colorIndex == 1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myBlack,
+                    )
+                        :  sizeIndex == 2 && flavourIndex == 4 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+
+                    )
+                        :  sizeIndex == 2 && flavourIndex == 4 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),
+                      color: myPink,
+                    )
+                        :  sizeIndex == 2 && flavourIndex == 4 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.4),     // ending of sizeIndex 2
+                      color: myLightPink,
+                    )
+                        : sizeIndex == 3 && flavourIndex == 1 && colorIndex==1  //start of sizeIndex 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myBlack,
+                    )
+                        : sizeIndex == 3 && flavourIndex == 1 && colorIndex==2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+
+                    )
+                        :sizeIndex == 3 && flavourIndex == 1 && colorIndex==3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myPink,
+                    )
+                        :sizeIndex == 3 && flavourIndex == 1 && colorIndex==4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myLightPink,
+                    )
+                        :sizeIndex == 3 && flavourIndex == 2 && colorIndex ==1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myBlack,
+                    )
+                        :sizeIndex == 3 && flavourIndex == 2 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+
+                    )
+                        : sizeIndex == 3 && flavourIndex == 2 && colorIndex ==3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myPink,
+                    )
+                        : sizeIndex == 3 && flavourIndex == 2 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myLightPink,
+                    )
+                        :  sizeIndex == 3 && flavourIndex == 3 && colorIndex == 1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myBlack,
+                    )
+                        : sizeIndex == 3 && flavourIndex == 3 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+
+                    )
+                        : sizeIndex == 3 && flavourIndex == 3 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myPink,
+                    )
+                        : sizeIndex == 3 && flavourIndex == 3 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myLightPink,
+                    )
+                        : sizeIndex == 3 && flavourIndex == 4 && colorIndex == 1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myBlack,
+                    )
+                        :  sizeIndex == 3 && flavourIndex == 4 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+
+                    )
+                        :  sizeIndex == 3 && flavourIndex == 4 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45),
+                      color: myPink,
+                    )
+                        :  sizeIndex == 3 && flavourIndex == 4 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.45), //ending of sizeIndex 3
+                      color: myLightPink,
+                    )
+                        :sizeIndex == 4 && flavourIndex == 1 && colorIndex==1  //starting of size Index 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myBlack,
+                    )
+                        : sizeIndex == 4 && flavourIndex == 1 && colorIndex==2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+
+                    )
+                        :sizeIndex == 4 && flavourIndex == 1 && colorIndex==3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myPink,
+                    )
+                        :sizeIndex == 4 && flavourIndex == 1 && colorIndex==4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myLightPink,
+                    )
+                        :sizeIndex == 4 && flavourIndex == 2 && colorIndex ==1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myBlack,
+                    )
+                        :sizeIndex == 4 && flavourIndex == 2 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+
+                    )
+                        : sizeIndex ==4 && flavourIndex == 2 && colorIndex ==3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myPink,
+                    )
+                        : sizeIndex == 4 && flavourIndex == 2 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myLightPink,
+                    )
+                        :  sizeIndex == 4 && flavourIndex == 3 && colorIndex == 1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myBlack,
+                    )
+                        : sizeIndex == 4 && flavourIndex == 3 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+
+                    )
+                        : sizeIndex == 4 && flavourIndex == 3 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myPink,
+                    )
+                        : sizeIndex == 4 && flavourIndex == 3 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myLightPink,
+                    )
+                        : sizeIndex == 4 && flavourIndex == 4 && colorIndex == 1
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myBlack,
+                    )
+                        :  sizeIndex ==4 && flavourIndex == 4 && colorIndex == 2
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+
+                    )
+                        :  sizeIndex == 4 && flavourIndex == 4 && colorIndex == 3
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),
+                      color: myPink,
+                    )
+                        :  sizeIndex == 4 && flavourIndex == 4 && colorIndex == 4
+                        ? Image.asset(
+                      "assets/Custom_Cakes/1/9.png",
+                      width: dynamicWidth(context, 0.5),  // ending of SizeIndex 4
+                      color: myLightPink,
+                    )
+                        : SizedBox(),
+
+                    //for flavour  of cake
+                    sizeIndex == 1 && flavourIndex == 1
+                        ? Positioned(
+                      bottom: dynamicHeight(context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.38),
+                        color: myVanilla,
+                      ),
+                    )
+                        : sizeIndex == 1 && flavourIndex == 2
+                        ? Positioned(
+                      bottom: dynamicHeight(context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.38),
+                      ),
+                    )
+                        : sizeIndex == 1 && flavourIndex == 3
+                        ? Positioned(
+                      bottom: dynamicHeight(context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.38),
+                        color: myBrown,
+                      ),
+                    )
+                        : sizeIndex == 1 && flavourIndex == 4
+                        ? Positioned(
+                      bottom: dynamicHeight(context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.38),
+                        color: myPink,
+                      ),
+                    )
+                        : sizeIndex == 2 && flavourIndex == 1
+                        ? Positioned(
+                      bottom:
+                      dynamicHeight(context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width:
+                        dynamicWidth(context, 0.44),
+                        color: myVanilla,
+                      ),
+                    )
+                        : sizeIndex == 2 && flavourIndex == 2
+                        ? Positioned(
+                      bottom: dynamicHeight(
+                          context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(
+                            context, 0.44),
+                      ),
+                    )
+                        : sizeIndex == 2 &&
+                        flavourIndex == 3
+                        ? Positioned(
+                      bottom: dynamicHeight(
+                          context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(
+                            context, 0.44),
+                        color: myBrown,
+                      ),
+                    )
+                        : sizeIndex == 2 &&
+                        flavourIndex == 4
+                        ? Positioned(
+                      bottom: dynamicHeight(
+                          context, 0.025),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(
+                            context, 0.44),
+                        color: myPink,
+                      ),
+                    )
+                        : sizeIndex == 3 &&
+                        flavourIndex == 1
+                        ? Positioned(
+                      bottom:
+                      dynamicHeight(
+                          context,
+                          0.028),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width:
+                        dynamicWidth(
+                            context,
+                            0.49),
+                        color: myVanilla,
+                      ),
+                    )
+                        : sizeIndex == 3 &&
+                        flavourIndex ==
+                            2
+                        ? Positioned(
+                      bottom:
+                      dynamicHeight(
+                          context,
+                          0.028),
+                      child:
+                      Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width:
+                        dynamicWidth(
+                            context,
+                            0.49),
+                      ),
+                    )
+                        : sizeIndex == 3 &&
+                        flavourIndex ==
+                            3
+                        ? Positioned(
+                      bottom: dynamicHeight(
+                          context,
+                          0.028),
+                      child: Image
+                          .asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(
+                            context,
+                            0.49),
+                        color:
+                        myBrown,
+                      ),
+                    )
+                        : sizeIndex ==
+                        3 &&
+                        flavourIndex ==
+                            4
+                        ? Positioned(
+                      bottom: dynamicHeight(
+                          context,
+                          0.028),
+                      child: Image
+                          .asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(
+                            context,
+                            0.49),
+                        color:
+                        myPink,
+                      ),
+                    )
+                        : sizeIndex ==
+                        4 &&
+                        flavourIndex ==
+                            1
+                        ? Positioned(
+                      bottom:
+                      dynamicHeight(context, 0.029),
+                      child:
+                      Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.54),
+                        color: myVanilla,
+                      ),
+                    )
+                        : sizeIndex == 4 &&
+                        flavourIndex == 2
+                        ? Positioned(
+                      bottom: dynamicHeight(context, 0.029),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.54),
+                      ),
+                    )
+                        : sizeIndex == 4 && flavourIndex == 3
+                        ? Positioned(
+                      bottom: dynamicHeight(context, 0.029),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.54),
+                        color: myBrown,
+                      ),
+                    )
+                        : sizeIndex == 4 && flavourIndex == 4
+                        ? Positioned(
+                      bottom: dynamicHeight(context, 0.029),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        width: dynamicWidth(context, 0.54),
+                        color: myPink,
+                      ),
+                    )
+                        : SizedBox(),
+
+
+
                   ],
                 ),
               ),
