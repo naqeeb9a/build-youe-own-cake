@@ -4,11 +4,11 @@ import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-appBar(context) {
+appBar(context, {title = ""}) {
   return AppBar(
     title: text(
       context,
-      "title",
+      title,
       .054,
       myBlack,
       bold: true,
