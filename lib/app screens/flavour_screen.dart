@@ -122,214 +122,217 @@ class _FlavourScreenState extends State<FlavourScreen> {
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
-                    sizeIndex == 4
-                        ? Image.asset(
-                            "assets/Custom_Cakes/1/9.png",
-                            width: dynamicWidth(context, 0.5),
-                            // color : flavourIndex ==1 ? myVanilla : flavourIndex == 2 ?myChocolate : flavourIndex == 3 ?myRed: flavourIndex ==4 ?myLightPink : myPink,
-                          )
-                        : sizeIndex == 3
-                            ? Image.asset("assets/Custom_Cakes/1/9.png",
-                                width: dynamicWidth(context, 0.45))
-                            : sizeIndex == 2
-                                ? Image.asset("assets/Custom_Cakes/1/9.png",
-                                    width: dynamicWidth(context, 0.4))
-                                : sizeIndex == 1
-                                    ? Image.asset("assets/Custom_Cakes/1/9.png",
-                                        width: dynamicWidth(context, 0.35))
-                                    : sizeIndex == 0
-                                        ? const SizedBox()
-                                        : const SizedBox(),
-                    sizeIndex == 1 && flavourIndex == 1
-                        ? Positioned(
-                            bottom: dynamicHeight(context, 0.025),
-                            child: Image.asset(
-                              "assets/Custom_Cakes/1/8.png",
-                              width: dynamicWidth(context, 0.38),
-                              color: myVanilla,
-                            ),
-                          )
-                        : sizeIndex == 1 && flavourIndex == 2
-                            ? Positioned(
-                                bottom: dynamicHeight(context, 0.025),
-                                child: Image.asset(
-                                  "assets/Custom_Cakes/1/8.png",
-                                  width: dynamicWidth(context, 0.38),
-                                ),
-                              )
-                            : sizeIndex == 1 && flavourIndex == 3
-                                ? Positioned(
-                                    bottom: dynamicHeight(context, 0.025),
-                                    child: Image.asset(
-                                      "assets/Custom_Cakes/1/8.png",
-                                      width: dynamicWidth(context, 0.38),
-                                      color: myBrown,
-                                    ),
-                                  )
-                                : sizeIndex == 1 && flavourIndex == 4
-                                    ? Positioned(
-                                        bottom: dynamicHeight(context, 0.025),
-                                        child: Image.asset(
-                                          "assets/Custom_Cakes/1/8.png",
-                                          width: dynamicWidth(context, 0.38),
-                                          color: myPink,
-                                        ),
-                                      )
-                                    : sizeIndex == 2 && flavourIndex == 1
-                                        ? Positioned(
-                                            bottom:
-                                                dynamicHeight(context, 0.025),
-                                            child: Image.asset(
-                                              "assets/Custom_Cakes/1/8.png",
-                                              width:
-                                                  dynamicWidth(context, 0.44),
-                                              color: myVanilla,
-                                            ),
-                                          )
-                                        : sizeIndex == 2 && flavourIndex == 2
-                                            ? Positioned(
-                                                bottom: dynamicHeight(
-                                                    context, 0.025),
-                                                child: Image.asset(
-                                                  "assets/Custom_Cakes/1/8.png",
-                                                  width: dynamicWidth(
-                                                      context, 0.44),
-                                                ),
-                                              )
-                                            : sizeIndex == 2 &&
-                                                    flavourIndex == 3
-                                                ? Positioned(
-                                                    bottom: dynamicHeight(
-                                                        context, 0.025),
-                                                    child: Image.asset(
-                                                      "assets/Custom_Cakes/1/8.png",
-                                                      width: dynamicWidth(
-                                                          context, 0.44),
-                                                      color: myBrown,
-                                                    ),
-                                                  )
-                                                : sizeIndex == 2 &&
-                                                        flavourIndex == 4
-                                                    ? Positioned(
-                                                        bottom: dynamicHeight(
-                                                            context, 0.025),
-                                                        child: Image.asset(
-                                                          "assets/Custom_Cakes/1/8.png",
-                                                          width: dynamicWidth(
-                                                              context, 0.44),
-                                                          color: myPink,
-                                                        ),
-                                                      )
-                                                    : sizeIndex == 3 &&
-                                                            flavourIndex == 1
-                                                        ? Positioned(
-                                                            bottom:
-                                                                dynamicHeight(
-                                                                    context,
-                                                                    0.028),
-                                                            child: Image.asset(
-                                                              "assets/Custom_Cakes/1/8.png",
-                                                              width:
-                                                                  dynamicWidth(
-                                                                      context,
-                                                                      0.49),
-                                                              color: myVanilla,
-                                                            ),
-                                                          )
-                                                        : sizeIndex == 3 &&
-                                                                flavourIndex ==
-                                                                    2
-                                                            ? Positioned(
-                                                                bottom:
-                                                                    dynamicHeight(
-                                                                        context,
-                                                                        0.028),
-                                                                child:
-                                                                    Image.asset(
-                                                                  "assets/Custom_Cakes/1/8.png",
-                                                                  width:
-                                                                      dynamicWidth(
-                                                                          context,
-                                                                          0.49),
-                                                                ),
-                                                              )
-                                                            : sizeIndex == 3 &&
-                                                                    flavourIndex ==
-                                                                        3
-                                                                ? Positioned(
-                                                                    bottom: dynamicHeight(
-                                                                        context,
-                                                                        0.028),
-                                                                    child: Image
-                                                                        .asset(
-                                                                      "assets/Custom_Cakes/1/8.png",
-                                                                      width: dynamicWidth(
-                                                                          context,
-                                                                          0.49),
-                                                                      color:
-                                                                          myBrown,
-                                                                    ),
-                                                                  )
-                                                                : sizeIndex ==
-                                                                            3 &&
-                                                                        flavourIndex ==
-                                                                            4
-                                                                    ? Positioned(
-                                                                        bottom: dynamicHeight(
-                                                                            context,
-                                                                            0.028),
-                                                                        child: Image
-                                                                            .asset(
-                                                                          "assets/Custom_Cakes/1/8.png",
-                                                                          width: dynamicWidth(
-                                                                              context,
-                                                                              0.49),
-                                                                          color:
-                                                                              myPink,
-                                                                        ),
-                                                                      )
-                                                                    : sizeIndex ==
-                                                                                4 &&
-                                                                            flavourIndex ==
-                                                                                1
-                                                                        ? Positioned(
-                                                                            bottom:
-                                                                                dynamicHeight(context, 0.029),
-                                                                            child:
-                                                                                Image.asset(
-                                                                              "assets/Custom_Cakes/1/8.png",
-                                                                              width: dynamicWidth(context, 0.54),
-                                                                              color: myVanilla,
-                                                                            ),
-                                                                          )
-                                                                        : sizeIndex == 4 &&
-                                                                                flavourIndex == 2
-                                                                            ? Positioned(
-                                                                                bottom: dynamicHeight(context, 0.029),
-                                                                                child: Image.asset(
-                                                                                  "assets/Custom_Cakes/1/8.png",
-                                                                                  width: dynamicWidth(context, 0.54),
-                                                                                ),
-                                                                              )
-                                                                            : sizeIndex == 4 && flavourIndex == 3
-                                                                                ? Positioned(
-                                                                                    bottom: dynamicHeight(context, 0.029),
-                                                                                    child: Image.asset(
-                                                                                      "assets/Custom_Cakes/1/8.png",
-                                                                                      width: dynamicWidth(context, 0.54),
-                                                                                      color: myBrown,
-                                                                                    ),
-                                                                                  )
-                                                                                : sizeIndex == 4 && flavourIndex == 4
-                                                                                    ? Positioned(
-                                                                                        bottom: dynamicHeight(context, 0.029),
-                                                                                        child: Image.asset(
-                                                                                          "assets/Custom_Cakes/1/8.png",
-                                                                                          width: dynamicWidth(context, 0.54),
-                                                                                          color: myPink,
-                                                                                        ),
-                                                                                      )
-                                                                                    : SizedBox(),
+                    cakeSize(context),
+                    flavours(context),
+
+                    // sizeIndex == 4
+                    //     ? Image.asset(
+                    //         "assets/Custom_Cakes/1/9.png",
+                    //         width: dynamicWidth(context, 0.5),
+                    //         // color : flavourIndex ==1 ? myVanilla : flavourIndex == 2 ?myChocolate : flavourIndex == 3 ?myRed: flavourIndex ==4 ?myLightPink : myPink,
+                    //       )
+                    //     : sizeIndex == 3
+                    //         ? Image.asset("assets/Custom_Cakes/1/9.png",
+                    //             width: dynamicWidth(context, 0.45))
+                    //         : sizeIndex == 2
+                    //             ? Image.asset("assets/Custom_Cakes/1/9.png",
+                    //                 width: dynamicWidth(context, 0.4))
+                    //             : sizeIndex == 1
+                    //                 ? Image.asset("assets/Custom_Cakes/1/9.png",
+                    //                     width: dynamicWidth(context, 0.35))
+                    //                 : sizeIndex == 0
+                    //                     ? const SizedBox()
+                    //                     : const SizedBox(),
+                    // sizeIndex == 1 && flavourIndex == 1
+                    //     ? Positioned(
+                    //         bottom: dynamicHeight(context, 0.025),
+                    //         child: Image.asset(
+                    //           "assets/Custom_Cakes/1/8.png",
+                    //           width: dynamicWidth(context, 0.38),
+                    //           color: myVanilla,
+                    //         ),
+                    //       )
+                    //     : sizeIndex == 1 && flavourIndex == 2
+                    //         ? Positioned(
+                    //             bottom: dynamicHeight(context, 0.025),
+                    //             child: Image.asset(
+                    //               "assets/Custom_Cakes/1/8.png",
+                    //               width: dynamicWidth(context, 0.38),
+                    //             ),
+                    //           )
+                    //         : sizeIndex == 1 && flavourIndex == 3
+                    //             ? Positioned(
+                    //                 bottom: dynamicHeight(context, 0.025),
+                    //                 child: Image.asset(
+                    //                   "assets/Custom_Cakes/1/8.png",
+                    //                   width: dynamicWidth(context, 0.38),
+                    //                   color: myBrown,
+                    //                 ),
+                    //               )
+                    //             : sizeIndex == 1 && flavourIndex == 4
+                    //                 ? Positioned(
+                    //                     bottom: dynamicHeight(context, 0.025),
+                    //                     child: Image.asset(
+                    //                       "assets/Custom_Cakes/1/8.png",
+                    //                       width: dynamicWidth(context, 0.38),
+                    //                       color: myPink,
+                    //                     ),
+                    //                   )
+                    //                 : sizeIndex == 2 && flavourIndex == 1
+                    //                     ? Positioned(
+                    //                         bottom:
+                    //                             dynamicHeight(context, 0.025),
+                    //                         child: Image.asset(
+                    //                           "assets/Custom_Cakes/1/8.png",
+                    //                           width:
+                    //                               dynamicWidth(context, 0.44),
+                    //                           color: myVanilla,
+                    //                         ),
+                    //                       )
+                    //                     : sizeIndex == 2 && flavourIndex == 2
+                    //                         ? Positioned(
+                    //                             bottom: dynamicHeight(
+                    //                                 context, 0.025),
+                    //                             child: Image.asset(
+                    //                               "assets/Custom_Cakes/1/8.png",
+                    //                               width: dynamicWidth(
+                    //                                   context, 0.44),
+                    //                             ),
+                    //                           )
+                    //                         : sizeIndex == 2 &&
+                    //                                 flavourIndex == 3
+                    //                             ? Positioned(
+                    //                                 bottom: dynamicHeight(
+                    //                                     context, 0.025),
+                    //                                 child: Image.asset(
+                    //                                   "assets/Custom_Cakes/1/8.png",
+                    //                                   width: dynamicWidth(
+                    //                                       context, 0.44),
+                    //                                   color: myBrown,
+                    //                                 ),
+                    //                               )
+                    //                             : sizeIndex == 2 &&
+                    //                                     flavourIndex == 4
+                    //                                 ? Positioned(
+                    //                                     bottom: dynamicHeight(
+                    //                                         context, 0.025),
+                    //                                     child: Image.asset(
+                    //                                       "assets/Custom_Cakes/1/8.png",
+                    //                                       width: dynamicWidth(
+                    //                                           context, 0.44),
+                    //                                       color: myPink,
+                    //                                     ),
+                    //                                   )
+                    //                                 : sizeIndex == 3 &&
+                    //                                         flavourIndex == 1
+                    //                                     ? Positioned(
+                    //                                         bottom:
+                    //                                             dynamicHeight(
+                    //                                                 context,
+                    //                                                 0.028),
+                    //                                         child: Image.asset(
+                    //                                           "assets/Custom_Cakes/1/8.png",
+                    //                                           width:
+                    //                                               dynamicWidth(
+                    //                                                   context,
+                    //                                                   0.49),
+                    //                                           color: myVanilla,
+                    //                                         ),
+                    //                                       )
+                    //                                     : sizeIndex == 3 &&
+                    //                                             flavourIndex ==
+                    //                                                 2
+                    //                                         ? Positioned(
+                    //                                             bottom:
+                    //                                                 dynamicHeight(
+                    //                                                     context,
+                    //                                                     0.028),
+                    //                                             child:
+                    //                                                 Image.asset(
+                    //                                               "assets/Custom_Cakes/1/8.png",
+                    //                                               width:
+                    //                                                   dynamicWidth(
+                    //                                                       context,
+                    //                                                       0.49),
+                    //                                             ),
+                    //                                           )
+                    //                                         : sizeIndex == 3 &&
+                    //                                                 flavourIndex ==
+                    //                                                     3
+                    //                                             ? Positioned(
+                    //                                                 bottom: dynamicHeight(
+                    //                                                     context,
+                    //                                                     0.028),
+                    //                                                 child: Image
+                    //                                                     .asset(
+                    //                                                   "assets/Custom_Cakes/1/8.png",
+                    //                                                   width: dynamicWidth(
+                    //                                                       context,
+                    //                                                       0.49),
+                    //                                                   color:
+                    //                                                       myBrown,
+                    //                                                 ),
+                    //                                               )
+                    //                                             : sizeIndex ==
+                    //                                                         3 &&
+                    //                                                     flavourIndex ==
+                    //                                                         4
+                    //                                                 ? Positioned(
+                    //                                                     bottom: dynamicHeight(
+                    //                                                         context,
+                    //                                                         0.028),
+                    //                                                     child: Image
+                    //                                                         .asset(
+                    //                                                       "assets/Custom_Cakes/1/8.png",
+                    //                                                       width: dynamicWidth(
+                    //                                                           context,
+                    //                                                           0.49),
+                    //                                                       color:
+                    //                                                           myPink,
+                    //                                                     ),
+                    //                                                   )
+                    //                                                 : sizeIndex ==
+                    //                                                             4 &&
+                    //                                                         flavourIndex ==
+                    //                                                             1
+                    //                                                     ? Positioned(
+                    //                                                         bottom:
+                    //                                                             dynamicHeight(context, 0.029),
+                    //                                                         child:
+                    //                                                             Image.asset(
+                    //                                                           "assets/Custom_Cakes/1/8.png",
+                    //                                                           width: dynamicWidth(context, 0.54),
+                    //                                                           color: myVanilla,
+                    //                                                         ),
+                    //                                                       )
+                    //                                                     : sizeIndex == 4 &&
+                    //                                                             flavourIndex == 2
+                    //                                                         ? Positioned(
+                    //                                                             bottom: dynamicHeight(context, 0.029),
+                    //                                                             child: Image.asset(
+                    //                                                               "assets/Custom_Cakes/1/8.png",
+                    //                                                               width: dynamicWidth(context, 0.54),
+                    //                                                             ),
+                    //                                                           )
+                    //                                                         : sizeIndex == 4 && flavourIndex == 3
+                    //                                                             ? Positioned(
+                    //                                                                 bottom: dynamicHeight(context, 0.029),
+                    //                                                                 child: Image.asset(
+                    //                                                                   "assets/Custom_Cakes/1/8.png",
+                    //                                                                   width: dynamicWidth(context, 0.54),
+                    //                                                                   color: myBrown,
+                    //                                                                 ),
+                    //                                                               )
+                    //                                                             : sizeIndex == 4 && flavourIndex == 4
+                    //                                                                 ? Positioned(
+                    //                                                                     bottom: dynamicHeight(context, 0.029),
+                    //                                                                     child: Image.asset(
+                    //                                                                       "assets/Custom_Cakes/1/8.png",
+                    //                                                                       width: dynamicWidth(context, 0.54),
+                    //                                                                       color: myPink,
+                    //                                                                     ),
+                    //                                                                   )
+                    //                                                                 : SizedBox(),
                   ],
                 ),
               ),
@@ -356,4 +359,44 @@ class _FlavourScreenState extends State<FlavourScreen> {
       ),
     );
   }
+}
+
+Widget flavours(context) {
+  return flavourIndex == 1
+      ? Positioned(
+          bottom:  dynamicHeight(context, 0.029),
+          child: Image.asset(
+            "assets/Custom_Cakes/1/8.png",
+           // width: dynamicWidth(context, 0.54),
+            scale: sizeIndex == 1 ? 3.5 : sizeIndex ==2 ?3 : sizeIndex == 3 ? 2: sizeIndex==4 ?1.7 :0,
+            color: myVanilla,
+          ),
+        )
+      : flavourIndex == 2
+          ? Positioned(
+              bottom: dynamicHeight(context, 0.029),
+              child: Image.asset(
+                "assets/Custom_Cakes/1/8.png",
+                scale: sizeIndex == 1 ? 3.5 : sizeIndex ==2 ?3 : sizeIndex == 3 ? 2: sizeIndex==4 ?1.7:0,
+              ),
+            )
+          : flavourIndex == 3
+              ? Positioned(
+                  bottom: dynamicHeight(context, 0.029),
+                  child: Image.asset(
+                    "assets/Custom_Cakes/1/8.png",
+                    scale: sizeIndex == 1 ? 3.5 : sizeIndex ==2 ?3 : sizeIndex == 3 ? 2: sizeIndex==4 ?1.7:0,
+                    color: myBrown,
+                  ),
+                )
+              : flavourIndex == 4
+                  ? Positioned(
+                      bottom: dynamicHeight(context, 0.029),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/8.png",
+                        scale: sizeIndex == 1 ? 3.5 : sizeIndex ==2 ?3 : sizeIndex == 3 ? 2: sizeIndex==4 ?1.7 :0,
+                        color: myPink,
+                      ),
+                    )
+                  : SizedBox();
 }

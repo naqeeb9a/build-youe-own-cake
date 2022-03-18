@@ -1,3 +1,5 @@
+import 'package:build_own_cake/app%20screens/cart.dart';
+import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -431,31 +433,34 @@ class _CakeDetailState extends State<CakeDetail> {
                         backgroundColor: myLightPink1,
                         child: Center (
                           child: Icon(
-                            Icons.add,color : myBlack,size: dynamicHeight(context, 0.025)
+                            Icons.remove,color : myBlack,size: dynamicHeight(context, 0.025)
                           ),
                         ),
                       ),
-                      Container(
-                        width: dynamicWidth(context, 0.37),
-                        height: dynamicHeight(context, .1),
-                        decoration: BoxDecoration(
-                          color: myBlue,
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.elliptical(
-                              dynamicWidth(context, 1),
-                              dynamicHeight(context, .5),
+                      GestureDetector(
+                        onTap: () {
+                          push(context, CartScreen());
+                        },
+                        child: Container(
+                          width: dynamicWidth(context, 0.4),
+                          height: dynamicHeight(context, .1),
+                          decoration: BoxDecoration(
+                            color: myBlue,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(100),
+                              topRight: Radius.circular(100),
                             ),
+
                           ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/cart.png",height: dynamicHeight(context,0.04)),
+                              text(context,"Add to Cart", 0.04, myBlack,bold:true),
 
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/cart.png",height: dynamicHeight(context,0.04)),
-                            text(context,"Add to Cart", 0.04, myBlack,bold:true),
-
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       CircleAvatar(

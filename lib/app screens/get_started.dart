@@ -26,7 +26,7 @@ class _GetStartedState extends State<GetStarted> {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: AssetImage("assets/bg.jpg"),
+                  image: AssetImage("assets/bg.png"),
                 ),
               ),
               child: Column(

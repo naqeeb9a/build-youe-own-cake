@@ -120,16 +120,7 @@ class _SizeScreenState extends State<SizeScreen> {
                height: dynamicHeight(context, .15),
                child: Align(
                 alignment: Alignment.bottomCenter,
-                child: sizeIndex ==4 ? Image.asset(
-                    "assets/Custom_Cakes/1/9.png",
-                    width: dynamicWidth(context, 0.5),
-                  ): sizeIndex ==3 ? Image.asset(
-                    "assets/Custom_Cakes/1/9.png",
-                    width: dynamicWidth(context, 0.45)): sizeIndex == 2? Image.asset(
-                    "assets/Custom_Cakes/1/9.png",
-                    width: dynamicWidth(context, 0.4)): sizeIndex == 1? Image.asset(
-                    "assets/Custom_Cakes/1/9.png",
-                    width: dynamicWidth(context, 0.35)): sizeIndex == 0 ?const SizedBox(): const SizedBox(),
+                 child: cakeSize(context),
                   
                ),
              ),
@@ -156,4 +147,19 @@ class _SizeScreenState extends State<SizeScreen> {
       ),
     );
   }
+}
+
+
+Widget cakeSize(context) {
+  print (sizeIndex);
+  return sizeIndex ==4 ? Image.asset(
+          "assets/Custom_Cakes/1/9.png",
+          scale : 1,
+        ): sizeIndex ==3 ? Image.asset(
+          "assets/Custom_Cakes/1/9.png",
+          scale : 2): sizeIndex == 2? Image.asset(
+          "assets/Custom_Cakes/1/9.png",
+          scale : 3): sizeIndex == 1? Image.asset(
+          "assets/Custom_Cakes/1/9.png",
+          scale : 3.5): sizeIndex == 0 ?const SizedBox(): const SizedBox();
 }
