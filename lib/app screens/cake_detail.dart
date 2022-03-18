@@ -30,30 +30,13 @@ class _CakeDetailState extends State<CakeDetail> {
   dynamic pound;
   dynamic sprinkleIndex = 0;
   dynamic accessoriesIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Stack(
           children: [
-            // Container(
-            //   width: dynamicWidth(context, 1),
-            //   height: dynamicHeight(context, .28),
-            //   decoration: BoxDecoration(
-            //     color: myLightPink1,
-            //     borderRadius: BorderRadius.vertical(
-            //       bottom: Radius.elliptical(
-            //         dynamicWidth(context, 1),
-            //         dynamicHeight(context, .25),
-            //       ),
-            //     ),
-            //     // borderRadius: BorderRadius.only(
-            //     //   bottomLeft: Radius.circular(100),
-            //     //   bottomRight: Radius.circular(100),
-            //     // ),
-            //   ),
-            // ),
-
             Image.asset(
               "assets/detail_page_cut.png",
               color: myLightPink1,
@@ -292,14 +275,12 @@ class _CakeDetailState extends State<CakeDetail> {
                       ],
                     ),
                   ),
-
                   text(context, "Accessories", 0.04, myBlack, bold: true),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             //sizeIndex =2;
                             if (accessoriesIndex == 1) {
@@ -310,39 +291,63 @@ class _CakeDetailState extends State<CakeDetail> {
                           });
                         },
                         child: Container(
-                          width: accessoriesIndex ==1? dynamicWidth(context, 0.3):dynamicWidth(context, .2),
-                          height: accessoriesIndex ==1 ?dynamicHeight(context, 0.05) :dynamicHeight(context, 0.045),
-                          padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.01),vertical: dynamicHeight(context, 0.004)),
+                          width: accessoriesIndex == 1
+                              ? dynamicWidth(context, 0.3)
+                              : dynamicWidth(context, .2),
+                          height: accessoriesIndex == 1
+                              ? dynamicHeight(context, 0.05)
+                              : dynamicHeight(context, 0.045),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: dynamicWidth(context, 0.01),
+                              vertical: dynamicHeight(context, 0.004)),
                           decoration: BoxDecoration(
-                            color: accessoriesIndex ==1 ?myPink : myLightPink1.withOpacity(.28),
+                            color: accessoriesIndex == 1
+                                ? myPink
+                                : myLightPink1.withOpacity(.28),
                             borderRadius: BorderRadius.circular(
                               dynamicWidth(context, .03),
                             ),
                           ),
                           child: Column(
-                            crossAxisAlignment: accessoriesIndex ==1 ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+                            crossAxisAlignment: accessoriesIndex == 1
+                                ? CrossAxisAlignment.start
+                                : CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
-
                             children: [
-                              text(context, "Age Number", accessoriesIndex==1 ?0.028: 0.025, accessoriesIndex==1 ?myWhite :myBlack.withOpacity(.28),
+                              text(
+                                  context,
+                                  "Age Number",
+                                  accessoriesIndex == 1 ? 0.028 : 0.025,
+                                  accessoriesIndex == 1
+                                      ? myWhite
+                                      : myBlack.withOpacity(.28),
                                   bold: true),
-                              accessoriesIndex ==1 ?Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  text(context, "150Rs", 0.025, myWhite,
-                                  ),
-                                  Icon(Icons.check,color :myWhite,size: dynamicHeight(context, .022),)
-                                ],
-                              ): text(context, "", 0, noColor),
+                              accessoriesIndex == 1
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        text(
+                                          context,
+                                          "150Rs",
+                                          0.025,
+                                          myWhite,
+                                        ),
+                                        Icon(
+                                          Icons.check,
+                                          color: myWhite,
+                                          size: dynamicHeight(context, .022),
+                                        )
+                                      ],
+                                    )
+                                  : text(context, "", 0, noColor),
                             ],
                           ),
                         ),
                       ),
-
                       widthBox(context, 0.02),
-
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             //sizeIndex =2;
                             if (accessoriesIndex == 2) {
@@ -353,41 +358,66 @@ class _CakeDetailState extends State<CakeDetail> {
                           });
                         },
                         child: Container(
-                          width: accessoriesIndex ==2? dynamicWidth(context, 0.3):dynamicWidth(context, .2),
-                          height: accessoriesIndex == 2 ?dynamicHeight(context, 0.05) : dynamicHeight(context, 0.045),
-                          padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.01),vertical: dynamicHeight(context, 0.004)),
+                          width: accessoriesIndex == 2
+                              ? dynamicWidth(context, 0.3)
+                              : dynamicWidth(context, .2),
+                          height: accessoriesIndex == 2
+                              ? dynamicHeight(context, 0.05)
+                              : dynamicHeight(context, 0.045),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: dynamicWidth(context, 0.01),
+                              vertical: dynamicHeight(context, 0.004)),
                           decoration: BoxDecoration(
-                            color: accessoriesIndex ==2 ?myPink: myLightPink1.withOpacity(.28),
+                            color: accessoriesIndex == 2
+                                ? myPink
+                                : myLightPink1.withOpacity(.28),
                             borderRadius: BorderRadius.circular(
                               dynamicWidth(context, .03),
                             ),
                           ),
                           child: Column(
-                            crossAxisAlignment: accessoriesIndex ==2 ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+                            crossAxisAlignment: accessoriesIndex == 2
+                                ? CrossAxisAlignment.start
+                                : CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              text(context, "Happy Birthday", accessoriesIndex==2 ?0.028: 0.025, accessoriesIndex==2 ?myWhite :myBlack.withOpacity(.28),
+                              text(
+                                  context,
+                                  "Happy Birthday",
+                                  accessoriesIndex == 2 ? 0.028 : 0.025,
+                                  accessoriesIndex == 2
+                                      ? myWhite
+                                      : myBlack.withOpacity(.28),
                                   bold: true),
-                              accessoriesIndex ==2 ?Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  text(context, "100Rs", 0.025, myWhite,
-                                  ),
-                                  Icon(Icons.check,color :myWhite,size: dynamicHeight(context, .022),)
-                                ],
-                              ): text(context, "", 0, noColor),
+                              accessoriesIndex == 2
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        text(
+                                          context,
+                                          "100Rs",
+                                          0.025,
+                                          myWhite,
+                                        ),
+                                        Icon(
+                                          Icons.check,
+                                          color: myWhite,
+                                          size: dynamicHeight(context, .022),
+                                        )
+                                      ],
+                                    )
+                                  : text(context, "", 0, noColor),
                             ],
                           ),
                         ),
                       ),
-
                       widthBox(context, 0.02),
-
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             //sizeIndex =2;
-                            if (accessoriesIndex== 3) {
+                            if (accessoriesIndex == 3) {
                               accessoriesIndex = 0;
                             } else if (accessoriesIndex != 3) {
                               accessoriesIndex = 3;
@@ -395,29 +425,56 @@ class _CakeDetailState extends State<CakeDetail> {
                           });
                         },
                         child: Container(
-                          width: accessoriesIndex ==3? dynamicWidth(context, 0.3):dynamicWidth(context, .2),
-                          height: accessoriesIndex ==3 ?dynamicHeight(context, 0.05) : dynamicHeight(context, .045),
-                          padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, 0.01),vertical: dynamicHeight(context, 0.004)),
+                          width: accessoriesIndex == 3
+                              ? dynamicWidth(context, 0.3)
+                              : dynamicWidth(context, .2),
+                          height: accessoriesIndex == 3
+                              ? dynamicHeight(context, 0.05)
+                              : dynamicHeight(context, .045),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: dynamicWidth(context, 0.01),
+                              vertical: dynamicHeight(context, 0.004)),
                           decoration: BoxDecoration(
-                            color: accessoriesIndex==3?myPink :myLightPink1.withOpacity(.28),
+                            color: accessoriesIndex == 3
+                                ? myPink
+                                : myLightPink1.withOpacity(.28),
                             borderRadius: BorderRadius.circular(
                               dynamicWidth(context, .03),
                             ),
                           ),
                           child: Column(
-                            crossAxisAlignment: accessoriesIndex ==3 ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+                            crossAxisAlignment: accessoriesIndex == 3
+                                ? CrossAxisAlignment.start
+                                : CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              text(context, "Bride to be", accessoriesIndex==3 ?0.028: 0.025, accessoriesIndex==3 ?myWhite :myBlack.withOpacity(.28),
+                              text(
+                                  context,
+                                  "Bride to be",
+                                  accessoriesIndex == 3 ? 0.028 : 0.025,
+                                  accessoriesIndex == 3
+                                      ? myWhite
+                                      : myBlack.withOpacity(.28),
                                   bold: true),
-                              accessoriesIndex==3?Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  text(context, "200Rs", 0.025, myWhite,
-                                  ),
-                                  Icon(Icons.check,color :myWhite,size: dynamicHeight(context, .022),)
-                                ],
-                              ): text(context, "", 0, noColor),
+                              accessoriesIndex == 3
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        text(
+                                          context,
+                                          "200Rs",
+                                          0.025,
+                                          myWhite,
+                                        ),
+                                        Icon(
+                                          Icons.check,
+                                          color: myWhite,
+                                          size: dynamicHeight(context, .022),
+                                        )
+                                      ],
+                                    )
+                                  : text(context, "", 0, noColor),
                             ],
                           ),
                         ),
@@ -429,50 +486,70 @@ class _CakeDetailState extends State<CakeDetail> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CircleAvatar(
-                        radius : dynamicHeight(context, .02),
+                        radius: dynamicHeight(context, .02),
                         backgroundColor: myLightPink1,
-                        child: Center (
+                        child: Center(
                           child: Icon(
-                            Icons.remove,color : myBlack,size: dynamicHeight(context, 0.025)
+                            Icons.remove,
+                            color: myBlack,
+                            size: dynamicHeight(context, 0.025),
                           ),
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          push(context, CartScreen());
+                          push(context, const CartScreen());
                         },
-                        child: Container(
-                          width: dynamicWidth(context, 0.4),
-                          height: dynamicHeight(context, .1),
-                          decoration: BoxDecoration(
-                            color: myBlue,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(100),
-                              topRight: Radius.circular(100),
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            Image.asset(
+                              "assets/bottom_cut.png",
+                              color: myGrey.withOpacity(.4),
+                              height: dynamicHeight(context, .106),
                             ),
-
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset("assets/cart.png",height: dynamicHeight(context,0.04)),
-                              text(context,"Add to Cart", 0.04, myBlack,bold:true),
-
-                            ],
-                          ),
+                            Container(
+                              width: dynamicWidth(context, 0.42),
+                              height: dynamicHeight(context, .096),
+                              decoration: const BoxDecoration(
+                                color: myBlue,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(100),
+                                  topRight: Radius.circular(100),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    "assets/cart.png",
+                                    height: dynamicHeight(context, 0.04),
+                                  ),
+                                  text(
+                                    context,
+                                    "Add to Cart",
+                                    0.04,
+                                    myBlack,
+                                    bold: true,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       CircleAvatar(
-                          radius : dynamicHeight(context, .02),
-                          backgroundColor: myBlue,
-                           child: Center(
-                             child: Icon(Icons.add,color : myBlack,size: dynamicHeight(context, 0.025)),
-                           ),
+                        radius: dynamicHeight(context, .02),
+                        backgroundColor: myBlue,
+                        child: Center(
+                          child: Icon(Icons.add,
+                              color: myBlack,
+                              size: dynamicHeight(context, 0.025)),
+                        ),
                       ),
                     ],
                   ),
-
                 ],
               ),
             )

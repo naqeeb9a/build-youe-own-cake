@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:build_own_cake/app%20screens/home_screen.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
@@ -29,6 +31,18 @@ class _GetStartedState extends State<GetStarted> {
                   image: AssetImage("assets/bg.png"),
                 ),
               ),
+            ),
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: Container(
+                width: dynamicWidth(context, 1),
+                height: dynamicHeight(context, 1),
+                color: myWhite.withOpacity(.26),
+              ),
+            ),
+            SizedBox(
+              width: dynamicWidth(context, 1),
+              height: dynamicHeight(context, 1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
