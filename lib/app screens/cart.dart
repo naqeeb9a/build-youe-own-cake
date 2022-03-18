@@ -1,8 +1,10 @@
+import 'package:build_own_cake/app%20screens/checkout.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/app_routes.dart';
 import '../widgets/text_widget.dart';
 
 class CartScreen extends StatefulWidget {
@@ -41,7 +43,7 @@ class _CartScreenState extends State<CartScreen> {
                   appBar(context,title :"Cart"),
                   Container(
                     width: dynamicWidth(context, .8),
-                    height: dynamicHeight(context, .45),
+                    height: dynamicHeight(context, .47),
                     decoration: BoxDecoration(
                       color: myWhite,
                       borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1),),
@@ -63,6 +65,7 @@ class _CartScreenState extends State<CartScreen> {
                   Container(
                     width: dynamicWidth(context, .8),
                     height: dynamicHeight(context, .2),
+                    padding: EdgeInsets.symmetric(horizontal: dynamicWidth(context, .04),vertical: dynamicHeight(context, .02)),
                     decoration: BoxDecoration(
                         color: myWhite,
                         borderRadius: BorderRadius.circular(dynamicWidth(context, 0.1),),
@@ -74,34 +77,59 @@ class _CartScreenState extends State<CartScreen> {
                             offset: Offset(0, 3), // changes position of shadow
                           ),]
                     ),
-                  ),
-                  Container(
-                    width: dynamicWidth(context, 0.45),
-                    height: dynamicHeight(context, .12),
-                    decoration: const BoxDecoration(
-
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(100),
-                        topRight: Radius.circular(100),
-                      ),
-                      border: Border(top : BorderSide(color: myGrey))
-                    ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: dynamicWidth(context, 0.4),
-                          height: dynamicHeight(context, .1),
-                          decoration: const BoxDecoration(
-                            color: myBlue,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(100),
-                              topRight: Radius.circular(100),
-                            ),
-
-                          ),
-                          child: Center(child: text(context,"Checkout", 0.04, myBlack,bold:true)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            text(context, "Subtotal", 0.035, myBlack),
+                            text(context, "10500rs", 0.035, myPink)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            text(context, "Tax", 0.035, myBlack),
+                            text(context, "xyz", 0.035, myPink)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            text(context, "Delivery", 0.035, myBlack),
+                            text(context, "200rs", 0.035, myPink)
+                          ],
+                        ),
+                        Divider(
+                          thickness: dynamicWidth(context, 0.0015),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            text(context, "Total", 0.035, myBlack),
+                            text(context, "10700rs", 0.035, myPink)
+                          ],
                         ),
                       ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      push(context,CheckoutScreen());
+                    },
+                    child: Container(
+                      width: dynamicWidth(context, 0.4),
+                      height: dynamicHeight(context, .1),
+                      decoration: const BoxDecoration(
+                        color: myBlue,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(100),
+                          topRight: Radius.circular(100),
+                        ),
+
+                      ),
+                      child: Center(child: text(context,"Checkout", 0.04, myBlack,bold:true)),
                     ),
                   ),
                 ],

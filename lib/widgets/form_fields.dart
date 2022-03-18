@@ -25,7 +25,7 @@ Widget inputTextField(context, label, myController,
     obscureText: password == true ? obscureText : false,
     cursorColor: myBlack,
     cursorWidth: 2.0,
-    cursorHeight: dynamicHeight(context, .03),
+
     style: TextStyle(
       color: myBlack,
       fontSize: dynamicWidth(context, .04),
@@ -34,18 +34,18 @@ Widget inputTextField(context, label, myController,
       isDense: true,
       hintText: label,
       hintStyle: const TextStyle(color: myGrey),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(100),
+      enabledBorder: UnderlineInputBorder(
+
         borderSide: BorderSide(
           color: myGrey.withOpacity(.4),
         ),
       ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(100),
+      focusedBorder: UnderlineInputBorder(
+
         borderSide: const BorderSide(color: myBlack),
       ),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(100),
+      border: UnderlineInputBorder(
+
         borderSide: const BorderSide(color: myGrey),
       ),
       contentPadding: EdgeInsets.symmetric(
