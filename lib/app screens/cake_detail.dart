@@ -1,11 +1,8 @@
-import 'package:build_own_cake/app%20screens/cart.dart';
-import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:motion_toast/motion_toast.dart';
@@ -498,7 +495,18 @@ class _CakeDetailState extends State<CakeDetail> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          push(context, const CartScreen());
+                          cart.add({
+                            "image" :  "assets/Cakes/cake 1.png",
+                            "name"   : "Pretty in Pink",
+                            "size"   :  "3 lbs",
+                            "price"  :  "3000rs",
+                          });
+                          MotionToast.success(
+                              title:  const Text("Added",style: TextStyle(
+                                  fontWeight: FontWeight.bold),),
+                              description:   const Text("The item is Added"),
+                            toastDuration:const  Duration(milliseconds: 2200),
+                          ).show(context);
                         },
                         child: Stack(
                           alignment: Alignment.bottomCenter,

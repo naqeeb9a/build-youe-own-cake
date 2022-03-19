@@ -3,6 +3,8 @@ import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 import '../utils/app_routes.dart';
 import '../widgets/text_widget.dart';
@@ -58,7 +60,31 @@ class _CartScreenState extends State<CartScreen> {
                     child:ListView.builder(
                         itemCount:3,
                         itemBuilder: (BuildContext context,int index){
-                          return cartCard(context);
+                          return Slidable(
+                              endActionPane:
+                              ActionPane(motion: const ScrollMotion(), children: [
+                                SlidableAction(
+                                  onPressed: (BuildContext context) {
+
+
+                                    MotionToast.delete(
+                                      title: const Text("Deleted",style: TextStyle(
+                                          fontWeight: FontWeight.bold),),
+
+                                      description: const Text("The item is deleted"),
+                                      toastDuration:const  Duration(milliseconds: 2200),
+                                    )
+                                        .show(context);
+                                    setState(() {});
+
+                                  },
+                                  backgroundColor: const Color(0xFFFE4A49),
+                                  foregroundColor: Colors.white,
+                                  icon: Icons.delete_outlined,
+                                  label: 'Delete',
+                                ),
+                              ],),
+                              child: cartCard(context));
                         }
                     ),
                   ),
@@ -114,22 +140,39 @@ class _CartScreenState extends State<CartScreen> {
                       ],
                     ),
                   ),
-                  InkWell(
+                  GestureDetector(
                     onTap: () {
-                      push(context,CheckoutScreen());
+                      push(context, const CheckoutScreen());
                     },
-                    child: Container(
-                      width: dynamicWidth(context, 0.4),
-                      height: dynamicHeight(context, .1),
-                      decoration: const BoxDecoration(
-                        color: myBlue,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(100),
-                          topRight: Radius.circular(100),
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Image.asset(
+                          "assets/bottom_cut.png",
+                          color: myGrey.withOpacity(.4),
+                          height: dynamicHeight(context, .106),
                         ),
-
-                      ),
-                      child: Center(child: text(context,"Checkout", 0.04, myBlack,bold:true)),
+                        Container(
+                          width: dynamicWidth(context, 0.42),
+                          height: dynamicHeight(context, .096),
+                          decoration: const BoxDecoration(
+                            color: myBlue,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(100),
+                              topRight: Radius.circular(100),
+                            ),
+                          ),
+                          child: Center(
+                            child: text(
+                              context,
+                              "Checkout",
+                              0.04,
+                              myBlack,
+                              bold: true,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

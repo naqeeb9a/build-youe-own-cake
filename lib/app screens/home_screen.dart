@@ -4,8 +4,10 @@ import 'package:build_own_cake/widgets/form_fields.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 
+import '../utils/app_routes.dart';
 import '../utils/constants.dart';
 import '../widgets/app_screen_widgets.dart';
+import 'cart.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Flexible(
-                      child: inputTextField(
+                      child: inputTextField1(
                         context,
                         "Search Your taste",
                         TextEditingController(),
@@ -47,6 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: CupertinoIcons.search,
                         iconColor: myPink,
                       ),
+                    ),
+                    widthBox(context, 0.01),
+                    GestureDetector(
+                      onTap: () {
+                        push(context, const CartScreen());
+                      },
+                        child: Image.asset("assets/cart.png",width: dynamicWidth(context, .07),),
                     ),
                   ],
                 ),

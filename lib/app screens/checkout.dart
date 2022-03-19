@@ -1,7 +1,9 @@
+import 'package:build_own_cake/app%20screens/payment.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:build_own_cake/widgets/form_fields.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/app_routes.dart';
 import '../utils/config.dart';
 import '../utils/dynamic_sizes.dart';
 import '../widgets/text_widget.dart';
@@ -107,19 +109,40 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    width: dynamicWidth(context, 0.4),
-                    height: dynamicHeight(context, .1),
-                    decoration: const BoxDecoration(
-                      color: myBlue,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(100),
-                        topRight: Radius.circular(100),
-                      ),
+                  GestureDetector(
+                    onTap: () {
+                      push(context, const PaymentScreen());
+                    },
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Image.asset(
+                          "assets/bottom_cut.png",
+                          color: myGrey.withOpacity(.4),
+                          height: dynamicHeight(context, .106),
+                        ),
+                        Container(
+                          width: dynamicWidth(context, 0.42),
+                          height: dynamicHeight(context, .096),
+                          decoration: const BoxDecoration(
+                            color: myBlue,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(100),
+                              topRight: Radius.circular(100),
+                            ),
+                          ),
+                          child: Center(
+                            child: text(
+                              context,
+                              "Payment",
+                              0.04,
+                              myBlack,
+                              bold: true,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    child: Center(
-                        child: text(context, "Payment", 0.04, myBlack,
-                            bold: true)),
                   ),
                 ],
               ),
