@@ -1,4 +1,5 @@
 import 'package:build_own_cake/app%20screens/flavour_screen.dart';
+import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -29,22 +30,7 @@ class _SizeScreenState extends State<SizeScreen> {
       child: Scaffold(
           body: Stack(
         children: [
-          Positioned(
-            left: dynamicWidth(context, 0),
-            child: Image.asset(
-              "assets/upper_cut.png",
-              color: myLightPink1,
-              height: dynamicHeight(context, 0.2),
-            ),
-          ),
-          Positioned(
-            right: dynamicWidth(context, 0),
-            child: Image.asset(
-              "assets/upper_cut_1.png",
-              color: myLightPink1.withOpacity(.28),
-              height: dynamicHeight(context, 0.2),
-            ),
-          ),
+         pageDecoration(context),
           Container(
             padding: EdgeInsets.symmetric(
               horizontal: dynamicWidth(context, .04),
@@ -166,7 +152,7 @@ class _SizeScreenState extends State<SizeScreen> {
             ),
           ),
         ],
-      )),
+      ),),
     );
   }
 }
