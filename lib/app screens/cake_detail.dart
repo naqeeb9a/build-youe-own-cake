@@ -54,7 +54,7 @@ class _CakeDetailState extends State<CakeDetail> {
         body: Stack(
           children: [
             Image.asset(
-              widget.image.toString(),
+              "assets/detail_page_cut.png",
               color: myLightPink1,
             ),
             SizedBox(
@@ -94,7 +94,7 @@ class _CakeDetailState extends State<CakeDetail> {
                                 ),
                               ),
                               Image.asset(
-                                "assets/Cakes/cake 1.png",
+                                widget.image.toString(),
                                 height: dynamicHeight(context, .35),
                               ),
                               Positioned(
