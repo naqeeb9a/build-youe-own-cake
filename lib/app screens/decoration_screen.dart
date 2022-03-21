@@ -1,3 +1,6 @@
+import 'package:build_own_cake/app%20screens/color_screen.dart';
+import 'package:build_own_cake/app%20screens/flavour_screen.dart';
+import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/app%20screens/tier_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
@@ -9,10 +12,6 @@ import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
-import 'package:build_own_cake/app%20screens/size_screen.dart';
-import 'package:build_own_cake/app%20screens/flavour_screen.dart';
-import 'package:build_own_cake/app%20screens/color_screen.dart';
-
 
 class DecorationScreen extends StatefulWidget {
   const DecorationScreen({Key? key}) : super(key: key);
@@ -28,14 +27,14 @@ class _DecorationScreenState extends State<DecorationScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Stack(
-          children: [
-            pageDecoration(context),
-            Container(
-              width: dynamicWidth(context, 1),
+          body: Stack(
+        children: [
+          pageDecoration(context),
+          Center(
+            child: Container(
+              width: dynamicWidth(context, .88),
               height: dynamicHeight(context, 1),
               padding: EdgeInsets.symmetric(
-                horizontal: dynamicWidth(context, .04),
                 vertical: dynamicHeight(context, .01),
               ),
               child: Column(
@@ -45,30 +44,16 @@ class _DecorationScreenState extends State<DecorationScreen> {
                   heightBox(context, .1),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: text(
-                        context,
-                        "Choose Decoration.",
-                        .09,
-                        myBlack,
-                        bold: true,
-                        font: true
-                    ),
+                    child: text(context, "Choose Decoration.", .09, myBlack,
+                        bold: true, font: true),
                   ),
-                  // Align(
-                  //   alignment: Alignment.centerLeft,
-                  //   child: text(
-                  //     context,
-                  //     "Select decoration of cake then proceed.",
-                  //     .044,
-                  //     myGrey.withOpacity(0.7),
-                  //   ),
-                  // ),
                   heightBox(context, 0.04),
                   coloredButton1(
                     context,
                     "Chocolate Bar",
                     decorationIndex == 1 ? myPink : myLightPink1,
                     width: dynamicWidth(context, 0.55),
+                    selectedTick: decorationIndex == 1 ? true : false,
                     function: () {
                       setState(() {
                         if (decorationIndex == 1) {
@@ -84,6 +69,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
                     "Pineapple",
                     decorationIndex == 2 ? myPink : myLightPink1,
                     width: dynamicWidth(context, 0.55),
+                    selectedTick: decorationIndex == 2 ? true : false,
                     function: () {
                       setState(() {
                         if (decorationIndex == 2) {
@@ -99,6 +85,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
                     "Cream Icing",
                     decorationIndex == 3 ? myPink : myLightPink1,
                     width: dynamicWidth(context, 0.55),
+                    selectedTick: decorationIndex == 3 ? true : false,
                     function: () {
                       setState(() {
                         if (decorationIndex == 3) {
@@ -114,6 +101,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
                     "Bounty",
                     decorationIndex == 4 ? myPink : myLightPink1,
                     width: dynamicWidth(context, 0.55),
+                    selectedTick: decorationIndex == 4 ? true : false,
                     function: () {
                       setState(() {
                         if (decorationIndex == 4) {
@@ -124,6 +112,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
                       });
                     },
                   ),
+                  heightBox(context, .02),
                   SizedBox(
                     width: dynamicWidth(context, .9),
                     height: dynamicHeight(context, .15),
@@ -134,7 +123,6 @@ class _DecorationScreenState extends State<DecorationScreen> {
                         colorsSelection(),
                         flavours(context),
                         decorationSelection(context),
-
                       ],
                     ),
                   ),
@@ -142,25 +130,26 @@ class _DecorationScreenState extends State<DecorationScreen> {
                     context,
                     nextPage: decorationIndex == 0
                         ? () {
-                      MotionToast.warning(
-                        title: const Text("Warning"),
-                        description:
-                        const Text("Select decoration to proceed!!"),
-                        animationCurve: Curves.ease,
-                        borderRadius: 0,
-                        animationDuration: const Duration(milliseconds: 400),
-                      ).show(context);
-                    }
+                            MotionToast.warning(
+                              title: const Text("Warning"),
+                              description:
+                                  const Text("Select decoration to proceed!!"),
+                              animationCurve: Curves.ease,
+                              borderRadius: 0,
+                              animationDuration:
+                                  const Duration(milliseconds: 400),
+                            ).show(context);
+                          }
                         : () {
-                      push(context, const TierScreen());
-                    },
+                            push(context, const SpecialWishesScreen());
+                          },
                   ),
                 ],
               ),
             ),
-          ],
-        )
-      ),
+          ),
+        ],
+      )),
     );
   }
 }

@@ -14,7 +14,11 @@ Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index, length) {
       onPressed: () {
         push(
           context,
-          CakeDetail(name: cakeName, i: index),
+          CakeDetail(
+            name: cakeName,
+            i: index,
+            image: cakeImage,
+          ),
         );
       },
       enableFeedback: true,
@@ -177,5 +181,3 @@ Widget cakeSize(context, size) {
     ),
   );
 }
-
-

@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:build_own_cake/app%20screens/get_started.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,13 +37,6 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
         colorScheme: const ColorScheme.light(),
-      ).copyWith(
-        pageTransitionsTheme: const PageTransitionsTheme(
-          builders: <TargetPlatform, PageTransitionsBuilder>{
-            TargetPlatform.android: ZoomPageTransitionsBuilder(),
-            TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
-          },
-        ),
       ),
       home: const GetStarted(),
     );

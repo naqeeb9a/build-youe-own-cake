@@ -118,6 +118,7 @@ class _SizeScreenState extends State<SizeScreen> {
                         });
                       },
                     ),
+                    heightBox(context, .02),
                     SizedBox(
                       width: dynamicWidth(context, .88),
                       height: dynamicHeight(context, .15),

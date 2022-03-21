@@ -10,10 +10,11 @@ import 'package:get/get.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class CakeDetail extends StatefulWidget {
-  final String name;
+  final String name, image;
   final int i;
 
-  const CakeDetail({required this.name, required this.i, Key? key})
+  const CakeDetail(
+      {required this.name, required this.i, Key? key, required this.image})
       : super(key: key);
 
   @override
@@ -29,7 +30,7 @@ class _CakeDetailState extends State<CakeDetail> {
   dynamic pound;
   dynamic sprinkleIndex = 0;
   dynamic accessoriesIndex = 0;
-  int  quantity =1;
+  int quantity = 1;
 
   void _incrementCounter() {
     setState(() {
@@ -38,14 +39,13 @@ class _CakeDetailState extends State<CakeDetail> {
   }
 
   void _decrementCounter() {
-    if(quantity <= 1) {
+    if (quantity <= 1) {
       return;
     }
     setState(() {
       quantity--;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class _CakeDetailState extends State<CakeDetail> {
         body: Stack(
           children: [
             Image.asset(
-              "assets/detail_page_cut.png",
+              widget.image.toString(),
               color: myLightPink1,
             ),
             SizedBox(
@@ -528,8 +528,8 @@ class _CakeDetailState extends State<CakeDetail> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GestureDetector(
-                        onTap: (){
-                            _decrementCounter();
+                        onTap: () {
+                          _decrementCounter();
                         },
                         child: CircleAvatar(
                           radius: dynamicHeight(context, .024),
@@ -545,7 +545,7 @@ class _CakeDetailState extends State<CakeDetail> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          if(cart.isEmpty){
+                          if (cart.isEmpty) {
                             cart.add({
                               "image": "assets/Cakes/cake 1.png",
                               "name": widget.name,
@@ -560,20 +560,23 @@ class _CakeDetailState extends State<CakeDetail> {
                               description: const Text("The item is Added"),
                               toastDuration: const Duration(milliseconds: 2200),
                             ).show(context);
-                          }else {
-                            for(int i =0 ; i< cart.length;i++){
-                              if(widget.name ==  cart[i]['name']){
+                          } else {
+                            for (int i = 0; i < cart.length; i++) {
+                              if (widget.name == cart[i]['name']) {
                                 MotionToast.error(
                                   title: const Text(
                                     "Already Added",
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
-                                  description: const Text("The item is Already added in cart"),
-                                  toastDuration: const Duration(milliseconds: 2200),
+                                  description: const Text(
+                                      "The item is Already added in cart"),
+                                  toastDuration:
+                                      const Duration(milliseconds: 2200),
                                 ).show(context);
                               } else {
                                 cart.add({
-                                  "image": "assets/Cakes/cake 1.png",
+                                  "image": widget.image.toString(),
                                   "name": widget.name,
                                   "size": "3 lbs",
                                   "price": "3000rs",
@@ -581,14 +584,15 @@ class _CakeDetailState extends State<CakeDetail> {
                                 MotionToast.success(
                                   title: const Text(
                                     "Added",
-                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                   description: const Text("The item is Added"),
-                                  toastDuration: const Duration(milliseconds: 2200),
+                                  toastDuration:
+                                      const Duration(milliseconds: 2200),
                                 ).show(context);
                               }
                             }
-
                           }
                         },
                         child: Stack(
@@ -633,11 +637,12 @@ class _CakeDetailState extends State<CakeDetail> {
                       Badge(
                         badgeColor: myBlue,
                         elevation: dynamicHeight(context, .04),
-                        badgeContent: text(context, quantity.toString(),0.045, myBlack),
+                        badgeContent:
+                            text(context, quantity.toString(), 0.045, myBlack),
                         position: BadgePosition.topEnd(top: -12, end: -20),
                         // padding : EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.01)),
                         child: GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             _incrementCounter();
                           },
                           child: CircleAvatar(
@@ -711,7 +716,7 @@ void success(context, title) {
   return MotionToast.success(
     title: const Text("Added Successfully"),
     description: Text("Item added to $title"),
-    animationDuration: const Duration(milliseconds: 2000),
+    animationDuration: const Duration(milliseconds: 1000),
   ).show(context);
 }
 
@@ -719,7 +724,7 @@ void remove(context, title) {
   return MotionToast.delete(
     title: const Text("Removed Successfully"),
     description: Text("Item removed from $title"),
-    animationDuration: const Duration(milliseconds: 2000),
+    animationDuration: const Duration(milliseconds: 1000),
   ).show(context);
 }
 

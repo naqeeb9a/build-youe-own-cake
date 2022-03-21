@@ -115,6 +115,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
                         });
                       },
                     ),
+                    heightBox(context, .02),
                     SizedBox(
                       width: dynamicWidth(context, .9),
                       height: dynamicHeight(context, .15),

@@ -57,6 +57,7 @@ class _ColorScreenState extends State<ColorScreen> {
                       "Black",
                       colorIndex == 1 ? myPink : myLightPink1,
                       width: dynamicWidth(context, 0.55),
+                      selectedTick: colorIndex == 1 ? true : false,
                       function: () {
                         setState(() {
                           if (colorIndex == 1) {
@@ -72,6 +73,7 @@ class _ColorScreenState extends State<ColorScreen> {
                       "Chocolate",
                       colorIndex == 2 ? myPink : myLightPink1,
                       width: dynamicWidth(context, 0.55),
+                      selectedTick: colorIndex == 2 ? true : false,
                       function: () {
                         setState(() {
                           if (colorIndex == 2) {
@@ -87,6 +89,7 @@ class _ColorScreenState extends State<ColorScreen> {
                       "Pink",
                       colorIndex == 3 ? myPink : myLightPink1,
                       width: dynamicWidth(context, 0.55),
+                      selectedTick: colorIndex == 3 ? true : false,
                       function: () {
                         setState(() {
                           if (colorIndex == 3) {
@@ -102,6 +105,7 @@ class _ColorScreenState extends State<ColorScreen> {
                       "Light Pink",
                       colorIndex == 4 ? myPink : myLightPink1,
                       width: dynamicWidth(context, 0.55),
+                      selectedTick: colorIndex == 4 ? true : false,
                       function: () {
                         setState(() {
                           if (colorIndex == 4) {
@@ -112,6 +116,7 @@ class _ColorScreenState extends State<ColorScreen> {
                         });
                       },
                     ),
+                    heightBox(context, .02),
                     SizedBox(
                       width: dynamicWidth(context, .9),
                       height: dynamicHeight(context, .15),
