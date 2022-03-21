@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:build_own_cake/app%20screens/cart.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -28,6 +29,23 @@ class _CakeDetailState extends State<CakeDetail> {
   dynamic pound;
   dynamic sprinkleIndex = 0;
   dynamic accessoriesIndex = 0;
+  int  quantity =1;
+
+  void _incrementCounter() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  void _decrementCounter() {
+    if(quantity <= 1) {
+      return;
+    }
+    setState(() {
+      quantity--;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +67,7 @@ class _CakeDetailState extends State<CakeDetail> {
                     width: dynamicWidth(context, .88),
                     child: appBar(
                       context,
-                      title: "Pretty in Pink",
+                      title: widget.name,
                       trailing: true,
                       icon: "assets/cart.png",
                       page: const CartScreen(),
@@ -509,33 +527,69 @@ class _CakeDetailState extends State<CakeDetail> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CircleAvatar(
-                        radius: dynamicHeight(context, .02),
-                        backgroundColor: myLightPink1,
-                        child: Center(
-                          child: Icon(
-                            Icons.remove,
-                            color: myBlack,
-                            size: dynamicHeight(context, 0.025),
+                      GestureDetector(
+                        onTap: (){
+                            _decrementCounter();
+                        },
+                        child: CircleAvatar(
+                          radius: dynamicHeight(context, .024),
+                          backgroundColor: myLightPink1,
+                          child: Center(
+                            child: Icon(
+                              Icons.remove,
+                              color: myBlack,
+                              size: dynamicHeight(context, 0.025),
+                            ),
                           ),
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          cart.add({
-                            "image": "assets/Cakes/cake 1.png",
-                            "name": "Pretty in Pink",
-                            "size": "3 lbs",
-                            "price": "3000rs",
-                          });
-                          MotionToast.success(
-                            title: const Text(
-                              "Added",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            description: const Text("The item is Added"),
-                            toastDuration: const Duration(milliseconds: 2200),
-                          ).show(context);
+                          if(cart.isEmpty){
+                            cart.add({
+                              "image": "assets/Cakes/cake 1.png",
+                              "name": widget.name,
+                              "size": "3 lbs",
+                              "price": "3000rs",
+                            });
+                            MotionToast.success(
+                              title: const Text(
+                                "Added",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              description: const Text("The item is Added"),
+                              toastDuration: const Duration(milliseconds: 2200),
+                            ).show(context);
+                          }else {
+                            for(int i =0 ; i< cart.length;i++){
+                              if(widget.name ==  cart[i]['name']){
+                                MotionToast.error(
+                                  title: const Text(
+                                    "Already Added",
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  description: const Text("The item is Already added in cart"),
+                                  toastDuration: const Duration(milliseconds: 2200),
+                                ).show(context);
+                              } else {
+                                cart.add({
+                                  "image": "assets/Cakes/cake 1.png",
+                                  "name": widget.name,
+                                  "size": "3 lbs",
+                                  "price": "3000rs",
+                                });
+                                MotionToast.success(
+                                  title: const Text(
+                                    "Added",
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  description: const Text("The item is Added"),
+                                  toastDuration: const Duration(milliseconds: 2200),
+                                ).show(context);
+                              }
+                            }
+
+                          }
                         },
                         child: Stack(
                           alignment: Alignment.bottomCenter,
@@ -576,14 +630,26 @@ class _CakeDetailState extends State<CakeDetail> {
                           ],
                         ),
                       ),
-                      CircleAvatar(
-                        radius: dynamicHeight(context, .02),
-                        backgroundColor: myBlue,
-                        child: Center(
-                          child: Icon(
-                            Icons.add,
-                            color: myBlack,
-                            size: dynamicHeight(context, 0.025),
+                      Badge(
+                        badgeColor: myBlue,
+                        elevation: dynamicHeight(context, .04),
+                        badgeContent: text(context, quantity.toString(),0.045, myBlack),
+                        position: BadgePosition.topEnd(top: -12, end: -20),
+                        // padding : EdgeInsets.symmetric(vertical: dynamicHeight(context, 0.01)),
+                        child: GestureDetector(
+                          onTap: (){
+                            _incrementCounter();
+                          },
+                          child: CircleAvatar(
+                            radius: dynamicHeight(context, .024),
+                            backgroundColor: myBlue,
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                color: myBlack,
+                                size: dynamicHeight(context, 0.025),
+                              ),
+                            ),
                           ),
                         ),
                       ),

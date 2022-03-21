@@ -1,12 +1,16 @@
+import 'package:badges/badges.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/form_fields.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../utils/app_routes.dart';
 import '../utils/constants.dart';
 import '../widgets/app_screen_widgets.dart';
+import '../widgets/text_widget.dart';
+import 'cake_detail.dart';
 import 'cart.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,9 +62,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         push(context, const CartScreen());
                       },
-                      child: Image.asset(
-                        "assets/cart.png",
-                        width: dynamicWidth(context, .07),
+                      child: Badge(
+                        position: BadgePosition.topEnd(),
+                        badgeColor:myLightPink1,
+                        elevation: 0,
+                        badgeContent: Obx(()=>text(context, cart.isEmpty ? "":(cart.length).toString(), 0.035,myBlack)),
+                        child: SizedBox(
+                          height:  dynamicWidth(context, .1),
+                          child: Image.asset(
+                            "assets/cart.png",
+                            width: dynamicWidth(context, .07),
+                          ),
+                        ),
                       ),
                     ),
                   ],
