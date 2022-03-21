@@ -224,5 +224,5 @@ Widget flavours(context) {
                         color: myPink,
                       ),
                     )
-                  : SizedBox();
+                  : const SizedBox();
 }

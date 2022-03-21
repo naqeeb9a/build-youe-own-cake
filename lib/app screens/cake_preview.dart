@@ -1,5 +1,4 @@
 import 'package:build_own_cake/app%20screens/checkout.dart';
-import 'package:build_own_cake/app%20screens/order_complete.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -121,23 +120,27 @@ class _CakePreviewState extends State<CakePreview> {
                               ),
                               Positioned(
                                 bottom: 152,
-                                child: Image.asset( "assets/Custom_Cakes/1/2.png",
+                                child: Image.asset(
+                                  "assets/Custom_Cakes/1/2.png",
                                   width: 170,
                                 ),
                               ),
                               Positioned(
                                 bottom: 200,
-                                child: Image.asset( "assets/Custom_Cakes/1/1.png",
+                                child: Image.asset(
+                                  "assets/Custom_Cakes/1/1.png",
                                   width: 50,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        downBar(context,
+                        downBar(
+                          context,
                           nextPage: () {
-                          push(context, const CheckoutScreen());
-                        },)
+                            push(context, const CheckoutScreen());
+                          },
+                        )
                       ],
                     ),
                   ),
