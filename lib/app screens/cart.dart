@@ -1,9 +1,11 @@
+import 'package:build_own_cake/app%20screens/cake_detail.dart';
 import 'package:build_own_cake/app%20screens/checkout.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 import '../utils/app_routes.dart';
@@ -63,14 +65,15 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ]),
                       child: ListView.builder(
-                        itemCount: 3,
+                        itemCount: cart.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return Slidable(
+                          return Obx(()=>Slidable(
                             endActionPane: ActionPane(
                               motion: const ScrollMotion(),
                               children: [
                                 SlidableAction(
                                   onPressed: (BuildContext context) {
+                                    cart.removeAt(index);
                                     MotionToast.delete(
                                       title: const Text(
                                         "Deleted",
@@ -78,9 +81,9 @@ class _CartScreenState extends State<CartScreen> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                       description:
-                                          const Text("The item is deleted"),
+                                      const Text("The item is deleted"),
                                       toastDuration:
-                                          const Duration(milliseconds: 2200),
+                                      const Duration(milliseconds: 2200),
                                     ).show(context);
                                     setState(() {});
                                   },
@@ -91,8 +94,14 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                               ],
                             ),
-                            child: cartCard(context),
-                          );
+                            child: cartCard(
+                              context,
+                              cart[index]['image'],
+                              cart[index]['name'],
+                              cart[index]['size'],
+                              cart[index]['price'],
+                            ),
+                          ),);
                         },
                       ),
                     ),
@@ -207,7 +216,7 @@ Widget semiButton(context, page, buttonText) {
   );
 }
 
-Widget cartCard(context) {
+Widget cartCard(context,image,name,size,price) {
   return Column(
     children: [
       Row(
@@ -215,7 +224,8 @@ Widget cartCard(context) {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Image.asset(
-            "assets/Cakes/cake 1.png",
+            image,
+            // "assets/Cakes/cake 1.png",
             width: dynamicHeight(context, .135),
           ),
           Padding(
@@ -225,8 +235,12 @@ Widget cartCard(context) {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                text(context, "Pretty In Pink", 0.035, myBlack),
-                text(context, "3 lbs", 0.035, myBlack),
+                text(context, name, 0.035, myBlack),
+                text(context, size, 0.035, myBlack),
+                //  text(context, "Pretty In Pink", 0.035, myBlack),
+                // text(context, "3 lbs", 0.035, myBlack),
+                //
+
               ],
             ),
           ),
@@ -235,7 +249,8 @@ Widget cartCard(context) {
             padding: EdgeInsets.only(
               bottom: dynamicHeight(context, .03),
             ),
-            child: text(context, "3000rs", 0.035, myPink),
+            child: text(context, price, 0.035, myPink),
+            // child: text(context, "3000rs", 0.035, myPink),
           ),
         ],
       ),

@@ -68,6 +68,7 @@ class _CakePreviewState extends State<CakePreview> {
                                 "assets/Custom_Cakes/1/9.png",
                                 //width: dynamicWidth(context, 0.6),
                                 width: 220,
+                                color: myPink,
                                 // color: myWhite,
                               ),
                               Positioned(
@@ -79,7 +80,7 @@ class _CakePreviewState extends State<CakePreview> {
                                   width: 240,
                                 ),
                               ),
-                              //
+
                               Positioned(
                                 // bottom: dynamicHeight(context, 0.09),
                                 bottom: 75,
@@ -87,15 +88,16 @@ class _CakePreviewState extends State<CakePreview> {
                                   "assets/Custom_Cakes/1/6.png",
                                   // width: dynamicWidth(context, 0.58),
                                   width: 200,
+                                  color: myPink,
                                 ),
                               ),
-                              Positioned(
-                                bottom: 65,
-                                child: Image.asset(
-                                  "assets/Custom_Cakes/1/7.png",
-                                  width: 235,
-                                ),
-                              ),
+                              // Positioned(
+                              //   bottom: 65,
+                              //   child: Image.asset(
+                              //     "assets/Custom_Cakes/1/7.png",
+                              //     width: 235,
+                              //   ),
+                              // ),
                               Positioned(
                                 bottom: 90,
                                 child: Image.asset(
@@ -109,15 +111,16 @@ class _CakePreviewState extends State<CakePreview> {
                                 child: Image.asset(
                                   "assets/Custom_Cakes/1/3.png",
                                   width: 170,
+                                  color: myPink,
                                 ),
                               ),
-                              Positioned(
-                                bottom: 125,
-                                child: Image.asset(
-                                  "assets/Custom_Cakes/1/4.png",
-                                  width: 190,
-                                ),
-                              ),
+                              // Positioned(
+                              //   bottom: 125,
+                              //   child: Image.asset(
+                              //     "assets/Custom_Cakes/1/4.png",
+                              //     width: 190,
+                              //   ),
+                              // ),
                               Positioned(
                                 bottom: 152,
                                 child: Image.asset(
@@ -128,7 +131,7 @@ class _CakePreviewState extends State<CakePreview> {
                               Positioned(
                                 bottom: 200,
                                 child: Image.asset(
-                                  "assets/Custom_Cakes/1/1.png",
+                                  "assets/Custom_Cakes/1/12.png",
                                   width: 50,
                                 ),
                               ),
