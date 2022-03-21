@@ -1,3 +1,4 @@
+import 'package:build_own_cake/app%20screens/cart.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -44,7 +45,16 @@ class _CakeDetailState extends State<CakeDetail> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  appBar(context, title: "Pretty in Pink"),
+                  SizedBox(
+                    width: dynamicWidth(context, .88),
+                    child: appBar(
+                      context,
+                      title: "Pretty in Pink",
+                      trailing: true,
+                      icon: "assets/cart.png",
+                      page: const CartScreen(),
+                    ),
+                  ),
                   SizedBox(
                     height: dynamicHeight(context, 0.37),
                     child: CarouselSlider(
@@ -57,7 +67,13 @@ class _CakeDetailState extends State<CakeDetail> {
                             children: [
                               Positioned(
                                 top: dynamicHeight(context, 0),
-                                child: text(context, "2 Pounds", 0.04, myBlack),
+                                child: text(
+                                  context,
+                                  "2 Pounds",
+                                  0.04,
+                                  myBlack,
+                                  bold: true,
+                                ),
                               ),
                               Image.asset(
                                 "assets/Cakes/cake 1.png",
@@ -143,19 +159,23 @@ class _CakeDetailState extends State<CakeDetail> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         text(
-                                            context,
-                                            "Strawberry\nSprinkles",
-                                            .03,
-                                            sprinkleIndex == 1
-                                                ? myWhite
-                                                : myBlack),
+                                          context,
+                                          "Strawberry\nSprinkles",
+                                          .03,
+                                          sprinkleIndex == 1
+                                              ? myWhite
+                                              : myBlack,
+                                          bold: true,
+                                        ),
                                         text(
-                                            context,
-                                            "300Rs",
-                                            .025,
-                                            sprinkleIndex == 1
-                                                ? myWhite
-                                                : myBlack),
+                                          context,
+                                          "300Rs",
+                                          .025,
+                                          sprinkleIndex == 1
+                                              ? myWhite
+                                              : myBlack,
+                                          bold: true,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -176,10 +196,11 @@ class _CakeDetailState extends State<CakeDetail> {
                                           ),
                                         ),
                                         child: Center(
-                                          child: Icon(Icons.check,
-                                              color: myWhite,
-                                              size: dynamicHeight(
-                                                  context, 0.025)),
+                                          child: Icon(
+                                            Icons.check,
+                                            color: myWhite,
+                                            size: dynamicHeight(context, 0.025),
+                                          ),
                                         ),
                                       )
                                     : const SizedBox(),
@@ -225,19 +246,23 @@ class _CakeDetailState extends State<CakeDetail> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         text(
-                                            context,
-                                            "Strawberry\nSprinkles",
-                                            .03,
-                                            sprinkleIndex == 2
-                                                ? myWhite
-                                                : myBlack),
+                                          context,
+                                          "Strawberry\nSprinkles",
+                                          .03,
+                                          sprinkleIndex == 2
+                                              ? myWhite
+                                              : myBlack,
+                                          bold: true,
+                                        ),
                                         text(
-                                            context,
-                                            "300Rs",
-                                            .025,
-                                            sprinkleIndex == 2
-                                                ? myWhite
-                                                : myBlack),
+                                          context,
+                                          "300Rs",
+                                          .025,
+                                          sprinkleIndex == 2
+                                              ? myWhite
+                                              : myBlack,
+                                          bold: true,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -312,13 +337,14 @@ class _CakeDetailState extends State<CakeDetail> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               text(
-                                  context,
-                                  "Age Number",
-                                  accessoriesIndex == 1 ? 0.028 : 0.025,
-                                  accessoriesIndex == 1
-                                      ? myWhite
-                                      : myBlack.withOpacity(.28),
-                                  bold: true),
+                                context,
+                                "Age Number",
+                                accessoriesIndex == 1 ? 0.028 : 0.025,
+                                accessoriesIndex == 1
+                                    ? myWhite
+                                    : myBlack.withOpacity(.28),
+                                bold: true,
+                              ),
                               accessoriesIndex == 1
                                   ? Row(
                                       mainAxisAlignment:
@@ -379,13 +405,14 @@ class _CakeDetailState extends State<CakeDetail> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               text(
-                                  context,
-                                  "Happy Birthday",
-                                  accessoriesIndex == 2 ? 0.028 : 0.025,
-                                  accessoriesIndex == 2
-                                      ? myWhite
-                                      : myBlack.withOpacity(.28),
-                                  bold: true),
+                                context,
+                                "Happy Birthday",
+                                accessoriesIndex == 2 ? 0.028 : 0.025,
+                                accessoriesIndex == 2
+                                    ? myWhite
+                                    : myBlack.withOpacity(.28),
+                                bold: true,
+                              ),
                               accessoriesIndex == 2
                                   ? Row(
                                       mainAxisAlignment:
@@ -496,16 +523,18 @@ class _CakeDetailState extends State<CakeDetail> {
                       GestureDetector(
                         onTap: () {
                           cart.add({
-                            "image" :  "assets/Cakes/cake 1.png",
-                            "name"   : "Pretty in Pink",
-                            "size"   :  "3 lbs",
-                            "price"  :  "3000rs",
+                            "image": "assets/Cakes/cake 1.png",
+                            "name": "Pretty in Pink",
+                            "size": "3 lbs",
+                            "price": "3000rs",
                           });
                           MotionToast.success(
-                              title:  const Text("Added",style: TextStyle(
-                                  fontWeight: FontWeight.bold),),
-                              description:   const Text("The item is Added"),
-                            toastDuration:const  Duration(milliseconds: 2200),
+                            title: const Text(
+                              "Added",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            description: const Text("The item is Added"),
+                            toastDuration: const Duration(milliseconds: 2200),
                           ).show(context);
                         },
                         child: Stack(
@@ -551,9 +580,11 @@ class _CakeDetailState extends State<CakeDetail> {
                         radius: dynamicHeight(context, .02),
                         backgroundColor: myBlue,
                         child: Center(
-                          child: Icon(Icons.add,
-                              color: myBlack,
-                              size: dynamicHeight(context, 0.025)),
+                          child: Icon(
+                            Icons.add,
+                            color: myBlack,
+                            size: dynamicHeight(context, 0.025),
+                          ),
                         ),
                       ),
                     ],
@@ -563,416 +594,6 @@ class _CakeDetailState extends State<CakeDetail> {
             )
           ],
         ),
-
-        // SingleChildScrollView(
-        //   child: Column(
-        //     children: [
-        //       bar(
-        //         context,
-        //         true,
-        //         centerCheck: true,
-        //         back: true,
-        //         centerText: widget.name,
-        //       ),
-        //       SizedBox(
-        //         height: dynamicHeight(context, 0.5),
-        //         child: Swiper(
-        //           itemBuilder: (BuildContext context, int index) {
-        //             return swiper(context, cake[widget.i]['images'][index]);
-        //           },
-        //           itemCount: cake[widget.i]['images'].length,
-        //           autoplay: true,
-        //           pagination: const SwiperPagination(
-        //             alignment: Alignment.centerRight,
-        //             builder: DotSwiperPaginationBuilder(activeColor: myBlack),
-        //           ),
-        //         ),
-        //       ),
-        //       text(
-        //           context,
-        //           sizeIndex == 1
-        //               ? price = "3500"
-        //               : sizeIndex == 2
-        //                   ? price = "4500"
-        //                   : sizeIndex == 3
-        //                       ? price = "5000"
-        //                       : sizeIndex == 4
-        //                           ? price = "6000"
-        //                           : sizeIndex == 5
-        //                               ? price = "7400"
-        //                               : sizeIndex == 6
-        //                                   ? price = "8800"
-        //                                   : price = "0",
-        //           0.04,
-        //           myBrown),
-        //       heightBox(context, 0.008),
-        //       text(context, "Size :", 0.04, myBlack, bold: true),
-        //       SizedBox(
-        //         height: dynamicHeight(context, 0.05),
-        //         child: ListView(
-        //           scrollDirection: Axis.horizontal,
-        //           children: [
-        //             InkWell(
-        //               onTap: () {
-        //                 setState(() {
-        //                   //sizeIndex =1;
-        //                   if (sizeIndex == 1) {
-        //                     sizeIndex = 1;
-        //                   } else if (sizeIndex != 1) {
-        //                     sizeIndex = 1;
-        //                   }
-        //                 });
-        //               },
-        //               child: Padding(
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: dynamicWidth(context, 0.01),
-        //                     vertical: dynamicHeight(context, 0.005)),
-        //                 child: ClipRRect(
-        //                   borderRadius: BorderRadius.circular(
-        //                     dynamicWidth(context, 0.03),
-        //                   ),
-        //                   child: Container(
-        //                     padding: EdgeInsets.symmetric(
-        //                       vertical: dynamicHeight(context, 0.008),
-        //                       horizontal: dynamicWidth(context, 0.03),
-        //                     ),
-        //                     color: sizeIndex == 1
-        //                         ? myLightPink
-        //                         : myGrey.withOpacity(0.2),
-        //                     child: Center(
-        //                         child: text(context, "2 Pound", 0.03,
-        //                             sizeIndex == 1 ? myWhite : myBlack)),
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //             InkWell(
-        //               onTap: () {
-        //                 setState(() {
-        //                   if (sizeIndex == 2) {
-        //                     sizeIndex = 2;
-        //                   } else if (sizeIndex != 2) {
-        //                     sizeIndex = 2;
-        //                   }
-        //                 });
-        //               },
-        //               child: Padding(
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: dynamicWidth(context, 0.01),
-        //                     vertical: dynamicHeight(context, 0.005)),
-        //                 child: ClipRRect(
-        //                   borderRadius: BorderRadius.circular(
-        //                     dynamicWidth(context, 0.03),
-        //                   ),
-        //                   child: Container(
-        //                     padding: EdgeInsets.symmetric(
-        //                       vertical: dynamicHeight(context, 0.008),
-        //                       horizontal: dynamicWidth(context, 0.03),
-        //                     ),
-        //                     color: sizeIndex == 2
-        //                         ? myLightPink
-        //                         : myGrey.withOpacity(0.2),
-        //                     child: Center(
-        //                         child: text(context, "2.5 Pound", 0.03,
-        //                             sizeIndex == 2 ? myWhite : myBlack)),
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //             InkWell(
-        //               onTap: () {
-        //                 setState(() {
-        //                   if (sizeIndex == 3) {
-        //                     sizeIndex = 3;
-        //                   } else if (sizeIndex != 3) {
-        //                     sizeIndex = 3;
-        //                   }
-        //                 });
-        //               },
-        //               child: Padding(
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: dynamicWidth(context, 0.01),
-        //                     vertical: dynamicHeight(context, 0.005)),
-        //                 child: ClipRRect(
-        //                   borderRadius: BorderRadius.circular(
-        //                     dynamicWidth(context, 0.03),
-        //                   ),
-        //                   child: Container(
-        //                     padding: EdgeInsets.symmetric(
-        //                       vertical: dynamicHeight(context, 0.008),
-        //                       horizontal: dynamicWidth(context, 0.03),
-        //                     ),
-        //                     color: sizeIndex == 3
-        //                         ? myLightPink
-        //                         : myGrey.withOpacity(0.2),
-        //                     child: Center(
-        //                         child: text(context, "3 Pound", 0.03,
-        //                             sizeIndex == 3 ? myWhite : myBlack)),
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //             InkWell(
-        //               onTap: () {
-        //                 setState(() {
-        //                   if (sizeIndex == 4) {
-        //                     sizeIndex = 4;
-        //                   } else if (sizeIndex != 4) {
-        //                     sizeIndex = 4;
-        //                   }
-        //                 });
-        //               },
-        //               child: Padding(
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: dynamicWidth(context, 0.01),
-        //                     vertical: dynamicHeight(context, 0.005)),
-        //                 child: ClipRRect(
-        //                   borderRadius: BorderRadius.circular(
-        //                     dynamicWidth(context, 0.03),
-        //                   ),
-        //                   child: Container(
-        //                     padding: EdgeInsets.symmetric(
-        //                       vertical: dynamicHeight(context, 0.008),
-        //                       horizontal: dynamicWidth(context, 0.03),
-        //                     ),
-        //                     color: sizeIndex == 4
-        //                         ? myLightPink
-        //                         : myGrey.withOpacity(0.2),
-        //                     child: Center(
-        //                         child: text(context, "4 Pound", 0.03,
-        //                             sizeIndex == 4 ? myWhite : myBlack)),
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //             InkWell(
-        //               onTap: () {
-        //                 setState(() {
-        //                   if (sizeIndex == 5) {
-        //                     sizeIndex = 5;
-        //                   } else if (sizeIndex != 5) {
-        //                     sizeIndex = 5;
-        //                   }
-        //                 });
-        //               },
-        //               child: Padding(
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: dynamicWidth(context, 0.01),
-        //                     vertical: dynamicHeight(context, 0.005)),
-        //                 child: ClipRRect(
-        //                   borderRadius: BorderRadius.circular(
-        //                     dynamicWidth(context, 0.03),
-        //                   ),
-        //                   child: Container(
-        //                     padding: EdgeInsets.symmetric(
-        //                       vertical: dynamicHeight(context, 0.008),
-        //                       horizontal: dynamicWidth(context, 0.03),
-        //                     ),
-        //                     color: sizeIndex == 5
-        //                         ? myLightPink
-        //                         : myGrey.withOpacity(0.2),
-        //                     child: Center(
-        //                         child: text(context, "5 Pound", 0.03,
-        //                             sizeIndex == 5 ? myWhite : myBlack)),
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //             InkWell(
-        //               onTap: () {
-        //                 setState(() {
-        //                   if (sizeIndex == 6) {
-        //                     sizeIndex = 6;
-        //                   } else if (sizeIndex != 6) {
-        //                     sizeIndex = 6;
-        //                   }
-        //                 });
-        //               },
-        //               child: Padding(
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: dynamicWidth(context, 0.01),
-        //                     vertical: dynamicHeight(context, 0.005)),
-        //                 child: ClipRRect(
-        //                   borderRadius: BorderRadius.circular(
-        //                     dynamicWidth(context, 0.03),
-        //                   ),
-        //                   child: Container(
-        //                     padding: EdgeInsets.symmetric(
-        //                       vertical: dynamicHeight(context, 0.008),
-        //                       horizontal: dynamicWidth(context, 0.03),
-        //                     ),
-        //                     color: sizeIndex == 6
-        //                         ? myLightPink
-        //                         : myGrey.withOpacity(0.2),
-        //                     child: Center(
-        //                         child: text(context, "6 Pound", 0.03,
-        //                             sizeIndex == 6 ? myWhite : myBlack)),
-        //                   ),
-        //                 ),
-        //               ),
-        //             ),
-        //           ],
-        //         ),
-        //       ),
-        //       Padding(
-        //         padding: EdgeInsets.symmetric(
-        //           horizontal: dynamicWidth(context, .04),
-        //         ),
-        //         child: Column(
-        //           children: [
-        //             Align(
-        //               alignment: Alignment.centerLeft,
-        //               child: text(context, "Description :", 0.04, myBlack,
-        //                   bold: true),
-        //             ),
-        //             // text(context, widget.description, 0.035, myBlack,
-        //             //     maxLines: 3),
-        //             heightBox(context, 0.012),
-        //             Row(
-        //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //               children: [
-        //                 text(context, "Add Extra", 0.035, myBlack, bold: true),
-        //                 widthBox(context, 0.01),
-        //                 widthBox(context, 0.01),
-        //                 InkWell(
-        //                   onTap: () {
-        //                     setState(
-        //                       () {
-        //                         if (fvt == 1) {
-        //                           fvt = 0;
-        //                         } else if (fvt != 1) {
-        //                           fvt = 1;
-        //                         }
-        //                       },
-        //                     );
-        //                     if (fvt == 0) {
-        //                       remove(context, "favorite");
-        //                     } else {
-        //                       success(context, "favorite");
-        //                     }
-        //                   },
-        //                   child: ClipRRect(
-        //                     borderRadius: BorderRadius.circular(
-        //                       dynamicWidth(context, 0.03),
-        //                     ),
-        //                     child: Container(
-        //                       padding: EdgeInsets.symmetric(
-        //                         vertical: dynamicHeight(context, 0.008),
-        //                         horizontal: dynamicWidth(context, 0.01),
-        //                       ),
-        //                       color: myGrey.withOpacity(0.2),
-        //                       child: Center(
-        //                         child: fvt == 1
-        //                             ? Icon(
-        //                                 Icons.favorite,
-        //                                 size: dynamicHeight(context, 0.025),
-        //                                 color: myRed,
-        //                               )
-        //                             : Icon(
-        //                                 Icons.favorite_outline_sharp,
-        //                                 size: dynamicHeight(context, 0.025),
-        //                                 color: myBlack,
-        //                               ),
-        //                       ),
-        //                     ),
-        //                   ),
-        //                 ),
-        //                 InkWell(
-        //                   onTap: () {
-        //                     pound = sizeIndex == 1
-        //                         ? "2 Pound"
-        //                         : sizeIndex == 2
-        //                             ? "2.5 Pound"
-        //                             : sizeIndex == 3
-        //                                 ? "3 Pound"
-        //                                 : sizeIndex == 4
-        //                                     ? "4 Pound"
-        //                                     : sizeIndex == 5
-        //                                         ? "5 Pound"
-        //                                         : sizeIndex == 6
-        //                                             ? "6 Pound"
-        //                                             : "2 Pound";
-        //
-        //                     setState(() {
-        //                       if (index == 1) {
-        //                         index = 0;
-        //                       } else if (index != 1) {
-        //                         index = 1;
-        //                       }
-        //                     });
-        //                     if (index == 0) {
-        //                       cart.removeAt(index);
-        //                       MotionToast.delete(
-        //                         title: const Text("Removed Successfully"),
-        //                         description:
-        //                             const Text("Item removed from cart"),
-        //                         animationDuration:
-        //                             const Duration(milliseconds: 2000),
-        //                       ).show(context);
-        //                     } else if (index == 1) {
-        //                       cart.add({
-        //                         "image": cake[widget.i]['images'][0],
-        //                         'name': widget.name,
-        //                         'price': price,
-        //                         "size": pound,
-        //                         "quantity": "1",
-        //                       });
-        //                       MotionToast.success(
-        //                         title: const Text("Added Successfully"),
-        //                         description: const Text("Item added to cart"),
-        //                         animationDuration:
-        //                             const Duration(milliseconds: 2000),
-        //                       ).show(context);
-        //                     }
-        //                   },
-        //                   child: ClipRRect(
-        //                     borderRadius: BorderRadius.circular(
-        //                       dynamicWidth(context, 0.03),
-        //                     ),
-        //                     child: Container(
-        //                       padding: EdgeInsets.symmetric(
-        //                         vertical: dynamicHeight(context, 0.008),
-        //                         horizontal: dynamicWidth(context, 0.03),
-        //                       ),
-        //                       color: myGrey.withOpacity(0.2),
-        //                       child: Row(
-        //                         children: [
-        //                           text(context, "Add to cart", 0.03, myBlack),
-        //                           Icon(
-        //                             Icons.check,
-        //                             color: index == 1
-        //                                 ? Colors.greenAccent
-        //                                 : myBlack,
-        //                           ),
-        //                         ],
-        //                       ),
-        //                     ),
-        //                   ),
-        //                 ),
-        //               ],
-        //             ),
-        //           ],
-        //         ),
-        //       ),
-        //       heightBox(context, 0.015),
-        //       SizedBox(
-        //         width: dynamicWidth(context, 1),
-        //         height: dynamicHeight(context, 0.15),
-        //         child: ListView.builder(
-        //           scrollDirection: Axis.horizontal,
-        //           itemCount: extraTopping.length,
-        //           itemBuilder: (
-        //             context,
-        //             i,
-        //           ) {
-        //             return downList(context, extraTopping[i]['image'],
-        //                 extraTopping[i]['name']);
-        //           },
-        //         ),
-        //       )
-        //     ],
-        //   ),
-        // ),
       ),
     );
   }

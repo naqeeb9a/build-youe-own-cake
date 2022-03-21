@@ -25,7 +25,6 @@ Widget inputTextField(context, label, myController,
     obscureText: password == true ? obscureText : false,
     cursorColor: myBlack,
     cursorWidth: 2.0,
-
     style: TextStyle(
       color: myBlack,
       fontSize: dynamicWidth(context, .04),
@@ -35,18 +34,15 @@ Widget inputTextField(context, label, myController,
       hintText: label,
       hintStyle: const TextStyle(color: myGrey),
       enabledBorder: UnderlineInputBorder(
-
         borderSide: BorderSide(
           color: myGrey.withOpacity(.4),
         ),
       ),
-      focusedBorder: UnderlineInputBorder(
-
-        borderSide: const BorderSide(color: myBlack),
+      focusedBorder: const UnderlineInputBorder(
+        borderSide: BorderSide(color: myBlack),
       ),
-      border: UnderlineInputBorder(
-
-        borderSide: const BorderSide(color: myGrey),
+      border: const UnderlineInputBorder(
+        borderSide: BorderSide(color: myGrey),
       ),
       contentPadding: EdgeInsets.symmetric(
         horizontal: dynamicWidth(context, .05),
@@ -62,20 +58,19 @@ Widget inputTextField(context, label, myController,
   );
 }
 
-
 Widget inputTextField1(context, label, myController,
     {function,
-      function2,
-      password = false,
-      suffixIcon = false,
-      icon = "",
-      iconColor = ""}) {
+    function2,
+    password = false,
+    suffixIcon = false,
+    icon = "",
+    iconColor = ""}) {
   return TextFormField(
     autovalidateMode: AutovalidateMode.onUserInteraction,
     validator: (function == "")
         ? () {
-      return null;
-    }
+            return null;
+          }
         : function,
     controller: myController,
     textInputAction: TextInputAction.next,
@@ -110,13 +105,18 @@ Widget inputTextField1(context, label, myController,
       ),
       contentPadding: EdgeInsets.symmetric(
         horizontal: dynamicWidth(context, .05),
+        vertical: dynamicHeight(context, .01),
       ),
       suffixIcon: suffixIcon == false
           ? const SizedBox()
           : Icon(
-        icon,
-        size: dynamicWidth(context, .06),
-        color: iconColor,
+              icon,
+              size: dynamicWidth(context, .06),
+              color: iconColor,
+            ),
+      suffixIconConstraints: BoxConstraints(
+        minWidth: dynamicWidth(context, .1),
+        minHeight: dynamicHeight(context, .044),
       ),
     ),
   );

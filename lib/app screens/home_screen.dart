@@ -30,14 +30,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 heightBox(context, .04),
                 Row(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: dynamicWidth(context, .02),
-                      ),
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: dynamicWidth(context, .07),
-                        color: myGrey,
+                    GestureDetector(
+                      onTap: () => pop(context),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          right: dynamicWidth(context, .02),
+                        ),
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: dynamicWidth(context, .07),
+                          color: myGrey,
+                        ),
                       ),
                     ),
                     Flexible(
@@ -50,12 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         iconColor: myPink,
                       ),
                     ),
-                    widthBox(context, 0.01),
+                    widthBox(context, 0.04),
                     GestureDetector(
                       onTap: () {
                         push(context, const CartScreen());
                       },
-                        child: Image.asset("assets/cart.png",width: dynamicWidth(context, .07),),
+                      child: Image.asset(
+                        "assets/cart.png",
+                        width: dynamicWidth(context, .07),
+                      ),
                     ),
                   ],
                 ),

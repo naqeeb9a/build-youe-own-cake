@@ -4,7 +4,7 @@ import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-appBar(context, {title = ""}) {
+appBar(context, {title = "", trailing = false, icon, page}) {
   return AppBar(
     title: text(
       context,
@@ -39,5 +39,16 @@ appBar(context, {title = ""}) {
         ],
       ),
     ),
+    actions: [
+      trailing == false
+          ? const SizedBox()
+          : GestureDetector(
+              onTap: () => push(context, page),
+              child: Image.asset(
+                icon,
+                width: dynamicWidth(context, .08),
+              ),
+            ),
+    ],
   );
 }
