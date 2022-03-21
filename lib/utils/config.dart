@@ -9,11 +9,11 @@ const myLightPink1 = Color(0xffFFA3A3);
 const myYellow = Color(0xffFFE4B8);
 const myYellow1 = Color(0xffFFAE5E);
 const myBrown = Color(0xff891a3d);
-const myBlue =Color(0xff6ECFF6);
+const myBlue = Color(0xff6ECFF6);
 const myRed = Color(0xff9c0434);
 const myRed1 = Color(0xffCE2A2A);
 const noColor = Colors.transparent;
- const myVanilla =Color(0xffF3E5AB);
- const myChocolate =Color(0xff7B3F00);
+const myVanilla = Color(0xffF3E5AB);
+const myChocolate = Color(0xff7B3F00);
 
 bool obscureText = true;

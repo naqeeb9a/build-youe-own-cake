@@ -1261,7 +1261,6 @@ class _DecorationScreenState extends State<DecorationScreen> {
                     //   color: myLightPink,
                     // )
                     //     : SizedBox(),
-
                   ],
                 ),
               ),
@@ -1269,18 +1268,18 @@ class _DecorationScreenState extends State<DecorationScreen> {
                 context,
                 nextPage: decorationIndex == 0
                     ? () {
-                  MotionToast.warning(
-                    title: const Text("Warning"),
-
-                    description: const Text("Select decoration to proceed!!"),
-                    animationCurve: Curves.ease,
-                    borderRadius: 0,
-                    animationDuration: const Duration(milliseconds: 400),
-                  ).show(context);
-                }
+                        MotionToast.warning(
+                          title: const Text("Warning"),
+                          description:
+                              const Text("Select decoration to proceed!!"),
+                          animationCurve: Curves.ease,
+                          borderRadius: 0,
+                          animationDuration: const Duration(milliseconds: 400),
+                        ).show(context);
+                      }
                     : () {
-                  push(context, const TierScreen());
-                },
+                        push(context, const TierScreen());
+                      },
               ),
             ],
           ),
@@ -1291,33 +1290,96 @@ class _DecorationScreenState extends State<DecorationScreen> {
 }
 
 Widget decorationSelection(context) {
-  return decorationIndex == 1 ? Positioned(
-    bottom  : sizeIndex==3 ?dynamicHeight(context, 0.1) : sizeIndex == 4 ? dynamicHeight(context, 0.12): dynamicHeight(context, 0.07),
-    child: Image.asset(
-      "assets/Custom_Cakes/1/10.png",
-      scale: sizeIndex == 1 ? 70 : sizeIndex ==2 ?50 : sizeIndex == 3 ? 40: sizeIndex==4 ?40:0,
-    ),
-  ): decorationIndex == 2 ? Positioned(
-    bottom  : sizeIndex==3 ?dynamicHeight(context, 0.1) : sizeIndex == 4 ? dynamicHeight(context, 0.105):dynamicHeight(context, 0.07),
-    // bottom  : sizeIndex==3 ?dynamicHeight(context, 0.1) : sizeIndex == 4 ? dynamicHeight(context, 0.105):dynamicHeight(context, 0.07),
-    left: sizeIndex == 3?dynamicHeight(context, 0.11) :sizeIndex == 4 ? dynamicHeight(context, 0.1):dynamicHeight(context, .155),
-    child: Image.asset(
-      "assets/Custom_Cakes/1/11.png",
-      scale: sizeIndex == 1 ? 40 : sizeIndex ==2 ?30 : sizeIndex == 3 ? 20: sizeIndex==4 ?20:0,
-
-    ),
-  ):decorationIndex == 3 ? Positioned(
-    bottom  : sizeIndex == 3 ?dynamicHeight(context, 0.08):sizeIndex == 4 ? dynamicHeight(context, 0.09):dynamicHeight(context, 0.06),
-    child: Image.asset(
-      "assets/Custom_Cakes/1/7.png",
-      scale: sizeIndex == 1 ? 3.5 : sizeIndex ==2 ?3 : sizeIndex == 3 ? 2: sizeIndex==4 ?1.7:0,
-    ),
-  ):decorationIndex == 4 ? Positioned(
-    bottom  : sizeIndex == 3 ? dynamicHeight(context, 0.09) :sizeIndex == 4 ? dynamicHeight(context, 0.09): dynamicHeight(context, 0.06),
-    right: sizeIndex == 3 ?dynamicHeight(context, 0.1) :sizeIndex == 4 ? dynamicHeight(context, 0.07): dynamicHeight(context, 0.14),
-    child: Image.asset(
-      "assets/Custom_Cakes/1/12.png",
-      scale: sizeIndex == 1 ? 50 : sizeIndex ==2 ?40 : sizeIndex == 3 ? 30: sizeIndex==4 ?25:0,
-    ),
-  ):const SizedBox();
+  return decorationIndex == 1
+      ? Positioned(
+          bottom: sizeIndex == 3
+              ? dynamicHeight(context, 0.1)
+              : sizeIndex == 4
+                  ? dynamicHeight(context, 0.12)
+                  : dynamicHeight(context, 0.07),
+          child: Image.asset(
+            "assets/Custom_Cakes/1/10.png",
+            scale: sizeIndex == 1
+                ? 70
+                : sizeIndex == 2
+                    ? 50
+                    : sizeIndex == 3
+                        ? 40
+                        : sizeIndex == 4
+                            ? 40
+                            : 0,
+          ),
+        )
+      : decorationIndex == 2
+          ? Positioned(
+              bottom: sizeIndex == 3
+                  ? dynamicHeight(context, 0.1)
+                  : sizeIndex == 4
+                      ? dynamicHeight(context, 0.105)
+                      : dynamicHeight(context, 0.07),
+              // bottom  : sizeIndex==3 ?dynamicHeight(context, 0.1) : sizeIndex == 4 ? dynamicHeight(context, 0.105):dynamicHeight(context, 0.07),
+              left: sizeIndex == 3
+                  ? dynamicHeight(context, 0.11)
+                  : sizeIndex == 4
+                      ? dynamicHeight(context, 0.1)
+                      : dynamicHeight(context, .155),
+              child: Image.asset(
+                "assets/Custom_Cakes/1/11.png",
+                scale: sizeIndex == 1
+                    ? 40
+                    : sizeIndex == 2
+                        ? 30
+                        : sizeIndex == 3
+                            ? 20
+                            : sizeIndex == 4
+                                ? 20
+                                : 0,
+              ),
+            )
+          : decorationIndex == 3
+              ? Positioned(
+                  bottom: sizeIndex == 3
+                      ? dynamicHeight(context, 0.08)
+                      : sizeIndex == 4
+                          ? dynamicHeight(context, 0.09)
+                          : dynamicHeight(context, 0.06),
+                  child: Image.asset(
+                    "assets/Custom_Cakes/1/7.png",
+                    scale: sizeIndex == 1
+                        ? 3.5
+                        : sizeIndex == 2
+                            ? 3
+                            : sizeIndex == 3
+                                ? 2
+                                : sizeIndex == 4
+                                    ? 1.7
+                                    : 0,
+                  ),
+                )
+              : decorationIndex == 4
+                  ? Positioned(
+                      bottom: sizeIndex == 3
+                          ? dynamicHeight(context, 0.09)
+                          : sizeIndex == 4
+                              ? dynamicHeight(context, 0.09)
+                              : dynamicHeight(context, 0.06),
+                      right: sizeIndex == 3
+                          ? dynamicHeight(context, 0.1)
+                          : sizeIndex == 4
+                              ? dynamicHeight(context, 0.07)
+                              : dynamicHeight(context, 0.14),
+                      child: Image.asset(
+                        "assets/Custom_Cakes/1/12.png",
+                        scale: sizeIndex == 1
+                            ? 50
+                            : sizeIndex == 2
+                                ? 40
+                                : sizeIndex == 3
+                                    ? 30
+                                    : sizeIndex == 4
+                                        ? 25
+                                        : 0,
+                      ),
+                    )
+                  : const SizedBox();
 }

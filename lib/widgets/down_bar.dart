@@ -24,12 +24,13 @@ Widget downBar(context, {nextPage = "", optionalNextButton = false}) {
                   Icon(
                     Icons.arrow_back_ios_new_outlined,
                     size: dynamicHeight(context, .03),
+                    color: noColor,
                   ),
                   text(
                     context,
                     "Back",
                     0.042,
-                    myBlack,
+                    noColor,
                     bold: true,
                   ),
                 ],
@@ -40,31 +41,23 @@ Widget downBar(context, {nextPage = "", optionalNextButton = false}) {
       ),
       InkWell(
         onTap: nextPage == "" ? () {} : nextPage,
-        child: SizedBox(
-          width: dynamicWidth(context, 0.18),
-          height: dynamicHeight(context, .05),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  text(
-                    context,
-                    "Next",
-                    0.042,
-                    optionalNextButton == true ? noColor : myBlack,
-                    bold: true,
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    size: dynamicHeight(context, .03),
-                    color: optionalNextButton == true ? noColor : myBlack,
-                  ),
-                ],
-              )
-            ],
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            text(
+              context,
+              "Next  ",
+              .028,
+              myBlack,
+              bold: true,
+            ),
+            Icon(
+              Icons.arrow_forward,
+              color: myBlack,
+              size: dynamicWidth(context, .06),
+            ),
+          ],
         ),
       ),
     ],
