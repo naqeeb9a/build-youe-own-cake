@@ -64,11 +64,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: Badge(
                         position: BadgePosition.topEnd(),
-                        badgeColor:myLightPink1,
+                        badgeColor: myLightPink1,
                         elevation: 0,
-                        badgeContent: Obx(()=>text(context, cart.isEmpty ? "":(cart.length).toString(), 0.035,myBlack)),
+                        badgeContent: Obx(
+                          () => text(
+                            context,
+                            (cart.length).toString(),
+                            0.035,
+                            myBlack,
+                          ),
+                        ),
                         child: SizedBox(
-                          height:  dynamicWidth(context, .1),
+                          height: dynamicWidth(context, .1),
                           child: Image.asset(
                             "assets/cart.png",
                             width: dynamicWidth(context, .07),

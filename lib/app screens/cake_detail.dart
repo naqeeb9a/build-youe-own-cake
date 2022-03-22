@@ -80,7 +80,6 @@ class _CakeDetailState extends State<CakeDetail> {
                         SizedBox(
                           height: dynamicHeight(context, 0.35),
                           child: Stack(
-                            // mainAxisAlignment : MainAxisAlignment.spaceBetween,
                             alignment: Alignment.bottomCenter,
                             children: [
                               Positioned(

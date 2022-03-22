@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../app screens/cake_detail.dart';
-import '../utils/constants.dart';
 
 appBar(context, {title = "", trailing = false, icon, page}) {
   return AppBar(
@@ -45,19 +44,30 @@ appBar(context, {title = "", trailing = false, icon, page}) {
       ),
     ),
     actions: [
-      if (trailing == false) const SizedBox() else GestureDetector(
-              onTap: () => push(context, page),
-              child: Badge(
-                position: BadgePosition.topStart(),
-                badgeColor:noColor,
-                elevation: 0,
-                badgeContent: Obx(()=>text(context, cart.isEmpty ? "":(cart.length).toString(), 0.035,myBlack,bold: true)),
-                child: Image.asset(
-                  icon,
-                  width: dynamicWidth(context, .08),
-                ),
+      if (trailing == false)
+        const SizedBox()
+      else
+        GestureDetector(
+          onTap: () => push(context, page),
+          child: Badge(
+            position: BadgePosition.topStart(),
+            badgeColor: noColor,
+            elevation: 0,
+            badgeContent: Obx(
+              () => text(
+                context,
+                (cart.length).toString(),
+                0.035,
+                myBlack,
+                bold: true,
               ),
             ),
+            child: Image.asset(
+              icon,
+              width: dynamicWidth(context, .08),
+            ),
+          ),
+        ),
     ],
   );
 }
