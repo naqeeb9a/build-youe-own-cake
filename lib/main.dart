@@ -36,6 +36,12 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
         colorScheme: const ColorScheme.light(),
+      ).copyWith(
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: <TargetPlatform, PageTransitionsBuilder>{
+            TargetPlatform.android: ZoomPageTransitionsBuilder(),
+          },
+        ),
       ),
       home: const GetStarted(),
     );

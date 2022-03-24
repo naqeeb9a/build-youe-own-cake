@@ -8,7 +8,6 @@ import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:motion_toast/motion_toast.dart';
 
 class SizeScreen extends StatefulWidget {
@@ -25,7 +24,6 @@ class _SizeScreenState extends State<SizeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    timeDilation = 5.0;
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -157,18 +155,19 @@ class _SizeScreenState extends State<SizeScreen> {
 }
 
 Widget cakeSize(context) {
-  return sizeIndex == 4
-      ? Image.asset(
-          "assets/Custom_Cakes/1/9.png",
-          scale: 1,
-        )
-      : sizeIndex == 3
-          ? Image.asset("assets/Custom_Cakes/1/9.png", scale: 2)
+  return AnimatedScale(
+      scale: sizeIndex == 1
+          ? 0.6
           : sizeIndex == 2
-              ? Image.asset("assets/Custom_Cakes/1/9.png", scale: 3)
-              : sizeIndex == 1
-                  ? Image.asset("assets/Custom_Cakes/1/9.png", scale: 3.5)
-                  : sizeIndex == 0
-                      ? const SizedBox()
-                      : const SizedBox();
+              ? .8
+              : sizeIndex == 3
+                  ? 1
+                  : 1.2,
+      duration: const Duration(milliseconds: 600),
+      curve: Curves.bounceOut,
+      child: sizeIndex == 0
+          ? const SizedBox()
+          : Image.asset(
+              "assets/Custom_Cakes/1/9.png",
+            ));
 }
