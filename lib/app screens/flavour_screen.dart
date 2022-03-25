@@ -117,8 +117,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
                     ),
                     heightBox(context, .02),
                     SizedBox(
-                      width: dynamicWidth(context, .9),
-                      height: dynamicHeight(context, .15),
+                      width: double.infinity,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: [
@@ -157,73 +156,30 @@ class _FlavourScreenState extends State<FlavourScreen> {
 }
 
 Widget flavours(context) {
-  return flavourIndex == 1
-      ? Positioned(
-          bottom: dynamicHeight(context, 0.029),
-          child: Image.asset(
-            "assets/Custom_Cakes/1/8.png",
-            // width: dynamicWidth(context, 0.54),
-            scale: sizeIndex == 1
-                ? 3.5
-                : sizeIndex == 2
-                    ? 3
-                    : sizeIndex == 3
-                        ? 2
-                        : sizeIndex == 4
-                            ? 1.7
-                            : 0,
-            color: myVanilla,
-          ),
-        )
-      : flavourIndex == 2
-          ? Positioned(
-              bottom: dynamicHeight(context, 0.029),
-              child: Image.asset(
-                "assets/Custom_Cakes/1/8.png",
-                scale: sizeIndex == 1
-                    ? 3.5
-                    : sizeIndex == 2
-                        ? 3
-                        : sizeIndex == 3
-                            ? 2
-                            : sizeIndex == 4
-                                ? 1.7
-                                : 0,
-              ),
-            )
-          : flavourIndex == 3
-              ? Positioned(
-                  bottom: dynamicHeight(context, 0.029),
-                  child: Image.asset(
-                    "assets/Custom_Cakes/1/8.png",
-                    scale: sizeIndex == 1
-                        ? 3.5
-                        : sizeIndex == 2
-                            ? 3
-                            : sizeIndex == 3
-                                ? 2
-                                : sizeIndex == 4
-                                    ? 1.7
-                                    : 0,
-                    color: myBrown,
-                  ),
-                )
-              : flavourIndex == 4
-                  ? Positioned(
-                      bottom: dynamicHeight(context, 0.029),
-                      child: Image.asset(
-                        "assets/Custom_Cakes/1/8.png",
-                        scale: sizeIndex == 1
-                            ? 3.5
-                            : sizeIndex == 2
-                                ? 3
-                                : sizeIndex == 3
-                                    ? 2
-                                    : sizeIndex == 4
-                                        ? 1.7
-                                        : 0,
-                        color: myPink,
-                      ),
-                    )
-                  : const SizedBox();
+  return Positioned(
+    bottom: sizeIndex == 1
+        ? 70
+        : sizeIndex == 2
+            ? 60
+            : sizeIndex == 3
+                ? 60
+                : 60,
+    child: Image.asset(
+      "assets/Custom_Cakes/1/8.png",
+      scale: sizeIndex == 1
+          ? 2.5
+          : sizeIndex == 2
+              ? 2
+              : sizeIndex == 3
+                  ? 1.7
+                  : 1.4,
+      color: flavourIndex == 1
+          ? myVanilla
+          : flavourIndex == 2
+              ? null
+              : flavourIndex == 3
+                  ? myRed1
+                  : myPink,
+    ),
+  );
 }

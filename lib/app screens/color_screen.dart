@@ -118,8 +118,7 @@ class _ColorScreenState extends State<ColorScreen> {
                     ),
                     heightBox(context, .02),
                     SizedBox(
-                      width: dynamicWidth(context, .9),
-                      height: dynamicHeight(context, .15),
+                      width: double.infinity,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: [
@@ -159,24 +158,20 @@ class _ColorScreenState extends State<ColorScreen> {
 }
 
 Widget colorsSelection() {
-  return sizeIndex == 4
-      ? Image.asset(
-          "assets/Custom_Cakes/1/9.png",
-          scale: 1,
-          color: colorIndex == 1
-              ? myBlack
-              : colorIndex == 2
-                  ? noColor
-                  : colorIndex == 3
-                      ? myPink
-                      : colorIndex == 4
-                          ? myLightPink1
-                          : noColor,
-        )
-      : sizeIndex == 3
-          ? Image.asset(
+  return AnimatedScale(
+      scale: sizeIndex == 1
+          ? 0.4
+          : sizeIndex == 2
+              ? .5
+              : sizeIndex == 3
+                  ? 0.6
+                  : 0.7,
+      duration: const Duration(milliseconds: 600),
+      curve: Curves.bounceOut,
+      child: sizeIndex == 0
+          ? const SizedBox()
+          : Image.asset(
               "assets/Custom_Cakes/1/9.png",
-              scale: 2,
               color: colorIndex == 1
                   ? myBlack
                   : colorIndex == 2
@@ -186,36 +181,64 @@ Widget colorsSelection() {
                           : colorIndex == 4
                               ? myLightPink1
                               : noColor,
-            )
-          : sizeIndex == 2
-              ? Image.asset(
-                  "assets/Custom_Cakes/1/9.png",
-                  scale: 3,
-                  color: colorIndex == 1
-                      ? myBlack
-                      : colorIndex == 2
-                          ? noColor
-                          : colorIndex == 3
-                              ? myPink
-                              : colorIndex == 4
-                                  ? myLightPink1
-                                  : noColor,
-                )
-              : sizeIndex == 1
-                  ? Image.asset(
-                      "assets/Custom_Cakes/1/9.png",
-                      scale: 3.5,
-                      color: colorIndex == 1
-                          ? myBlack
-                          : colorIndex == 2
-                              ? noColor
-                              : colorIndex == 3
-                                  ? myPink
-                                  : colorIndex == 4
-                                      ? myLightPink1
-                                      : noColor,
-                    )
-                  : sizeIndex == 0
-                      ? const SizedBox()
-                      : const SizedBox();
+            ));
+  //  sizeIndex == 4
+  //     ? Image.asset(
+  //         "assets/Custom_Cakes/1/9.png",
+  //         scale: 1,
+  //         color: colorIndex == 1
+  //             ? myBlack
+  //             : colorIndex == 2
+  //                 ? noColor
+  //                 : colorIndex == 3
+  //                     ? myPink
+  //                     : colorIndex == 4
+  //                         ? myLightPink1
+  //                         : noColor,
+  //       )
+  //     : sizeIndex == 3
+  //         ? Image.asset(
+  //             "assets/Custom_Cakes/1/9.png",
+  //             scale: 2,
+  //             color: colorIndex == 1
+  //                 ? myBlack
+  //                 : colorIndex == 2
+  //                     ? noColor
+  //                     : colorIndex == 3
+  //                         ? myPink
+  //                         : colorIndex == 4
+  //                             ? myLightPink1
+  //                             : noColor,
+  //           )
+  //         : sizeIndex == 2
+  //             ? Image.asset(
+  //                 "assets/Custom_Cakes/1/9.png",
+  //                 scale: 3,
+  //                 color: colorIndex == 1
+  //                     ? myBlack
+  //                     : colorIndex == 2
+  //                         ? noColor
+  //                         : colorIndex == 3
+  //                             ? myPink
+  //                             : colorIndex == 4
+  //                                 ? myLightPink1
+  //                                 : noColor,
+  //               )
+  //             : sizeIndex == 1
+  //                 ? Image.asset(
+  //                     "assets/Custom_Cakes/1/9.png",
+  //                     scale: 3.5,
+  //                     color: colorIndex == 1
+  //                         ? myBlack
+  //                         : colorIndex == 2
+  //                             ? noColor
+  //                             : colorIndex == 3
+  //                                 ? myPink
+  //                                 : colorIndex == 4
+  //                                     ? myLightPink1
+  //                                     : noColor,
+  //                   )
+  //                 : sizeIndex == 0
+  //                     ? const SizedBox()
+  //                     : const SizedBox();
 }

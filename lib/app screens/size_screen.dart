@@ -118,8 +118,7 @@ class _SizeScreenState extends State<SizeScreen> {
                     ),
                     heightBox(context, .02),
                     SizedBox(
-                      width: dynamicWidth(context, .88),
-                      height: dynamicHeight(context, .15),
+                      width: double.infinity,
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: cakeSize(context),
@@ -157,12 +156,12 @@ class _SizeScreenState extends State<SizeScreen> {
 Widget cakeSize(context) {
   return AnimatedScale(
       scale: sizeIndex == 1
-          ? 0.6
+          ? 0.4
           : sizeIndex == 2
-              ? .8
+              ? .5
               : sizeIndex == 3
-                  ? 1
-                  : 1.2,
+                  ? 0.6
+                  : 0.7,
       duration: const Duration(milliseconds: 600),
       curve: Curves.bounceOut,
       child: sizeIndex == 0
