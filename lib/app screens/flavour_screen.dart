@@ -118,6 +118,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
                     heightBox(context, .02),
                     SizedBox(
                       width: double.infinity,
+                       height: 200,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: [

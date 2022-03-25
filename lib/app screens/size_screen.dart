@@ -119,6 +119,7 @@ class _SizeScreenState extends State<SizeScreen> {
                     heightBox(context, .02),
                     SizedBox(
                       width: double.infinity,
+                      height: 200,
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: cakeSize(context),
