@@ -17,7 +17,7 @@ class SizeScreen extends StatefulWidget {
   _SizeScreenState createState() => _SizeScreenState();
 }
 
-int sizeIndex = 0;
+int sizeIndex = 1;
 
 class _SizeScreenState extends State<SizeScreen> {
   // int sizeIndex = 0;
@@ -52,69 +52,44 @@ class _SizeScreenState extends State<SizeScreen> {
                       ),
                     ),
                     heightBox(context, 0.04),
-                    coloredButton1(
-                      context,
-                      "1 Pound",
-                      sizeIndex == 1 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: sizeIndex == 1 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (sizeIndex == 1) {
-                            sizeIndex = 1;
-                          } else if (sizeIndex != 1) {
-                            sizeIndex = 1;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "2 Pound",
-                      sizeIndex == 2 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: sizeIndex == 2 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (sizeIndex == 2) {
-                            sizeIndex = 2;
-                          } else if (sizeIndex != 2) {
-                            sizeIndex = 2;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "3 Pound",
-                      sizeIndex == 3 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: sizeIndex == 3 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (sizeIndex == 3) {
-                            sizeIndex = 3;
-                          } else if (sizeIndex != 3) {
-                            sizeIndex = 3;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "4 Pound",
-                      sizeIndex == 4 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: sizeIndex == 4 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (sizeIndex == 4) {
-                            sizeIndex = 4;
-                          } else if (sizeIndex != 4) {
-                            sizeIndex = 4;
-                          }
-                        });
-                      },
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          coloredButton1(
+                            context,
+                            "2.5 lbs",
+                            sizeIndex == 1 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: sizeIndex == 1 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (sizeIndex == 1) {
+                                  sizeIndex = 1;
+                                } else if (sizeIndex != 1) {
+                                  sizeIndex = 1;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "4 lbs",
+                            sizeIndex == 4 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: sizeIndex == 4 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (sizeIndex == 4) {
+                                  sizeIndex = 4;
+                                } else if (sizeIndex != 4) {
+                                  sizeIndex = 4;
+                                }
+                              });
+                            },
+                          )
+                        ],
+                      ),
                     ),
                     heightBox(context, .02),
                     SizedBox(
@@ -125,24 +100,30 @@ class _SizeScreenState extends State<SizeScreen> {
                         child: cakeSize(context),
                       ),
                     ),
-                    downBar(
-                      context,
-                      nextPage: sizeIndex == 0
-                          ? () {
-                              MotionToast.warning(
-                                title: const Text("Warning"),
-                                description:
-                                    const Text("Select size to proceed!!"),
-                                animationCurve: Curves.ease,
-                                borderRadius: 0,
-                                animationDuration:
-                                    const Duration(milliseconds: 400),
-                              ).show(context);
-                            }
-                          : () {
-                              push(context, const FlavourScreen());
-                            },
-                    ),
+                    text(
+                        context,
+                        sizeIndex == 1
+                            ? "Serving size about 8 People"
+                            : "Serving size about 12 – 15 people ",
+                        0.03,
+                        myBlack),
+                    downBar(context,
+                        nextPage: sizeIndex == 0
+                            ? () {
+                                MotionToast.warning(
+                                  title: const Text("Warning"),
+                                  description:
+                                      const Text("Select size to proceed!!"),
+                                  animationCurve: Curves.ease,
+                                  borderRadius: 0,
+                                  animationDuration:
+                                      const Duration(milliseconds: 400),
+                                ).show(context);
+                              }
+                            : () {
+                                push(context, const FlavourScreen());
+                              },
+                        price: sizeIndex == 1 ? 4000 : 6000),
                   ],
                 ),
               ),
@@ -156,13 +137,7 @@ class _SizeScreenState extends State<SizeScreen> {
 
 Widget cakeSize(context) {
   return AnimatedScale(
-      scale: sizeIndex == 1
-          ? 0.4
-          : sizeIndex == 2
-              ? .5
-              : sizeIndex == 3
-                  ? 0.6
-                  : 0.7,
+      scale: sizeIndex == 1 ? 0.4 : 0.7,
       duration: const Duration(milliseconds: 600),
       curve: Curves.bounceOut,
       child: sizeIndex == 0

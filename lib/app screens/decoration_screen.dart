@@ -2,6 +2,7 @@ import 'package:build_own_cake/app%20screens/color_screen.dart';
 import 'package:build_own_cake/app%20screens/flavour_screen.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
+import 'package:build_own_cake/app%20screens/toppings.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -47,69 +48,284 @@ class _DecorationScreenState extends State<DecorationScreen> {
                         bold: true, font: true),
                   ),
                   heightBox(context, 0.04),
-                  coloredButton1(
-                    context,
-                    "Chocolate Bar",
-                    decorationIndex == 1 ? myPink : myLightPink1,
-                    width: dynamicWidth(context, 0.55),
-                    selectedTick: decorationIndex == 1 ? true : false,
-                    function: () {
-                      setState(() {
-                        if (decorationIndex == 1) {
-                          decorationIndex = 1;
-                        } else if (decorationIndex != 1) {
-                          decorationIndex = 1;
-                        }
-                      });
-                    },
-                  ),
-                  coloredButton1(
-                    context,
-                    "Pineapple",
-                    decorationIndex == 2 ? myPink : myLightPink1,
-                    width: dynamicWidth(context, 0.55),
-                    selectedTick: decorationIndex == 2 ? true : false,
-                    function: () {
-                      setState(() {
-                        if (decorationIndex == 2) {
-                          decorationIndex = 2;
-                        } else if (decorationIndex != 2) {
-                          decorationIndex = 2;
-                        }
-                      });
-                    },
-                  ),
-                  coloredButton1(
-                    context,
-                    "Cream Icing",
-                    decorationIndex == 3 ? myPink : myLightPink1,
-                    width: dynamicWidth(context, 0.55),
-                    selectedTick: decorationIndex == 3 ? true : false,
-                    function: () {
-                      setState(() {
-                        if (decorationIndex == 3) {
-                          decorationIndex = 3;
-                        } else if (decorationIndex != 3) {
-                          decorationIndex = 3;
-                        }
-                      });
-                    },
-                  ),
-                  coloredButton1(
-                    context,
-                    "Bounty",
-                    decorationIndex == 4 ? myPink : myLightPink1,
-                    width: dynamicWidth(context, 0.55),
-                    selectedTick: decorationIndex == 4 ? true : false,
-                    function: () {
-                      setState(() {
-                        if (decorationIndex == 4) {
-                          decorationIndex = 4;
-                        } else if (decorationIndex != 4) {
-                          decorationIndex = 4;
-                        }
-                      });
-                    },
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        coloredButton1(
+                          context,
+                          "Macarons",
+                          decorationIndex == 1 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 1 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 1) {
+                                decorationIndex = 1;
+                              } else if (decorationIndex != 1) {
+                                decorationIndex = 1;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Gold Foil at front",
+                          decorationIndex == 2 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 2 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 2) {
+                                decorationIndex = 2;
+                              } else if (decorationIndex != 2) {
+                                decorationIndex = 2;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Sprinkles",
+                          decorationIndex == 3 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 3 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 3) {
+                                decorationIndex = 3;
+                              } else if (decorationIndex != 3) {
+                                decorationIndex = 3;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Pearls",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Butterflies",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Chocolate shards ",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Drip",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Chocolate balls",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Edible bear",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Edible elephant",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Edible swan",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Fake flowers",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Fresh flowers arrangement ",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Rice sheet",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Meringue kisses",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Candies on top",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                        coloredButton1(
+                          context,
+                          "Heart cookies",
+                          decorationIndex == 4 ? myPink : myLightPink1,
+                          width: dynamicWidth(context, 0.3),
+                          selectedTick: decorationIndex == 4 ? true : false,
+                          function: () {
+                            setState(() {
+                              if (decorationIndex == 4) {
+                                decorationIndex = 4;
+                              } else if (decorationIndex != 4) {
+                                decorationIndex = 4;
+                              }
+                            });
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   heightBox(context, .02),
                   SizedBox(
@@ -125,24 +341,25 @@ class _DecorationScreenState extends State<DecorationScreen> {
                       ],
                     ),
                   ),
-                  downBar(
-                    context,
-                    nextPage: decorationIndex == 0
-                        ? () {
-                            MotionToast.warning(
-                              title: const Text("Warning"),
-                              description:
-                                  const Text("Select decoration to proceed!!"),
-                              animationCurve: Curves.ease,
-                              borderRadius: 0,
-                              animationDuration:
-                                  const Duration(milliseconds: 400),
-                            ).show(context);
-                          }
-                        : () {
-                            push(context, const SpecialWishesScreen());
-                          },
-                  ),
+                  downBar(context,
+                      nextPage: decorationIndex == 0
+                          ? () {
+                              MotionToast.warning(
+                                title: const Text("Warning"),
+                                description:
+                                    const Text("Select Toppings to proceed!!"),
+                                animationCurve: Curves.ease,
+                                borderRadius: 0,
+                                animationDuration:
+                                    const Duration(milliseconds: 400),
+                              ).show(context);
+                            }
+                          : () {
+                              push(context, const Toppings());
+                            },
+                      price: sizeIndex == 1
+                          ? (4000 + (decorationIndex == 1 ? 100 : 300))
+                          : (6000 + (decorationIndex == 1 ? 100 : 300))),
                 ],
               ),
             ),

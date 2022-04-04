@@ -66,81 +66,86 @@ Widget coloredButton1(
   color, {
   function = "",
   width = "",
-  fontSize = 0.04,
+  fontSize = 0.03,
   font = false,
   selectedTick = false,
 }) {
-  return Stack(
-    children: [
-      GestureDetector(
-        onTap: function == "" ? () {} : function,
-        child: Container(
-          width: width == "" ? dynamicWidth(context, 1) : width,
-          height: dynamicWidth(context, .12),
-          decoration: color == noColor
-              ? BoxDecoration(
-                  color: color,
-                  border: Border.all(width: 1, color: myWhite),
-                )
-              : BoxDecoration(
-                  color: color,
-                  borderRadius: BorderRadius.circular(
-                    dynamicWidth(
-                      context,
-                      .03,
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 8),
+    child: Stack(
+      children: [
+        GestureDetector(
+          onTap: function == "" ? () {} : function,
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            width: width == "" ? dynamicWidth(context, 1) : width,
+            height: dynamicWidth(context, .12),
+            decoration: color == noColor
+                ? BoxDecoration(
+                    color: color,
+                    border: Border.all(width: 1, color: myWhite),
+                  )
+                : BoxDecoration(
+                    color: color,
+                    borderRadius: BorderRadius.circular(
+                      dynamicWidth(
+                        context,
+                        .03,
+                      ),
                     ),
                   ),
-                ),
-          child: Center(
-            child: Text(
-              text,
-              style: font == false
-                  ? TextStyle(
-                      color: myWhite,
-                      fontSize: dynamicWidth(context, fontSize),
-                      fontWeight: FontWeight.bold,
-                    )
-                  : TextStyle(
-                      color: myWhite,
-                      fontFamily: "Champagne",
-                      fontSize: dynamicWidth(context, fontSize),
-                      fontWeight: FontWeight.bold,
-                    ),
+            child: Center(
+              child: Text(
+                text,
+                textAlign: TextAlign.center,
+                style: font == false
+                    ? TextStyle(
+                        color: myWhite,
+                        fontSize: dynamicWidth(context, fontSize),
+                        fontWeight: FontWeight.bold,
+                      )
+                    : TextStyle(
+                        color: myWhite,
+                        fontFamily: "Champagne",
+                        fontSize: dynamicWidth(context, fontSize),
+                        fontWeight: FontWeight.bold,
+                      ),
+              ),
             ),
           ),
         ),
-      ),
-      selectedTick == false
-          ? const SizedBox()
-          : SizedBox(
-              width: width,
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                  width: dynamicWidth(context, 0.12),
-                  height: dynamicHeight(context, .034),
-                  decoration: BoxDecoration(
-                    color: myRed1,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(
-                        dynamicWidth(context, .03),
-                      ),
-                      bottomLeft: Radius.circular(
-                        dynamicWidth(context, .03),
+        selectedTick == false
+            ? const SizedBox()
+            : SizedBox(
+                width: width,
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    width: dynamicWidth(context, 0.1),
+                    height: dynamicHeight(context, .02),
+                    decoration: BoxDecoration(
+                      color: myRed1,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(
+                          dynamicWidth(context, .03),
+                        ),
+                        bottomLeft: Radius.circular(
+                          dynamicWidth(context, .03),
+                        ),
                       ),
                     ),
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.check,
-                      color: myWhite,
-                      size: dynamicHeight(context, 0.025),
+                    child: Center(
+                      child: Icon(
+                        Icons.check,
+                        color: myWhite,
+                        size: dynamicHeight(context, 0.02),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-    ],
+      ],
+    ),
   );
 }
 

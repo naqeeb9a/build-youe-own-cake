@@ -51,74 +51,49 @@ class _FlavourScreenState extends State<FlavourScreen> {
                       ),
                     ),
                     heightBox(context, 0.04),
-                    coloredButton1(
-                      context,
-                      "Vanilla",
-                      flavourIndex == 1 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: flavourIndex == 1 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (flavourIndex == 1) {
-                            flavourIndex = 1;
-                          } else if (flavourIndex != 1) {
-                            flavourIndex = 1;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "Chocolate",
-                      flavourIndex == 2 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: flavourIndex == 2 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (flavourIndex == 2) {
-                            flavourIndex = 2;
-                          } else if (flavourIndex != 2) {
-                            flavourIndex = 2;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "Strawberry",
-                      flavourIndex == 3 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: flavourIndex == 3 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (flavourIndex == 3) {
-                            flavourIndex = 3;
-                          } else if (flavourIndex != 3) {
-                            flavourIndex = 3;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "Pink",
-                      flavourIndex == 4 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: flavourIndex == 4 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (flavourIndex == 4) {
-                            flavourIndex = 4;
-                          } else if (flavourIndex != 4) {
-                            flavourIndex = 4;
-                          }
-                        });
-                      },
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          coloredButton1(
+                            context,
+                            "Vanilla",
+                            flavourIndex == 1 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: flavourIndex == 1 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (flavourIndex == 1) {
+                                  flavourIndex = 1;
+                                } else if (flavourIndex != 1) {
+                                  flavourIndex = 1;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Chocolate",
+                            flavourIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: flavourIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (flavourIndex == 2) {
+                                  flavourIndex = 2;
+                                } else if (flavourIndex != 2) {
+                                  flavourIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                     heightBox(context, .02),
                     SizedBox(
                       width: double.infinity,
-                       height: 200,
+                      height: 200,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: [
@@ -127,24 +102,23 @@ class _FlavourScreenState extends State<FlavourScreen> {
                         ],
                       ),
                     ),
-                    downBar(
-                      context,
-                      nextPage: flavourIndex == 0
-                          ? () {
-                              MotionToast.warning(
-                                title: const Text("Warning"),
-                                description:
-                                    const Text("Select flavour to proceed!!"),
-                                animationCurve: Curves.ease,
-                                borderRadius: 0,
-                                animationDuration:
-                                    const Duration(milliseconds: 400),
-                              ).show(context);
-                            }
-                          : () {
-                              push(context, const ColorScreen());
-                            },
-                    ),
+                    downBar(context,
+                        nextPage: flavourIndex == 0
+                            ? () {
+                                MotionToast.warning(
+                                  title: const Text("Warning"),
+                                  description:
+                                      const Text("Select flavour to proceed!!"),
+                                  animationCurve: Curves.ease,
+                                  borderRadius: 0,
+                                  animationDuration:
+                                      const Duration(milliseconds: 400),
+                                ).show(context);
+                              }
+                            : () {
+                                push(context, const ColorScreen());
+                              },
+                        price: sizeIndex == 1 ? 4000 : 6000),
                   ],
                 ),
               ),

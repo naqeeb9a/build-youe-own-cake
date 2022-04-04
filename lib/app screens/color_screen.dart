@@ -52,69 +52,188 @@ class _ColorScreenState extends State<ColorScreen> {
                       ),
                     ),
                     heightBox(context, 0.02),
-                    coloredButton1(
-                      context,
-                      "Black",
-                      colorIndex == 1 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: colorIndex == 1 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (colorIndex == 1) {
-                            colorIndex = 1;
-                          } else if (colorIndex != 1) {
-                            colorIndex = 1;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "Chocolate",
-                      colorIndex == 2 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: colorIndex == 2 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (colorIndex == 2) {
-                            colorIndex = 2;
-                          } else if (colorIndex != 2) {
-                            colorIndex = 2;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "Pink",
-                      colorIndex == 3 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: colorIndex == 3 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (colorIndex == 3) {
-                            colorIndex = 3;
-                          } else if (colorIndex != 3) {
-                            colorIndex = 3;
-                          }
-                        });
-                      },
-                    ),
-                    coloredButton1(
-                      context,
-                      "Light Pink",
-                      colorIndex == 4 ? myPink : myLightPink1,
-                      width: dynamicWidth(context, 0.55),
-                      selectedTick: colorIndex == 4 ? true : false,
-                      function: () {
-                        setState(() {
-                          if (colorIndex == 4) {
-                            colorIndex = 4;
-                          } else if (colorIndex != 4) {
-                            colorIndex = 4;
-                          }
-                        });
-                      },
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          coloredButton1(
+                            context,
+                            "Pastel blue",
+                            colorIndex == 1 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 1 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 1) {
+                                  colorIndex = 1;
+                                } else if (colorIndex != 1) {
+                                  colorIndex = 1;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "pink",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Lilac",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "White",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Black",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Yellow",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Pastel pink",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Shaded navy and white",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Shaded pink and white",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Stencil",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                          coloredButton1(
+                            context,
+                            "Semi-naked (white)",
+                            colorIndex == 2 ? myPink : myLightPink1,
+                            width: dynamicWidth(context, 0.3),
+                            selectedTick: colorIndex == 2 ? true : false,
+                            function: () {
+                              setState(() {
+                                if (colorIndex == 2) {
+                                  colorIndex = 2;
+                                } else if (colorIndex != 2) {
+                                  colorIndex = 2;
+                                }
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                     heightBox(context, .02),
                     SizedBox(
@@ -128,24 +247,23 @@ class _ColorScreenState extends State<ColorScreen> {
                         ],
                       ),
                     ),
-                    downBar(
-                      context,
-                      nextPage: colorIndex == 0
-                          ? () {
-                              MotionToast.warning(
-                                title: const Text("Warning"),
-                                description:
-                                    const Text("Select color to proceed!!"),
-                                animationCurve: Curves.ease,
-                                borderRadius: 0,
-                                animationDuration:
-                                    const Duration(milliseconds: 400),
-                              ).show(context);
-                            }
-                          : () {
-                              push(context, const DecorationScreen());
-                            },
-                    ),
+                    downBar(context,
+                        nextPage: colorIndex == 0
+                            ? () {
+                                MotionToast.warning(
+                                  title: const Text("Warning"),
+                                  description:
+                                      const Text("Select color to proceed!!"),
+                                  animationCurve: Curves.ease,
+                                  borderRadius: 0,
+                                  animationDuration:
+                                      const Duration(milliseconds: 400),
+                                ).show(context);
+                              }
+                            : () {
+                                push(context, const DecorationScreen());
+                              },
+                        price: sizeIndex == 1 ? 4000 : 6000),
                   ],
                 ),
               ),
@@ -173,7 +291,7 @@ Widget colorsSelection() {
           : Image.asset(
               "assets/Custom_Cakes/1/9.png",
               color: colorIndex == 1
-                  ? myBlack
+                  ? myVanilla
                   : colorIndex == 2
                       ? noColor
                       : colorIndex == 3
@@ -182,63 +300,4 @@ Widget colorsSelection() {
                               ? myLightPink1
                               : noColor,
             ));
-  //  sizeIndex == 4
-  //     ? Image.asset(
-  //         "assets/Custom_Cakes/1/9.png",
-  //         scale: 1,
-  //         color: colorIndex == 1
-  //             ? myBlack
-  //             : colorIndex == 2
-  //                 ? noColor
-  //                 : colorIndex == 3
-  //                     ? myPink
-  //                     : colorIndex == 4
-  //                         ? myLightPink1
-  //                         : noColor,
-  //       )
-  //     : sizeIndex == 3
-  //         ? Image.asset(
-  //             "assets/Custom_Cakes/1/9.png",
-  //             scale: 2,
-  //             color: colorIndex == 1
-  //                 ? myBlack
-  //                 : colorIndex == 2
-  //                     ? noColor
-  //                     : colorIndex == 3
-  //                         ? myPink
-  //                         : colorIndex == 4
-  //                             ? myLightPink1
-  //                             : noColor,
-  //           )
-  //         : sizeIndex == 2
-  //             ? Image.asset(
-  //                 "assets/Custom_Cakes/1/9.png",
-  //                 scale: 3,
-  //                 color: colorIndex == 1
-  //                     ? myBlack
-  //                     : colorIndex == 2
-  //                         ? noColor
-  //                         : colorIndex == 3
-  //                             ? myPink
-  //                             : colorIndex == 4
-  //                                 ? myLightPink1
-  //                                 : noColor,
-  //               )
-  //             : sizeIndex == 1
-  //                 ? Image.asset(
-  //                     "assets/Custom_Cakes/1/9.png",
-  //                     scale: 3.5,
-  //                     color: colorIndex == 1
-  //                         ? myBlack
-  //                         : colorIndex == 2
-  //                             ? noColor
-  //                             : colorIndex == 3
-  //                                 ? myPink
-  //                                 : colorIndex == 4
-  //                                     ? myLightPink1
-  //                                     : noColor,
-  //                   )
-  //                 : sizeIndex == 0
-  //                     ? const SizedBox()
-  //                     : const SizedBox();
 }

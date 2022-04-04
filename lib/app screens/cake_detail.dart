@@ -114,6 +114,7 @@ class _CakeDetailState extends State<CakeDetail> {
                       ],
                       options: CarouselOptions(
                         // scrollPhysics: never,
+                        
                         autoPlay: true,
                         height: dynamicHeight(context, 0.45),
                         enlargeCenterPage: true,

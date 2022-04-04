@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       return cakeCard(
                         context,
                         cake[i]["name"],
-                        "assets/Cakes/cake 1.png",
+                        "assets/Cakes/cake${i + 1}.png",
                         // cake[i]["images"][0],
                         cake[i]["description"],
                         i,

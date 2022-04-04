@@ -3,10 +3,12 @@ import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-Widget downBar(context, {nextPage = "", optionalNextButton = false}) {
+Widget downBar(context,
+    {nextPage = "", optionalNextButton = false, price = 0}) {
   return Row(
-    mainAxisAlignment: MainAxisAlignment.end,
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
+      text(context, "PKR. " + price.toString(), 0.03, myBlack),
       InkWell(
         onTap: nextPage == "" ? () {} : nextPage,
         child: SizedBox(

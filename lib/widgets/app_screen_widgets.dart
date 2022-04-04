@@ -28,7 +28,7 @@ Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index, length) {
         ),
         child: SizedBox(
           width: dynamicWidth(context, 1),
-          height: dynamicHeight(context, .16),
+          height: dynamicHeight(context, .17),
           child: Stack(
             children: [
               Positioned(
@@ -119,8 +119,6 @@ Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index, length) {
                                       cakeSize(context, "2.5"),
                                       cakeSize(context, "3"),
                                       cakeSize(context, "4"),
-                                      cakeSize(context, "5"),
-                                      cakeSize(context, "6"),
                                     ],
                                   ),
                                 ],
