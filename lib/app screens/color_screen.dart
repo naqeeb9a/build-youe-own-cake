@@ -91,15 +91,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Lilac",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 3 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 3 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 3) {
+                                  colorIndex = 3;
+                                } else if (colorIndex != 3) {
+                                  colorIndex = 3;
                                 }
                               });
                             },
@@ -107,15 +107,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "White",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 4 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 4 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 4) {
+                                  colorIndex = 4;
+                                } else if (colorIndex != 4) {
+                                  colorIndex = 4;
                                 }
                               });
                             },
@@ -123,15 +123,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Black",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 5 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 5 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 5) {
+                                  colorIndex = 5;
+                                } else if (colorIndex != 5) {
+                                  colorIndex = 5;
                                 }
                               });
                             },
@@ -139,15 +139,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Yellow",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 6 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 6 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 6) {
+                                  colorIndex = 6;
+                                } else if (colorIndex != 6) {
+                                  colorIndex = 6;
                                 }
                               });
                             },
@@ -155,15 +155,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Pastel pink",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 7 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 7 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 7) {
+                                  colorIndex = 7;
+                                } else if (colorIndex != 7) {
+                                  colorIndex = 7;
                                 }
                               });
                             },
@@ -171,15 +171,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Shaded navy and white",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 8 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 8 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 8) {
+                                  colorIndex = 8;
+                                } else if (colorIndex != 8) {
+                                  colorIndex = 8;
                                 }
                               });
                             },
@@ -187,15 +187,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Shaded pink and white",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 9 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 9 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 9) {
+                                  colorIndex = 9;
+                                } else if (colorIndex != 9) {
+                                  colorIndex = 9;
                                 }
                               });
                             },
@@ -203,15 +203,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Stencil",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 10 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 10 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 10) {
+                                  colorIndex = 10;
+                                } else if (colorIndex != 10) {
+                                  colorIndex = 10;
                                 }
                               });
                             },
@@ -219,15 +219,15 @@ class _ColorScreenState extends State<ColorScreen> {
                           coloredButton1(
                             context,
                             "Semi-naked (white)",
-                            colorIndex == 2 ? myPink : myLightPink1,
+                            colorIndex == 11 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: colorIndex == 2 ? true : false,
+                            selectedTick: colorIndex == 11 ? true : false,
                             function: () {
                               setState(() {
-                                if (colorIndex == 2) {
-                                  colorIndex = 2;
-                                } else if (colorIndex != 2) {
-                                  colorIndex = 2;
+                                if (colorIndex == 11) {
+                                  colorIndex = 11;
+                                } else if (colorIndex != 11) {
+                                  colorIndex = 11;
                                 }
                               });
                             },
@@ -277,27 +277,33 @@ class _ColorScreenState extends State<ColorScreen> {
 
 Widget colorsSelection() {
   return AnimatedScale(
-      scale: sizeIndex == 1
-          ? 0.4
-          : sizeIndex == 2
-              ? .5
-              : sizeIndex == 3
-                  ? 0.6
-                  : 0.7,
-      duration: const Duration(milliseconds: 600),
-      curve: Curves.bounceOut,
-      child: sizeIndex == 0
-          ? const SizedBox()
-          : Image.asset(
+    scale: sizeIndex == 1 ? 0.4 : 0.7,
+    duration: const Duration(milliseconds: 600),
+    curve: Curves.bounceOut,
+    child: sizeIndex == 0
+        ? const SizedBox()
+        : Container(
+          decoration: BoxDecoration(
+
+          ),
+          child: Image.asset(
               "assets/Custom_Cakes/1/9.png",
               color: colorIndex == 1
-                  ? myVanilla
+                  ? myPastelBlue
                   : colorIndex == 2
-                      ? noColor
+                      ? myPink
                       : colorIndex == 3
-                          ? myPink
+                          ? myLilac
                           : colorIndex == 4
-                              ? myLightPink1
-                              : noColor,
-            ));
+                              ? myWhite
+                              : colorIndex == 5
+                                  ? myBlack
+                                  : colorIndex == 6
+                                      ? myYellow
+                                      : colorIndex == 7
+                                          ? myPastelPink
+                                          : colorIndex == 8 ? myBlue :noColor,
+            ),
+        ),
+  );
 }

@@ -7,7 +7,7 @@ import '../utils/app_routes.dart';
 import '../utils/config.dart';
 import '../utils/dynamic_sizes.dart';
 
-Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index, length) {
+Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index,) {
   var check = false;
   return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
     return ScaleTap(
@@ -148,7 +148,7 @@ Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index, length) {
               ),
               Positioned(
                 bottom: 0.0,
-                child: Image.asset(
+                child: Image.network(
                   cakeImage.toString(),
                   width: dynamicWidth(context, .34),
                 ),

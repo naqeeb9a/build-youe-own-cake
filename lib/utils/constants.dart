@@ -1,3 +1,10 @@
+
+dynamic cakeData = "";
+dynamic headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+};
+
 List cake = [
   {
     "name": "Anniversary Cake",
@@ -58,24 +65,24 @@ List cake = [
     "description":
         "Lilac Love is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
-  // {
-  //   "name": "Sunflower Cake",
-  //   "images": [
-  //     "assets/Cakes/4K8A7456.JPG",
-  //     "assets/Cakes/4K8A7491.JPG",
-  //   ],
-  //   "description":
-  //   "Sunflower Cake is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
-  // },
-  // {
-  //   "name": "Bird Song",
-  //   "images": [
-  //     "assets/Cakes/4K8A7215.JPG",
-  //     "assets/Cakes/4K8A7229.JPG",
-  //   ],
-  //   "description":
-  //   "Bird Song is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
-  // },
+  {
+    "name": "Sunflower Cake",
+    "images": [
+      "assets/Cakes/4K8A7456.JPG",
+      "assets/Cakes/4K8A7491.JPG",
+    ],
+    "description":
+    "Sunflower Cake is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
+  },
+  {
+    "name": "Bird Song",
+    "images": [
+      "assets/Cakes/4K8A7215.JPG",
+      "assets/Cakes/4K8A7229.JPG",
+    ],
+    "description":
+    "Bird Song is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
+  },
 ];
 
 List size = [

@@ -118,7 +118,7 @@ class _FlavourScreenState extends State<FlavourScreen> {
                             : () {
                                 push(context, const ColorScreen());
                               },
-                        price: sizeIndex == 1 ? 4000 : 6000),
+                        price: sizeIndex == 1 ? 4000 : 6000 ),
                   ],
                 ),
               ),
@@ -133,28 +133,14 @@ class _FlavourScreenState extends State<FlavourScreen> {
 Widget flavours(context) {
   return Positioned(
     bottom: sizeIndex == 1
-        ? 70
-        : sizeIndex == 2
-            ? 60
-            : sizeIndex == 3
-                ? 60
-                : 60,
+        ? 70 : 50,
     child: Image.asset(
       "assets/Custom_Cakes/1/8.png",
       scale: sizeIndex == 1
-          ? 2.5
-          : sizeIndex == 2
-              ? 2
-              : sizeIndex == 3
-                  ? 1.7
-                  : 1.4,
+          ? 2.7 : 1.55,
       color: flavourIndex == 1
           ? myVanilla
-          : flavourIndex == 2
-              ? null
-              : flavourIndex == 3
-                  ? myRed1
-                  : myPink,
+          : null,
     ),
   );
 }

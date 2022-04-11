@@ -75,15 +75,15 @@ class _SizeScreenState extends State<SizeScreen> {
                           coloredButton1(
                             context,
                             "4 lbs",
-                            sizeIndex == 4 ? myPink : myLightPink1,
+                            sizeIndex == 2 ? myPink : myLightPink1,
                             width: dynamicWidth(context, 0.3),
-                            selectedTick: sizeIndex == 4 ? true : false,
+                            selectedTick: sizeIndex == 2 ? true : false,
                             function: () {
                               setState(() {
-                                if (sizeIndex == 4) {
-                                  sizeIndex = 4;
-                                } else if (sizeIndex != 4) {
-                                  sizeIndex = 4;
+                                if (sizeIndex == 2) {
+                                  sizeIndex = 2;
+                                } else if (sizeIndex != 2) {
+                                  sizeIndex = 2;
                                 }
                               });
                             },
