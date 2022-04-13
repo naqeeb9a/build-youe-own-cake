@@ -2,14 +2,11 @@ import 'dart:ui';
 
 import 'package:build_own_cake/app%20screens/home_screen.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
-import 'package:build_own_cake/function/apis.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/buttons.dart';
 import 'package:flutter/material.dart';
-
-import '../utils/constants.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({Key? key}) : super(key: key);

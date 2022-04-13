@@ -1,5 +1,3 @@
-import 'package:build_own_cake/app%20screens/color_screen.dart';
-import 'package:build_own_cake/app%20screens/flavour_screen.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
@@ -133,19 +131,26 @@ class _ToppingsState extends State<Toppings> {
                     ]),
                   ),
                   heightBox(context, .02),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 200,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        cakeSize(context),
-                        colorsSelection(),
-                        flavours(context),
-                        decorationSelection(context),
-                      ],
+                  AnimatedScale(
+                    duration: const Duration(seconds: 1),
+                    scale: 2,
+                    child: CustomPaint(
+                      size: const Size(300, 200),
+                      painter: RPSCustomPainter(),
                     ),
                   ),
+                  // SizedBox(
+                  //   width: double.infinity,
+                  //   height: 200,
+                  //   child: Stack(
+                  //     alignment: Alignment.bottomCenter,
+                  //     children: [
+                  //       cakeSize(context),
+                  //       colorsSelection(),
+                  //       decorationSelection(context),
+                  //     ],
+                  //   ),
+                  // ),
                   downBar(
                     context,
                     nextPage: decorationIndex == 0
@@ -191,4 +196,47 @@ Widget decorationSelection(context) {
   return sizeIndex == 1
       ? selection(110, 110, 100, 105, 50, 20, 2.5, 40)
       : selection(140, 120, 115, 130, 30, 10, 1.4, 40);
+}
+
+class RPSCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint0 = Paint()
+      ..color = myBrown
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 1;
+
+    Path path0 = Path();
+    double leftPadding = 0.4;
+    double topHeigth = 0.3;
+    double upperCurveHeight = 0.2185000;
+    double bottomHeigth = 0.61;
+    double curveWidth = 0.5;
+    double bottomCurveHeight = 0.7072286;
+    double uHeight = 0.5542857;
+    double rigthPadding = 0.6;
+    path0.moveTo(size.width * leftPadding, size.height * topHeigth);
+    path0.quadraticBezierTo(size.width * leftPadding, size.height * uHeight,
+        size.width * leftPadding, size.height * bottomHeigth);
+    path0.quadraticBezierTo(
+        size.width * curveWidth,
+        size.height * bottomCurveHeight,
+        size.width * rigthPadding,
+        size.height * bottomHeigth);
+    path0.quadraticBezierTo(size.width * rigthPadding, size.height * uHeight,
+        size.width * rigthPadding, size.height * topHeigth);
+    path0.quadraticBezierTo(
+        size.width * curveWidth,
+        size.height * upperCurveHeight,
+        size.width * leftPadding,
+        size.height * topHeigth);
+    path0.close();
+
+    canvas.drawPath(path0, paint0);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
 }

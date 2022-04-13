@@ -8,7 +8,6 @@ import "package:flutter/material.dart";
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../utils/app_routes.dart';
-import '../utils/constants.dart';
 import '../widgets/app_screen_widgets.dart';
 import '../widgets/text_widget.dart';
 import 'cake_detail.dart';
@@ -31,8 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
             builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 // print(snapshot.data);
-                return
-                  Center(
+                return Center(
                   child: SizedBox(
                     width: dynamicWidth(context, .88),
                     height: dynamicHeight(context, 1),
@@ -114,7 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               } else {
-                return Center(child: CircularProgressIndicator.adaptive());
+                return const Center(
+                    child: CircularProgressIndicator.adaptive());
               }
             }),
       ),

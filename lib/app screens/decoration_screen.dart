@@ -1,5 +1,4 @@
 import 'package:build_own_cake/app%20screens/color_screen.dart';
-import 'package:build_own_cake/app%20screens/flavour_screen.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/app%20screens/toppings.dart';
@@ -336,7 +335,6 @@ class _DecorationScreenState extends State<DecorationScreen> {
                       children: [
                         cakeSize(context),
                         colorsSelection(),
-                        flavours(context),
                         decorationSelection(context),
                       ],
                     ),

@@ -1,5 +1,4 @@
 import 'package:build_own_cake/app%20screens/decoration_screen.dart';
-import 'package:build_own_cake/app%20screens/flavour_screen.dart';
 import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
@@ -243,7 +242,6 @@ class _ColorScreenState extends State<ColorScreen> {
                         children: [
                           cakeSize(context),
                           colorsSelection(),
-                          flavours(context),
                         ],
                       ),
                     ),
@@ -282,28 +280,25 @@ Widget colorsSelection() {
     curve: Curves.bounceOut,
     child: sizeIndex == 0
         ? const SizedBox()
-        : Container(
-          decoration: BoxDecoration(
-
+        : Image.asset(
+            "assets/Custom_Cakes/1/9.png",
+            color: colorIndex == 1
+                ? myPastelBlue
+                : colorIndex == 2
+                    ? myPink
+                    : colorIndex == 3
+                        ? myLilac
+                        : colorIndex == 4
+                            ? myWhite
+                            : colorIndex == 5
+                                ? myBlack
+                                : colorIndex == 6
+                                    ? myYellow
+                                    : colorIndex == 7
+                                        ? myPastelPink
+                                        : colorIndex == 8
+                                            ? myBlue
+                                            : noColor,
           ),
-          child: Image.asset(
-              "assets/Custom_Cakes/1/9.png",
-              color: colorIndex == 1
-                  ? myPastelBlue
-                  : colorIndex == 2
-                      ? myPink
-                      : colorIndex == 3
-                          ? myLilac
-                          : colorIndex == 4
-                              ? myWhite
-                              : colorIndex == 5
-                                  ? myBlack
-                                  : colorIndex == 6
-                                      ? myYellow
-                                      : colorIndex == 7
-                                          ? myPastelPink
-                                          : colorIndex == 8 ? myBlue :noColor,
-            ),
-        ),
   );
 }
