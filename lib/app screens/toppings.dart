@@ -19,7 +19,7 @@ class Toppings extends StatefulWidget {
   _ToppingsState createState() => _ToppingsState();
 }
 
-int decorationIndex = 0;
+int toppingIndex = 0;
 
 class _ToppingsState extends State<Toppings> {
   @override
@@ -53,15 +53,15 @@ class _ToppingsState extends State<Toppings> {
                       coloredButton1(
                         context,
                         "Happy birthday",
-                        decorationIndex == 1 ? myPink : myLightPink1,
+                        toppingIndex == 1 ? myPink : myLightPink1,
                         width: dynamicWidth(context, 0.3),
-                        selectedTick: decorationIndex == 1 ? true : false,
+                        selectedTick: toppingIndex == 1 ? true : false,
                         function: () {
                           setState(() {
-                            if (decorationIndex == 1) {
-                              decorationIndex = 1;
-                            } else if (decorationIndex != 1) {
-                              decorationIndex = 1;
+                            if (toppingIndex == 1) {
+                              toppingIndex = 1;
+                            } else if (toppingIndex != 1) {
+                              toppingIndex = 1;
                             }
                           });
                         },
@@ -69,15 +69,15 @@ class _ToppingsState extends State<Toppings> {
                       coloredButton1(
                         context,
                         "Happy anniversary",
-                        decorationIndex == 2 ? myPink : myLightPink1,
+                        toppingIndex == 2 ? myPink : myLightPink1,
                         width: dynamicWidth(context, 0.3),
-                        selectedTick: decorationIndex == 2 ? true : false,
+                        selectedTick: toppingIndex == 2 ? true : false,
                         function: () {
                           setState(() {
-                            if (decorationIndex == 2) {
-                              decorationIndex = 2;
-                            } else if (decorationIndex != 2) {
-                              decorationIndex = 2;
+                            if (toppingIndex == 2) {
+                              toppingIndex = 2;
+                            } else if (toppingIndex != 2) {
+                              toppingIndex = 2;
                             }
                           });
                         },
@@ -85,15 +85,15 @@ class _ToppingsState extends State<Toppings> {
                       coloredButton1(
                         context,
                         "Congratulations",
-                        decorationIndex == 3 ? myPink : myLightPink1,
+                        toppingIndex == 3 ? myPink : myLightPink1,
                         width: dynamicWidth(context, 0.3),
-                        selectedTick: decorationIndex == 3 ? true : false,
+                        selectedTick: toppingIndex == 3 ? true : false,
                         function: () {
                           setState(() {
-                            if (decorationIndex == 3) {
-                              decorationIndex = 3;
-                            } else if (decorationIndex != 3) {
-                              decorationIndex = 3;
+                            if (toppingIndex == 3) {
+                              toppingIndex = 3;
+                            } else if (toppingIndex != 3) {
+                              toppingIndex = 3;
                             }
                           });
                         },
@@ -101,15 +101,15 @@ class _ToppingsState extends State<Toppings> {
                       coloredButton1(
                         context,
                         "Bride to be",
-                        decorationIndex == 4 ? myPink : myLightPink1,
+                        toppingIndex == 4 ? myPink : myLightPink1,
                         width: dynamicWidth(context, 0.3),
-                        selectedTick: decorationIndex == 4 ? true : false,
+                        selectedTick: toppingIndex == 4 ? true : false,
                         function: () {
                           setState(() {
-                            if (decorationIndex == 4) {
-                              decorationIndex = 4;
-                            } else if (decorationIndex != 4) {
-                              decorationIndex = 4;
+                            if (toppingIndex == 4) {
+                              toppingIndex = 4;
+                            } else if (toppingIndex != 4) {
+                              toppingIndex = 4;
                             }
                           });
                         },
@@ -117,15 +117,15 @@ class _ToppingsState extends State<Toppings> {
                       coloredButton1(
                         context,
                         "Age numbers (with fondant)",
-                        decorationIndex == 4 ? myPink : myLightPink1,
+                        toppingIndex == 5 ? myPink : myLightPink1,
                         width: dynamicWidth(context, 0.3),
-                        selectedTick: decorationIndex == 4 ? true : false,
+                        selectedTick: toppingIndex == 5 ? true : false,
                         function: () {
                           setState(() {
-                            if (decorationIndex == 4) {
-                              decorationIndex = 4;
-                            } else if (decorationIndex != 4) {
-                              decorationIndex = 4;
+                            if (toppingIndex == 5) {
+                              toppingIndex = 5;
+                            } else if (toppingIndex != 5) {
+                              toppingIndex = 5;
                             }
                           });
                         },
@@ -148,7 +148,7 @@ class _ToppingsState extends State<Toppings> {
                   ),
                   downBar(
                     context,
-                    nextPage: decorationIndex == 0
+                    nextPage: toppingIndex == 0
                         ? () {
                             MotionToast.warning(
                               title: const Text("Warning"),
@@ -178,12 +178,18 @@ Widget decorationSelection(context) {
   selection(double p1, double p2, double p3, double p4, double s1, double s2,
       double s3, double s4) {
     return Positioned(
-      bottom: decorationIndex == 1 ? p1 : p4,
+      bottom: toppingIndex == 1 ? p1 : p4,
       child: Image.asset(
-        decorationIndex == 1
-            ? "assets/Custom_Cakes/1/10.png"
-            : "assets/Custom_Cakes/1/12.png",
-        scale: decorationIndex == 1 ? s1 : s4,
+        toppingIndex == 1
+            ? "assets/Cakes/toppers/1.png"
+            : toppingIndex == 2
+                ? "assets/Cakes/toppers/3.png"
+                : toppingIndex == 3
+                    ? "assets/Cakes/toppers/2.png"
+                    : toppingIndex == 4
+                        ? "assets/Cakes/toppers/3.png"
+                        : "assets/Cakes/toppers/1.png",
+        scale: toppingIndex == 1 ? s1 : s4,
       ),
     );
   }
@@ -192,3 +198,4 @@ Widget decorationSelection(context) {
       ? selection(110, 110, 100, 105, 50, 20, 2.5, 40)
       : selection(140, 120, 115, 130, 30, 10, 1.4, 40);
 }
+

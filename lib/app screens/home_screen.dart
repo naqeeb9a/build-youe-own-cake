@@ -8,7 +8,6 @@ import "package:flutter/material.dart";
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../utils/app_routes.dart';
-import '../utils/constants.dart';
 import '../widgets/app_screen_widgets.dart';
 import '../widgets/text_widget.dart';
 import 'cake_detail.dart';
@@ -27,96 +26,98 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         body: FutureBuilder(
-            future: Apis().predefinedCakeFunc(),
-            builder: (context, AsyncSnapshot snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                // print(snapshot.data);
-                return
-                  Center(
-                  child: SizedBox(
-                    width: dynamicWidth(context, .88),
-                    height: dynamicHeight(context, 1),
-                    child: Column(
-                      children: [
-                        heightBox(context, .04),
-                        Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () => pop(context),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  right: dynamicWidth(context, .02),
-                                ),
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  size: dynamicWidth(context, .07),
-                                  color: myGrey,
-                                ),
+          future: Apis().predefinedCakeFunc(),
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              // print(snapshot.data);
+              return Center(
+                child: SizedBox(
+                  width: dynamicWidth(context, .88),
+                  height: dynamicHeight(context, 1),
+                  child: Column(
+                    children: [
+                      heightBox(context, .04),
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () => pop(context),
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                right: dynamicWidth(context, .02),
+                              ),
+                              child: Icon(
+                                Icons.arrow_back,
+                                size: dynamicWidth(context, .07),
+                                color: myGrey,
                               ),
                             ),
-                            Flexible(
-                              child: inputTextField1(
-                                context,
-                                "Search Your taste",
-                                TextEditingController(),
-                                suffixIcon: true,
-                                icon: CupertinoIcons.search,
-                                iconColor: myPink,
-                              ),
-                            ),
-                            widthBox(context, 0.04),
-                            GestureDetector(
-                              onTap: () {
-                                push(context, const CartScreen());
-                              },
-                              child: Badge(
-                                position: BadgePosition.topEnd(),
-                                badgeColor: myLightPink1,
-                                elevation: 0,
-                                badgeContent: Obx(
-                                  () => text(
-                                    context,
-                                    (cart.length).toString(),
-                                    0.035,
-                                    myBlack,
-                                  ),
-                                ),
-                                child: SizedBox(
-                                  height: dynamicWidth(context, .1),
-                                  child: Image.asset(
-                                    "assets/cart.png",
-                                    width: dynamicWidth(context, .07),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        heightBox(context, .01),
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: snapshot.data.length,
-                            itemBuilder: (context, i) {
-                              print(snapshot.data[i]["image"]);
-                              return cakeCard(
-                                context,
-                                snapshot.data[i]['name'],
-                                snapshot.data[i]["image"],
-                                snapshot.data[i]['description'],
-                                i,
-                              );
-                            },
                           ),
+                          Flexible(
+                            child: inputTextField1(
+                              context,
+                              "Search Your taste",
+                              TextEditingController(),
+                              suffixIcon: true,
+                              icon: CupertinoIcons.search,
+                              iconColor: myPink,
+                            ),
+                          ),
+                          widthBox(context, 0.04),
+                          GestureDetector(
+                            onTap: () {
+                              push(context, const CartScreen());
+                            },
+                            child: Badge(
+                              position: BadgePosition.topEnd(),
+                              badgeColor: myLightPink1,
+                              elevation: 0,
+                              badgeContent: Obx(
+                                () => text(
+                                  context,
+                                  (cart.length).toString(),
+                                  0.035,
+                                  myBlack,
+                                ),
+                              ),
+                              child: SizedBox(
+                                height: dynamicWidth(context, .1),
+                                child: Image.asset(
+                                  "assets/cart.png",
+                                  width: dynamicWidth(context, .07),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      heightBox(context, .01),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (context, i) {
+                            print(snapshot.data[i]["image"]);
+                            return cakeCard(
+                              context,
+                              snapshot.data[i]['name'],
+                              snapshot.data[i]["image"],
+                              snapshot.data[i]['description'],
+                              i,
+                            );
+                          },
                         ),
-                        heightBox(context, .01),
-                      ],
-                    ),
+                      ),
+                      heightBox(context, .01),
+                    ],
                   ),
-                );
-              } else {
-                return Center(child: CircularProgressIndicator.adaptive());
-              }
-            }),
+                ),
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator.adaptive(),
+              );
+            }
+          },
+        ),
       ),
     );
   }
