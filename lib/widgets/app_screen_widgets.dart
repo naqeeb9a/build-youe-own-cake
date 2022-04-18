@@ -1,5 +1,5 @@
 import 'package:build_own_cake/widgets/text_widget.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scale_tap/flutter_scale_tap.dart';
 
@@ -13,6 +13,7 @@ Widget cakeCard(
   cakeName,
   cakeImage,
   cakeDesc,
+  sizeArray,
   index,
 ) {
   var check = false;
@@ -25,6 +26,7 @@ Widget cakeCard(
             name: cakeName,
             i: index,
             image: cakeImage,
+            sizeArray: sizeArray,
           ),
         );
       },
@@ -122,10 +124,25 @@ Widget cakeCard(
                                     spacing: dynamicWidth(context, .01),
                                     runSpacing: dynamicHeight(context, .006),
                                     children: [
-                                      cakeSize(context, "2"),
-                                      cakeSize(context, "2.5"),
-                                      cakeSize(context, "3"),
-                                      cakeSize(context, "4"),
+                                      SizedBox(
+                                        height: dynamicHeight(context, .062),
+                                        child: GridView.builder(
+                                          padding: EdgeInsets.symmetric(vertical: dynamicHeight(context, .002)),
+                                          gridDelegate:
+                                              const SliverGridDelegateWithMaxCrossAxisExtent(
+                                            maxCrossAxisExtent: 45,
+                                            childAspectRatio: 2.5 / 1,
+                                            mainAxisSpacing: 5,
+                                            crossAxisSpacing: 5,
+                                          ),
+                                          itemCount: sizeArray.length,
+                                          itemBuilder:
+                                              (BuildContext ctx, index) {
+                                            return cakeSize(context,
+                                                sizeArray[index]['size']);
+                                          },
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ],
@@ -153,20 +170,22 @@ Widget cakeCard(
                         ),
                 ),
               ),
-              // Positioned(
-              //  bottom:0,
-              //   child: CachedNetworkImage(
-              //     imageUrl:  cakeImage.toString(),
-              //     width: dynamicWidth(context, .34),
-              //     progressIndicatorBuilder: (context, url, downloadProgress) =>
-              //           Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
-              //     errorWidget: (context, url, error) => const Icon(Icons.error),
-              //   ),
-              //   // Image.network(
-              //   //   cakeImage.toString(),
-              //   //   width: dynamicWidth(context, .34),
-              //   // ),
-              // ),
+              Positioned(
+                bottom: 0,
+                child: CachedNetworkImage(
+                  imageUrl: cakeImage.toString(),
+                  width: dynamicWidth(context, .34),
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Center(
+                          child: CircularProgressIndicator(
+                              value: downloadProgress.progress)),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                ),
+                // Image.network(
+                //   cakeImage.toString(),
+                //   width: dynamicWidth(context, .34),
+                // ),
+              ),
             ],
           ),
         ),

@@ -100,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               snapshot.data[i]['name'],
                               snapshot.data[i]["image"],
                               snapshot.data[i]['description'],
+                              snapshot.data[i]['size'],
                               i,
                             );
                           },

@@ -4,7 +4,8 @@ import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:motion_toast/motion_toast.dart';
@@ -12,9 +13,14 @@ import 'package:motion_toast/motion_toast.dart';
 class CakeDetail extends StatefulWidget {
   final String name, image;
   final int i;
+  final dynamic sizeArray;
 
   const CakeDetail(
-      {required this.name, required this.i, Key? key, required this.image})
+      {required this.name,
+      required this.i,
+      Key? key,
+      required this.image,
+      required this.sizeArray})
       : super(key: key);
 
   @override
@@ -31,6 +37,8 @@ class _CakeDetailState extends State<CakeDetail> {
   dynamic sprinkleIndex = 0;
   dynamic accessoriesIndex = 0;
   int quantity = 1;
+
+  CarouselController buttonCarouselController = CarouselController();
 
   void _incrementCounter() {
     setState(() {
@@ -74,34 +82,88 @@ class _CakeDetailState extends State<CakeDetail> {
                     ),
                   ),
                   SizedBox(
-                    height: dynamicHeight(context, 0.35),
+                    width: dynamicWidth(context, 1),
+                    child: Stack(
+                      alignment: Alignment.topCenter,
+                      children: [
+                        SizedBox(
+                          width: dynamicWidth(context, 1),
+                          height: dynamicHeight(context, .06),
+                          child: CarouselSlider.builder(
+                            itemCount: widget.sizeArray.length,
+                            carouselController: buttonCarouselController,
+                            itemBuilder: (BuildContext context,
+                                int itemIndex, int pageViewIndex) {
+                              return Center(
+                                child: text(
+                                    context,
+                                    " ${widget.sizeArray[itemIndex]['size'].toString()} Pounds",
+                                    0.04,
+                                    myBlack,
+                                    bold: true),
+                              );
+                            },
+                            options: CarouselOptions(
+                              enlargeStrategy:
+                                  CenterPageEnlargeStrategy.height,
+                              autoPlay: false,
+                              autoPlayInterval: Duration(seconds: 6),
+                              autoPlayAnimationDuration:
+                                  Duration(seconds: 2),
+                              autoPlayCurve: Curves.fastLinearToSlowEaseIn,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 10,
+                          child: InkWell(
+                            onTap: () {
+                              buttonCarouselController.previousPage(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.linear,
+                              );
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: const Icon(Icons.arrow_back_ios),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 10,
+                          child: InkWell(
+                            onTap: () {
+                              buttonCarouselController.nextPage(
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.linear,
+                              );
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: const Icon(Icons.arrow_forward_ios),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: dynamicHeight(context, 0.3),
                     child: Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
-                        Positioned(
-                          top: dynamicHeight(context, 0),
-                          child: text(
-                            context,
-                            "2 Pounds",
-                            0.04,
-                            myBlack,
-                            bold: true,
-                          ),
+                        CachedNetworkImage(
+                          imageUrl: widget.image.toString(),
+                          height: dynamicHeight(context, .3),
+                          width: dynamicWidth(context, .8),
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) => Center(
+                                  child: CircularProgressIndicator(
+                                      value: downloadProgress.progress,
+                                      color: myPink)),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
                         ),
-                        // CachedNetworkImage(
-                        //   imageUrl: widget.image.toString(),
-                        //   height: dynamicHeight(context, .25),
-                        //   progressIndicatorBuilder:
-                        //       (context, url, downloadProgress) => Center(
-                        //           child: CircularProgressIndicator(
-                        //               value: downloadProgress.progress)),
-                        //   errorWidget: (context, url, error) =>
-                        //       const Icon(Icons.error),
-                        // ),
-                        // Image.network(
-                        //   widget.image.toString(),
-                        //   height: dynamicHeight(context, .35),
-                        // ),
                         Positioned(
                           right: dynamicHeight(context, 0.02),
                           bottom: dynamicHeight(context, 0.04),
@@ -116,67 +178,6 @@ class _CakeDetailState extends State<CakeDetail> {
                       ],
                     ),
                   ),
-                  // SizedBox(
-                  //   height: dynamicHeight(context, 0.1),
-                  //   child: CarouselSlider(
-                  //     items: [
-                  //       SizedBox(
-                  //         height: dynamicHeight(context, 0.35),
-                  //         child: Stack(
-                  //           alignment: Alignment.bottomCenter,
-                  //           children: [
-                  //             Positioned(
-                  //               top: dynamicHeight(context, 0),
-                  //               child: text(
-                  //                 context,
-                  //                 "2 Pounds",
-                  //                 0.04,
-                  //                 myBlack,
-                  //                 bold: true,
-                  //               ),
-                  //             ),
-                  //             CachedNetworkImage(
-                  //               imageUrl:    widget.image.toString(),
-                  //               height: dynamicHeight(context, .35),
-                  //               progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  //                   Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
-                  //               errorWidget: (context, url, error) => const Icon(Icons.error),
-                  //             ),
-                  //             // Image.network(
-                  //             //   widget.image.toString(),
-                  //             //   height: dynamicHeight(context, .35),
-                  //             // ),
-                  //             Positioned(
-                  //               right: dynamicHeight(context, 0.02),
-                  //               bottom: dynamicHeight(context, 0.04),
-                  //               child: CircleAvatar(
-                  //                 radius: dynamicHeight(context, .04),
-                  //                 backgroundColor: myYellow1.withOpacity(.9),
-                  //                 child: Center(
-                  //                   child:
-                  //                   text(context, "2500Rs", 0.04, myWhite),
-                  //                 ),
-                  //               ),
-                  //             )
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ],
-                  //     options: CarouselOptions(
-                  //       // scrollPhysics: never,
-                  //
-                  //       autoPlay: true,
-                  //       height: dynamicHeight(context, 0.45),
-                  //       enlargeCenterPage: true,
-                  //       enableInfiniteScroll: true,
-                  //       aspectRatio: 12 / 6,
-                  //       autoPlayCurve: Curves.fastOutSlowIn,
-                  //       autoPlayAnimationDuration:
-                  //           const Duration(milliseconds: 800),
-                  //       viewportFraction: 0.6,
-                  //     ),
-                  //   ),
-                  // ),
                   text(context, "Extras", 0.04, myBlack, bold: true),
                   Container(
                     width: dynamicWidth(context, .65),
