@@ -43,6 +43,7 @@ dependencies:
   badges: ^2.0.2
   image_picker: ^0.8.4+8
   flutter_scale_tap: ^1.0.5
+  flutter_stripe: ^2.4.0
 
 dev_dependencies:
   flutter_test:

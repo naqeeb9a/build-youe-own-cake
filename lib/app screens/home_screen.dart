@@ -95,7 +95,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ListView.builder(
                           itemCount: snapshot.data.length,
                           itemBuilder: (context, i) {
-                            print(snapshot.data[i]["image"]);
                             return cakeCard(
                               context,
                               snapshot.data[i]['name'],

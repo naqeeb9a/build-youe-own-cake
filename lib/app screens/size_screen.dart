@@ -137,12 +137,16 @@ class _SizeScreenState extends State<SizeScreen> {
 
 Widget cakeSize(context) {
   return AnimatedScale(
-      scale: sizeIndex == 1 ? 0.4 : 0.7,
+      scale: sizeIndex == 1 ? 0.9 : 1.3,
       duration: const Duration(milliseconds: 600),
       curve: Curves.bounceOut,
-      child: sizeIndex == 0
-          ? const SizedBox()
+      child: sizeIndex == 1
+          ? Image.asset(
+              "assets/cake 2.png",
+              height: 200,
+            )
           : Image.asset(
-              "assets/Custom_Cakes/1/9.png",
+              "assets/cake.png",
+              height: 200,
             ));
 }

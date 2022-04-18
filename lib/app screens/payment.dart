@@ -1,8 +1,10 @@
 import 'package:build_own_cake/app%20screens/order_complete.dart';
+import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import "package:flutter/material.dart";
 
+import '../function/stripe_method.dart';
 import '../utils/config.dart';
 import '../widgets/text_widget.dart';
 import 'cart.dart';
@@ -43,7 +45,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     appBar(context, title: "Payment"),
                     Container(
                       width: dynamicWidth(context, 1),
-                      height: dynamicHeight(context, .7),
+                      height: dynamicHeight(context, .5),
                       padding: EdgeInsets.only(
                         top: dynamicHeight(context, .035),
                         left: dynamicWidth(context, .06),
@@ -130,48 +132,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              setState(() {
-                                if (selectionIndex == 1) {
-                                  selectionIndex = 0;
-                                } else if (selectionIndex != 1) {
-                                  selectionIndex = 1;
-                                }
-                              });
-                            },
-                            child: Container(
-                              width: dynamicWidth(context, .55),
-                              height: dynamicHeight(context, .065),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: dynamicWidth(context, 0.04)),
-                              decoration: BoxDecoration(
-                                  color: selectionIndex == 1
-                                      ? myRed1
-                                      : myRed1.withOpacity(.2),
-                                  // border: Border.all(color:myRed),
-                                  borderRadius: BorderRadius.circular(
-                                      dynamicWidth(context, .04))),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    "assets/visacard.png",
-                                    width: dynamicWidth(context, 0.12),
-                                  ),
-                                  widthBox(context, 0.02),
-                                  text(context, "**** **** **** ****", 0.035,
-                                      selectionIndex == 1 ? myWhite : myBlack),
-                                ],
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (selectionIndex == 2) {
-                                  selectionIndex = 0;
-                                } else if (selectionIndex != 2) {
-                                  selectionIndex = 2;
-                                }
-                              });
+                              push(context, Payment1());
                             },
                             child: Container(
                               width: dynamicWidth(context, .55),
@@ -198,50 +159,14 @@ class _PaymentScreenState extends State<PaymentScreen> {
                               ),
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                if (selectionIndex == 3) {
-                                  selectionIndex = 0;
-                                } else if (selectionIndex != 3) {
-                                  selectionIndex = 3;
-                                }
-                              });
-                            },
-                            child: Container(
-                              width: dynamicWidth(context, .55),
-                              height: dynamicHeight(context, .065),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: dynamicWidth(context, 0.04)),
-                              decoration: BoxDecoration(
-                                  color: selectionIndex == 3
-                                      ? myRed1
-                                      : myRed1.withOpacity(.2),
-                                  // border: Border.all(color:myRed),
-                                  borderRadius: BorderRadius.circular(
-                                      dynamicWidth(context, .04))),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    "assets/byhand.png",
-                                    width: dynamicWidth(context, 0.12),
-                                  ),
-                                  widthBox(context, 0.02),
-                                  text(
-                                    context,
-                                    "Cash on Delivery",
-                                    0.035,
-                                    selectionIndex == 3 ? myWhite : myBlack,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                     ),
                     semiButton(
-                        context, const OrderComplete(), "Complete Order"),
+                      context,
+                      const OrderComplete(),
+                      "Complete Order",
+                    ),
                   ],
                 ),
               ),

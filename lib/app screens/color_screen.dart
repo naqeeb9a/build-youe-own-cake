@@ -237,9 +237,13 @@ class _ColorScreenState extends State<ColorScreen> {
                     heightBox(context, .02),
                     SizedBox(
                       width: double.infinity,
+                      height: 200,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: [
+                          Positioned(
+                              bottom: -10,
+                              child: Image.asset("assets/base.png")),
                           cakeSize(context),
                           colorsSelection(),
                         ],
@@ -275,13 +279,32 @@ class _ColorScreenState extends State<ColorScreen> {
 
 Widget colorsSelection() {
   return AnimatedScale(
-    scale: sizeIndex == 1 ? 0.4 : 0.7,
+    scale: sizeIndex == 1 ? 0.9 : 1.3,
     duration: const Duration(milliseconds: 600),
     curve: Curves.bounceOut,
-    child: sizeIndex == 0
-        ? const SizedBox()
+    child: sizeIndex == 1
+        ? Image.asset(
+            "assets/cake 2.png",
+            color: colorIndex == 1
+                ? myPastelBlue
+                : colorIndex == 2
+                    ? myPink
+                    : colorIndex == 3
+                        ? myLilac
+                        : colorIndex == 4
+                            ? myWhite
+                            : colorIndex == 5
+                                ? myBlack
+                                : colorIndex == 6
+                                    ? myYellow
+                                    : colorIndex == 7
+                                        ? myPastelPink
+                                        : colorIndex == 8
+                                            ? myBlue
+                                            : noColor,
+          )
         : Image.asset(
-            "assets/Custom_Cakes/1/9.png",
+            "assets/cake.png",
             color: colorIndex == 1
                 ? myPastelBlue
                 : colorIndex == 2

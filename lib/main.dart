@@ -1,8 +1,14 @@
 import 'package:build_own_cake/app%20screens/get_started.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Stripe.publishableKey =
+      'pk_test_51JoWwWE47PNYl4hqvlfsXC9yuxv7KptXfU5t5GpQHNvxdve4DE0450p9SkFwfmCoKT6OE8yly1KWkQSQLPA5qFAD00t5D2Wddh';
+  await Stripe.instance.applySettings();
   runApp(const MyApp());
 }
 

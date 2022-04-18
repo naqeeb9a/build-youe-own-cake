@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import '../utils/config.dart';
 import '../utils/dynamic_sizes.dart';
-import '../widgets/text_widget.dart';
 import 'cart.dart';
 
 class CheckoutScreen extends StatefulWidget {
@@ -23,7 +22,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   TextEditingController phone = TextEditingController();
   TextEditingController address = TextEditingController();
   TextEditingController city = TextEditingController();
-  TextEditingController postalCode = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +52,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     appBar(context, title: "Checkout"),
                     Container(
                       width: dynamicWidth(context, 1),
-                      height: dynamicHeight(context, .7),
+                      height: dynamicHeight(context, .6),
                       padding: EdgeInsets.only(
                         top: dynamicHeight(context, .03),
                         left: dynamicWidth(context, .06),
                         right: dynamicWidth(context, .06),
-                        bottom: dynamicHeight(context, .01),
+                        bottom: dynamicHeight(context, .02),
                       ),
                       decoration: BoxDecoration(
                         color: myWhite,
@@ -85,37 +83,35 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           inputTextField(context, "Phone", phone),
                           inputTextField(context, "Address", address),
                           inputTextField(context, "City", city),
-                          inputTextField(context, "Postal Code", postalCode),
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Theme(
-                                data: Theme.of(context)
-                                    .copyWith(unselectedWidgetColor: myPink),
-                                child: Checkbox(
-                                  visualDensity: const VisualDensity(
-                                    vertical: -4,
-                                  ),
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  // checkColor: myRed,
-                                  value: value,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      this.value = value!;
-                                    });
-                                  },
-                                ),
-                              ),
-                              text(
-                                context,
-                                "Save the Information",
-                                0.03,
-                                myPink,
-                              )
-                            ],
-                          ), //C
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   children: [
+                          //     Theme(
+                          //       data: Theme.of(context)
+                          //           .copyWith(unselectedWidgetColor: myPink),
+                          //       child: Checkbox(
+                          //         visualDensity: const VisualDensity(
+                          //           vertical: -4,
+                          //         ),
+                          //         materialTapTargetSize:
+                          //             MaterialTapTargetSize.shrinkWrap,
+                          //         // checkColor: myRed,
+                          //         value: value,
+                          //         onChanged: (value) {
+                          //           setState(() {
+                          //             this.value = value!;
+                          //           });
+                          //         },
+                          //       ),
+                          //     ),
+                          //     text(
+                          //       context,
+                          //       "Save the Information",
+                          //       0.03,
+                          //       myPink,
+                          //     )
+                          //   ],
+                          // ),
                         ],
                       ),
                     ),
