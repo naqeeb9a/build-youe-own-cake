@@ -4,8 +4,7 @@ import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:motion_toast/motion_toast.dart';
@@ -89,13 +88,16 @@ class _CakeDetailState extends State<CakeDetail> {
                             bold: true,
                           ),
                         ),
-                        CachedNetworkImage(
-                          imageUrl:    widget.image.toString(),
-                          height: dynamicHeight(context, .25),
-                          progressIndicatorBuilder: (context, url, downloadProgress) =>
-                              Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
-                          errorWidget: (context, url, error) => const Icon(Icons.error),
-                        ),
+                        // CachedNetworkImage(
+                        //   imageUrl: widget.image.toString(),
+                        //   height: dynamicHeight(context, .25),
+                        //   progressIndicatorBuilder:
+                        //       (context, url, downloadProgress) => Center(
+                        //           child: CircularProgressIndicator(
+                        //               value: downloadProgress.progress)),
+                        //   errorWidget: (context, url, error) =>
+                        //       const Icon(Icons.error),
+                        // ),
                         // Image.network(
                         //   widget.image.toString(),
                         //   height: dynamicHeight(context, .35),
@@ -107,8 +109,7 @@ class _CakeDetailState extends State<CakeDetail> {
                             radius: dynamicHeight(context, .04),
                             backgroundColor: myYellow1.withOpacity(.9),
                             child: Center(
-                              child:
-                              text(context, "2500Rs", 0.04, myWhite),
+                              child: text(context, "2500Rs", 0.04, myWhite),
                             ),
                           ),
                         )

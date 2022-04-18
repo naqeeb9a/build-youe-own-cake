@@ -1,5 +1,5 @@
 import 'package:build_own_cake/widgets/text_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scale_tap/flutter_scale_tap.dart';
 
@@ -8,7 +8,13 @@ import '../utils/app_routes.dart';
 import '../utils/config.dart';
 import '../utils/dynamic_sizes.dart';
 
-Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index,) {
+Widget cakeCard(
+  context,
+  cakeName,
+  cakeImage,
+  cakeDesc,
+  index,
+) {
   var check = false;
   return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
     return ScaleTap(
@@ -147,20 +153,20 @@ Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index,) {
                         ),
                 ),
               ),
-              Positioned(
-               bottom:0,
-                child: CachedNetworkImage(
-                  imageUrl:  cakeImage.toString(),
-                  width: dynamicWidth(context, .34),
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                        Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                ),
-                // Image.network(
-                //   cakeImage.toString(),
-                //   width: dynamicWidth(context, .34),
-                // ),
-              ),
+              // Positioned(
+              //  bottom:0,
+              //   child: CachedNetworkImage(
+              //     imageUrl:  cakeImage.toString(),
+              //     width: dynamicWidth(context, .34),
+              //     progressIndicatorBuilder: (context, url, downloadProgress) =>
+              //           Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
+              //     errorWidget: (context, url, error) => const Icon(Icons.error),
+              //   ),
+              //   // Image.network(
+              //   //   cakeImage.toString(),
+              //   //   width: dynamicWidth(context, .34),
+              //   // ),
+              // ),
             ],
           ),
         ),

@@ -9,12 +9,12 @@ class CakeProvider extends ChangeNotifier {
   int decorationIndex;
   int toppingsIndex;
   CakeProvider(
-      {this.sizeIndex = 0,
-      this.spongeIndex = 0,
-      this.fillingIndex = 0,
-      this.colorIndex = 0,
-      this.decorationIndex = 0,
-      this.toppingsIndex = 0});
+      {this.sizeIndex = 1,
+      this.spongeIndex = 1,
+      this.fillingIndex = 1,
+      this.colorIndex = 1,
+      this.decorationIndex = 1,
+      this.toppingsIndex = 1});
 
   changeSizeIndex(value) {
     sizeIndex = value;
@@ -90,41 +90,46 @@ class CakeProvider extends ChangeNotifier {
   }
 
   Widget decorationSelection(context, sizeIndex, decorationIndex) {
-    selection(double p1, double p2, double p3, double p4, double s1, double s2,
-        double s3, double s4) {
+    selection() {
       return Positioned(
         bottom: decorationIndex == 1
-            ? p1
-            : decorationIndex == 2
-                ? p2
-                : decorationIndex == 3
-                    ? p3
-                    : p4,
+            ? 20
+            : decorationIndex == 3
+                ? 90
+                : decorationIndex == 4
+                    ? 20
+                    : 130,
+        left: decorationIndex == 1
+            ? 80
+            : decorationIndex == 3
+                ? null
+                : decorationIndex == 4
+                    ? 80
+                    : null,
+        right: decorationIndex == 5 ? 80 : null,
         child: Image.asset(
           decorationIndex == 1
-              ? "assets/Custom_Cakes/1/10.png"
+              ? "assets/decorationAssets/macarons.png"
               : decorationIndex == 2
                   ? "assets/Custom_Cakes/1/11.png"
                   : decorationIndex == 3
-                      ? "assets/Custom_Cakes/1/7.png"
-                      : "assets/Custom_Cakes/1/12.png",
-          scale: decorationIndex == 1
-              ? s1
-              : decorationIndex == 2
-                  ? s2
-                  : decorationIndex == 3
-                      ? s3
-                      : s4,
+                      ? "assets/decorationAssets/sprinkles.png"
+                      : decorationIndex == 4
+                          ? "assets/decorationAssets/pearls.png"
+                          : decorationIndex == 5
+                              ? "assets/decorationAssets/butterfly.png"
+                              : decorationIndex == 6
+                                  ? "assets/decorationAssets/chocolateShards.png"
+                                  : decorationIndex == 7
+                                      ? "assets/decorationAssets/pearls.png"
+                                      : decorationIndex == 8
+                                          ? "assets/decorationAssets/chocoBalls.png"
+                                          : "assets/Custom_Cakes/1/11.png",
+          scale: decorationIndex == 5 ? 40 : 10,
         ),
       );
     }
 
-    return sizeIndex == 1
-        ? selection(110, 110, 100, 105, 50, 20, 2.5, 40)
-        : sizeIndex == 2
-            ? selection(110, 110, 100, 110, 45, 15, 2, 40)
-            : sizeIndex == 3
-                ? selection(120, 120, 105, 120, 30, 10, 1.7, 40)
-                : selection(140, 120, 115, 130, 30, 10, 1.4, 40);
+    return selection();
   }
 }
