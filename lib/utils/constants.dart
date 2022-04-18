@@ -1,5 +1,10 @@
-
 dynamic cakeData = "";
+
+var publishKey =
+    "pk_test_51KpnpyD63RjfyUjktke4vWFM2Gv8beRx9xgmyM62VUXrGVIHV0zG5dSLtmgyTFKcpr2H1GK2Zh0yzyvoh8ATexcJ00KraKfJGP";
+var secretKey =
+    "sk_test_51KpnpyD63RjfyUjkAq6BxA7P4423jsXEjIn4nMsJ3ZqdqCpSk6um1QqgpmTNYJAHoCc1yVnJHY17HvO1uU1hPrOF00xzVEbRH1";
+
 dynamic headers = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
@@ -72,7 +77,7 @@ List cake = [
       "assets/Cakes/4K8A7491.JPG",
     ],
     "description":
-    "Sunflower Cake is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
+        "Sunflower Cake is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
   {
     "name": "Bird Song",
@@ -81,7 +86,7 @@ List cake = [
       "assets/Cakes/4K8A7229.JPG",
     ],
     "description":
-    "Bird Song is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
+        "Bird Song is sweet, baked, breadlike food, made with or without shortening, and usually containing flour, sugar, baking powder or soda, eggs, and liquid flavoring. 2. a flat, thin mass of bread, esp. unleavened bread."
   },
 ];
 

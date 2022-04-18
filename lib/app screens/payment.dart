@@ -1,10 +1,16 @@
+// ignore_for_file: deprecated_member_use
+
+import 'dart:convert';
+
 import 'package:build_own_cake/app%20screens/order_complete.dart';
-import 'package:build_own_cake/utils/app_routes.dart';
+import 'package:build_own_cake/utils/constants.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
+import 'package:flutter/foundation.dart';
 import "package:flutter/material.dart";
+import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:http/http.dart' as http;
 
-import '../function/stripe_method.dart';
 import '../utils/config.dart';
 import '../widgets/text_widget.dart';
 import 'cart.dart';
@@ -18,6 +24,94 @@ class PaymentScreen extends StatefulWidget {
 
 class _PaymentScreenState extends State<PaymentScreen> {
   int selectionIndex = 0;
+  Map<String, dynamic>? paymentIntentData;
+
+  Future<void> makePayment() async {
+    try {
+      paymentIntentData = await createPaymentIntent('2000', 'PKR');
+      await Stripe.instance
+          .initPaymentSheet(
+            paymentSheetParameters: SetupPaymentSheetParameters(
+              paymentIntentClientSecret: paymentIntentData!['client_secret'],
+              applePay: true,
+              googlePay: true,
+              testEnv: true,
+              style: ThemeMode.light,
+              merchantCountryCode: 'PKR',
+              merchantDisplayName: 'Hassan',
+            ),
+          )
+          .then(
+            (value) {},
+          );
+
+      displayPaymentSheet();
+    } catch (e, s) {
+      if (kDebugMode) {
+        print('exception:$e$s');
+      }
+    }
+  }
+
+  displayPaymentSheet() async {
+    try {
+      await Stripe.instance
+          .presentPaymentSheet(
+        parameters: PresentPaymentSheetParameters(
+          clientSecret: paymentIntentData!['client_secret'],
+          confirmPayment: true,
+        ),
+      )
+          .then((newValue) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("paid successfully")));
+
+        paymentIntentData = null;
+      }).onError((error, stackTrace) {
+        if (kDebugMode) {
+          print('Exception/DISPLAYPAYMENTSHEET==> $error $stackTrace');
+        }
+      });
+    } on StripeException catch (e) {
+      if (kDebugMode) {
+        print('Exception/DISPLAYPAYMENTSHEET==> $e');
+      }
+      showDialog(
+        context: context,
+        builder: (_) => const AlertDialog(
+          content: Text("Cancelled "),
+        ),
+      );
+    } catch (e) {
+      if (kDebugMode) {
+        print('$e');
+      }
+    }
+  }
+
+  createPaymentIntent(String amount, String currency) async {
+    try {
+      Map<String, dynamic> body = {
+        'amount': calculateAmount(amount),
+        'currency': currency,
+        'payment_method_types[]': 'card'
+      };
+      var response = await http.post(
+          Uri.parse('https://api.stripe.com/v1/payment_intents'),
+          body: body,
+          headers: {
+            'Authorization': 'Bearer $secretKey',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          });
+      return jsonDecode(response.body);
+      // ignore: empty_catches
+    } catch (err) {}
+  }
+
+  calculateAmount(String amount) {
+    final a = (int.parse(amount)) * 100;
+    return a.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,8 +225,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             ],
                           ),
                           GestureDetector(
-                            onTap: () {
-                              push(context, const Payment1());
+                            onTap: () async {
+                              await makePayment();
                             },
                             child: Container(
                               width: dynamicWidth(context, .55),
