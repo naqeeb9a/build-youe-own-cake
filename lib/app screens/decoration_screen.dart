@@ -125,7 +125,7 @@ class DecorationScreen extends StatelessWidget {
             selectedTick: chooseIndex == (index + 1) ? true : false,
             function: () {
               Provider.of<CakeProvider>(context, listen: false)
-                  .changeDecorationIndex(index + 1);
+                  .changeDecorationIndex(index + 1, array[index]);
             },
           );
         },

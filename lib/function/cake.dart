@@ -2,47 +2,67 @@ import 'package:build_own_cake/utils/config.dart';
 import 'package:flutter/material.dart';
 
 class CakeProvider extends ChangeNotifier {
-  int sizeIndex;
-  int spongeIndex;
-  int fillingIndex;
-  int colorIndex;
-  int decorationIndex;
-  int toppingsIndex;
-  CakeProvider(
-      {this.sizeIndex = 1,
-      this.spongeIndex = 1,
-      this.fillingIndex = 1,
-      this.colorIndex = 1,
-      this.decorationIndex = 1,
-      this.toppingsIndex = 1});
+  int sizeIndex,
+      spongeIndex,
+      fillingIndex,
+      colorIndex,
+      decorationIndex,
+      toppingsIndex;
+  String sizeValue,
+      spongeValue,
+      fillingValue,
+      colorValue,
+      decorationValue,
+      toppingsValue;
 
-  changeSizeIndex(value) {
-    sizeIndex = value;
+  CakeProvider({
+    this.sizeIndex = 1,
+    this.spongeIndex = 1,
+    this.fillingIndex = 1,
+    this.colorIndex = 1,
+    this.decorationIndex = 1,
+    this.toppingsIndex = 1,
+    this.sizeValue = "",
+    this.spongeValue = "",
+    this.fillingValue = "",
+    this.colorValue = "",
+    this.decorationValue = "",
+    this.toppingsValue = "",
+  });
+
+  changeSizeIndex(index, value) {
+    sizeIndex = index;
+    sizeValue = value;
     notifyListeners();
   }
 
-  changeSpongeIndex(value) {
-    spongeIndex = value;
+  changeSpongeIndex(index, value) {
+    spongeIndex = index;
+    spongeValue = value;
     notifyListeners();
   }
 
-  changeFillingIndex(value) {
-    fillingIndex = value;
+  changeFillingIndex(index, value) {
+    fillingIndex = index;
+    fillingValue = value;
     notifyListeners();
   }
 
-  changeColorIndex(value) {
-    colorIndex = value;
+  changeColorIndex(index, value) {
+    colorIndex = index;
+    colorValue = value;
     notifyListeners();
   }
 
-  changeDecorationIndex(value) {
-    decorationIndex = value;
+  changeDecorationIndex(index, value) {
+    decorationIndex = index;
+    decorationValue = value;
     notifyListeners();
   }
 
-  changeToppingsIndex(value) {
-    toppingsIndex = value;
+  changeToppingsIndex(index, value) {
+    toppingsIndex = index;
+    toppingsValue = value;
     notifyListeners();
   }
 

@@ -122,7 +122,7 @@ class ColorScreen extends StatelessWidget {
             selectedTick: chooseIndex == (index + 1) ? true : false,
             function: () {
               Provider.of<CakeProvider>(context, listen: false)
-                  .changeColorIndex(index + 1);
+                  .changeColorIndex(index + 1, array[index]);
             },
           );
         },

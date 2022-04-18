@@ -100,9 +100,9 @@ class SpongeScreen extends StatelessWidget {
             function: () {
               check
                   ? Provider.of<CakeProvider>(context, listen: false)
-                      .changeSpongeIndex(index + 1)
+                      .changeSpongeIndex(index + 1,array[index])
                   : Provider.of<CakeProvider>(context, listen: false)
-                      .changeFillingIndex(index + 1);
+                      .changeFillingIndex(index + 1, array[index]);
             },
           );
         },

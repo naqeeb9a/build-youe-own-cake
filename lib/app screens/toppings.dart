@@ -110,7 +110,7 @@ class Toppings extends StatelessWidget {
             selectedTick: chooseIndex == (index + 1) ? true : false,
             function: () {
               Provider.of<CakeProvider>(context, listen: false)
-                  .changeToppingsIndex(index + 1);
+                  .changeToppingsIndex(index + 1, array[index]);
             },
           );
         },

@@ -1,5 +1,6 @@
 import 'package:build_own_cake/app%20screens/cake_detail.dart';
 import 'package:build_own_cake/app%20screens/checkout.dart';
+import 'package:build_own_cake/function/cake.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/app_routes.dart';
 import '../widgets/text_widget.dart';
@@ -21,6 +23,10 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
+    String sizeValue = Provider.of<CakeProvider>(context).sizeValue;
+    String colorValue = Provider.of<CakeProvider>(context).colorValue;
+    String decorationValue = Provider.of<CakeProvider>(context).decorationValue;
+    String toppingsValue = Provider.of<CakeProvider>(context).toppingsValue;
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -67,41 +73,43 @@ class _CartScreenState extends State<CartScreen> {
                       child: ListView.builder(
                         itemCount: cart.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return Obx(()=>Slidable(
-                            endActionPane: ActionPane(
-                              motion: const ScrollMotion(),
-                              children: [
-                                SlidableAction(
-                                  onPressed: (BuildContext context) {
-                                    cart.removeAt(index);
-                                    MotionToast.delete(
-                                      title: const Text(
-                                        "Deleted",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      description:
-                                      const Text("The item is deleted"),
-                                      toastDuration:
-                                      const Duration(milliseconds: 2200),
-                                    ).show(context);
-                                    setState(() {});
-                                  },
-                                  backgroundColor: const Color(0xFFFE4A49),
-                                  foregroundColor: Colors.white,
-                                  icon: Icons.delete_outlined,
-                                  label: 'Delete',
-                                ),
-                              ],
+                          return Obx(
+                            () => Slidable(
+                              endActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                children: [
+                                  SlidableAction(
+                                    onPressed: (BuildContext context) {
+                                      cart.removeAt(index);
+                                      MotionToast.delete(
+                                        title: const Text(
+                                          "Deleted",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        description:
+                                            const Text("The item is deleted"),
+                                        toastDuration:
+                                            const Duration(milliseconds: 2200),
+                                      ).show(context);
+                                      setState(() {});
+                                    },
+                                    backgroundColor: const Color(0xFFFE4A49),
+                                    foregroundColor: Colors.white,
+                                    icon: Icons.delete_outlined,
+                                    label: 'Delete',
+                                  ),
+                                ],
+                              ),
+                              child: cartCard(
+                                context,
+                                cart[index]['image'],
+                                cart[index]['name'],
+                                cart[index]['size'],
+                                cart[index]['price'],
+                              ),
                             ),
-                            child: cartCard(
-                              context,
-                              cart[index]['image'],
-                              cart[index]['name'],
-                              cart[index]['size'],
-                              cart[index]['price'],
-                            ),
-                          ),);
+                          );
                         },
                       ),
                     ),
@@ -216,7 +224,7 @@ Widget semiButton(context, page, buttonText) {
   );
 }
 
-Widget cartCard(context,image,name,size,price) {
+Widget cartCard(context, image, name, size, price) {
   return Column(
     children: [
       Row(
@@ -240,7 +248,6 @@ Widget cartCard(context,image,name,size,price) {
                 //  text(context, "Pretty In Pink", 0.035, myBlack),
                 // text(context, "3 lbs", 0.035, myBlack),
                 //
-
               ],
             ),
           ),

@@ -116,7 +116,7 @@ class SizeScreen extends StatelessWidget {
             selectedTick: chooseIndex == (index + 1) ? true : false,
             function: () {
               Provider.of<CakeProvider>(context, listen: false)
-                  .changeSizeIndex(index + 1);
+                  .changeSizeIndex(index + 1,array[index]);
             },
           );
         },
