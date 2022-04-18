@@ -1,4 +1,5 @@
 import 'package:build_own_cake/widgets/text_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scale_tap/flutter_scale_tap.dart';
 
@@ -147,11 +148,18 @@ Widget cakeCard(context, cakeName, cakeImage, cakeDesc, index,) {
                 ),
               ),
               Positioned(
-                bottom: 0.0,
-                child: Image.network(
-                  cakeImage.toString(),
+               bottom:0,
+                child: CachedNetworkImage(
+                  imageUrl:  cakeImage.toString(),
                   width: dynamicWidth(context, .34),
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                        Center(child: CircularProgressIndicator(value: downloadProgress.progress)),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
+                // Image.network(
+                //   cakeImage.toString(),
+                //   width: dynamicWidth(context, .34),
+                // ),
               ),
             ],
           ),

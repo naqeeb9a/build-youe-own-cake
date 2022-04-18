@@ -45,6 +45,7 @@ dependencies:
   flutter_scale_tap: ^1.0.5
   flutter_stripe: ^2.4.0
   provider: ^6.0.2
+  cached_network_image: ^3.2.0
 
 dev_dependencies:
   flutter_test:
