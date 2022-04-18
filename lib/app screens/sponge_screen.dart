@@ -1,6 +1,6 @@
 import 'package:build_own_cake/app%20screens/color_screen.dart';
-import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
+import 'package:build_own_cake/function/cake.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -10,19 +10,26 @@ import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:provider/provider.dart';
 
-class FlavourScreen extends StatefulWidget {
-  const FlavourScreen({Key? key}) : super(key: key);
+class SpongeScreen extends StatelessWidget {
+  const SpongeScreen({Key? key}) : super(key: key);
 
-  @override
-  _FlavourScreenState createState() => _FlavourScreenState();
-}
-
-int flavourIndex = 0;
-
-class _FlavourScreenState extends State<FlavourScreen> {
+  static const sponges = ["Vanilla", "Chocolate"];
+  static const spongeFillings = [
+    "Chocolate Fudge",
+    "Salted Caramel",
+    "Vanilla Buttercream",
+    "Coffee Buttercream",
+    "Maple Buttercream",
+    "Lemon Curd",
+    "Mix Fruit"
+  ];
   @override
   Widget build(BuildContext context) {
+    int spongeIndex = Provider.of<CakeProvider>(context).spongeIndex;
+    int fillingIndex = Provider.of<CakeProvider>(context).fillingIndex;
+    int sizeIndex = Provider.of<CakeProvider>(context).sizeIndex;
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -34,186 +41,12 @@ class _FlavourScreenState extends State<FlavourScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   appBar(context),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: text(
-                      context,
-                      "Choose	Sponge.",
-                      .09,
-                      myBlack,
-                      bold: true,
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        coloredButton1(
-                          context,
-                          "Vanilla",
-                          flavourIndex == 1 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 1 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 1) {
-                                flavourIndex = 1;
-                              } else if (flavourIndex != 1) {
-                                flavourIndex = 1;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Chocolate",
-                          flavourIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 2) {
-                                flavourIndex = 2;
-                              } else if (flavourIndex != 2) {
-                                flavourIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: text(
-                      context,
-                      "Choose	Filling.",
-                      .09,
-                      myBlack,
-                      bold: true,
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        coloredButton1(
-                          context,
-                          "Chocolate Fudge",
-                          flavourIndex == 1 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 1 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 1) {
-                                flavourIndex = 1;
-                              } else if (flavourIndex != 1) {
-                                flavourIndex = 1;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Salted Caramel",
-                          flavourIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 2) {
-                                flavourIndex = 2;
-                              } else if (flavourIndex != 2) {
-                                flavourIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Vanilla Buttercream",
-                          flavourIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 2) {
-                                flavourIndex = 2;
-                              } else if (flavourIndex != 2) {
-                                flavourIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Coffee Buttercream",
-                          flavourIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 2) {
-                                flavourIndex = 2;
-                              } else if (flavourIndex != 2) {
-                                flavourIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Maple Buttercream",
-                          flavourIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 2) {
-                                flavourIndex = 2;
-                              } else if (flavourIndex != 2) {
-                                flavourIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Lemon Curd",
-                          flavourIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 2) {
-                                flavourIndex = 2;
-                              } else if (flavourIndex != 2) {
-                                flavourIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Mix Fruit",
-                          flavourIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: flavourIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (flavourIndex == 2) {
-                                flavourIndex = 2;
-                              } else if (flavourIndex != 2) {
-                                flavourIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+                  mainHeading(context, "Choose	Sponge."),
+                  displayChoices(context, sponges, spongeIndex, true),
+                  mainHeading(context, "Choose	Filling."),
+                  displayChoices(context, spongeFillings, fillingIndex, false),
                   downBar(context,
-                      nextPage: flavourIndex == 0
+                      nextPage: spongeIndex == 0
                           ? () {
                               MotionToast.warning(
                                 title: const Text("Warning"),
@@ -237,15 +70,43 @@ class _FlavourScreenState extends State<FlavourScreen> {
       ),
     );
   }
-}
 
-Widget flavours(context) {
-  return Positioned(
-    bottom: sizeIndex == 1 ? 70 : 50,
-    child: Image.asset(
-      "assets/Custom_Cakes/1/8.png",
-      scale: sizeIndex == 1 ? 2.7 : 1.55,
-      color: flavourIndex == 1 ? myVanilla : null,
-    ),
-  );
+  Widget mainHeading(context, text2) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: text(
+        context,
+        text2,
+        .09,
+        myBlack,
+        bold: true,
+      ),
+    );
+  }
+
+  Widget displayChoices(context, array, chooseIndex, bool check) {
+    return SizedBox(
+      height: dynamicWidth(context, .15),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: array.length,
+        itemBuilder: (BuildContext context, int index) {
+          return coloredButton1(
+            context,
+            array[index],
+            chooseIndex == (index + 1) ? myPink : myLightPink1,
+            width: dynamicWidth(context, 0.3),
+            selectedTick: chooseIndex == (index + 1) ? true : false,
+            function: () {
+              check
+                  ? Provider.of<CakeProvider>(context, listen: false)
+                      .changeSpongeIndex(index + 1)
+                  : Provider.of<CakeProvider>(context, listen: false)
+                      .changeFillingIndex(index + 1);
+            },
+          );
+        },
+      ),
+    );
+  }
 }

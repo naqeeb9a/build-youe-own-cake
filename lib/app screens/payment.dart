@@ -132,7 +132,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              push(context, Payment1());
+                              push(context, const Payment1());
                             },
                             child: Container(
                               width: dynamicWidth(context, .55),

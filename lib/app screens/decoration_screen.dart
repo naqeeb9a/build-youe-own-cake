@@ -1,8 +1,6 @@
-import 'package:build_own_cake/app%20screens/color_screen.dart';
-import 'package:build_own_cake/app%20screens/size_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
 import 'package:build_own_cake/app%20screens/toppings.dart';
-import 'package:build_own_cake/utils/app_routes.dart';
+import 'package:build_own_cake/function/cake.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
 import 'package:build_own_cake/widgets/app_bar.dart';
@@ -11,19 +9,38 @@ import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:provider/provider.dart';
 
-class DecorationScreen extends StatefulWidget {
+import '../utils/app_routes.dart';
+
+class DecorationScreen extends StatelessWidget {
   const DecorationScreen({Key? key}) : super(key: key);
-
-  @override
-  _DecorationScreenState createState() => _DecorationScreenState();
-}
-
-int decorationIndex = 0;
-
-class _DecorationScreenState extends State<DecorationScreen> {
+  static const List decorationList = [
+    "Macarons",
+    "Gold Foil at front",
+    "Sprinkles",
+    "Pearls",
+    "Butterflies",
+    "Chocolate shards",
+    "Chocolate drip/ white chocolate drip/golden drip",
+    "Chocolate balls",
+    "Edible bear",
+    "Edible elephant",
+    "Edible swan",
+    "Fake flowers (top)",
+    "Fake flowers (top & side)",
+    "Fresh flowers arrangement (top & bottom side)",
+    "Fresh flowers arrangement (top side only)",
+    "Rice sheet",
+    "Meringue kisses",
+    "Candies",
+    "Heart"
+  ];
   @override
   Widget build(BuildContext context) {
+    int sizeIndex = Provider.of<CakeProvider>(context).sizeIndex;
+    int colorIndex = Provider.of<CakeProvider>(context).colorIndex;
+    int decorationIndex = Provider.of<CakeProvider>(context).decorationIndex;
     return SafeArea(
       child: Scaffold(
           body: Stack(
@@ -47,285 +64,7 @@ class _DecorationScreenState extends State<DecorationScreen> {
                         bold: true, font: true),
                   ),
                   heightBox(context, 0.04),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        coloredButton1(
-                          context,
-                          "Macarons",
-                          decorationIndex == 1 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 1 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 1) {
-                                decorationIndex = 1;
-                              } else if (decorationIndex != 1) {
-                                decorationIndex = 1;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Gold Foil at front",
-                          decorationIndex == 2 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 2 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 2) {
-                                decorationIndex = 2;
-                              } else if (decorationIndex != 2) {
-                                decorationIndex = 2;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Sprinkles",
-                          decorationIndex == 3 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 3 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 3) {
-                                decorationIndex = 3;
-                              } else if (decorationIndex != 3) {
-                                decorationIndex = 3;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Pearls",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Butterflies",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Chocolate shards ",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Drip",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Chocolate balls",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Edible bear",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Edible elephant",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Edible swan",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Fake flowers",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Fresh flowers arrangement ",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Rice sheet",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Meringue kisses",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Candies on top",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                        coloredButton1(
-                          context,
-                          "Heart cookies",
-                          decorationIndex == 4 ? myPink : myLightPink1,
-                          width: dynamicWidth(context, 0.3),
-                          selectedTick: decorationIndex == 4 ? true : false,
-                          function: () {
-                            setState(() {
-                              if (decorationIndex == 4) {
-                                decorationIndex = 4;
-                              } else if (decorationIndex != 4) {
-                                decorationIndex = 4;
-                              }
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+                  displayChoices(context, decorationList, decorationIndex),
                   heightBox(context, .02),
                   SizedBox(
                     width: double.infinity,
@@ -333,9 +72,10 @@ class _DecorationScreenState extends State<DecorationScreen> {
                     child: Stack(
                       alignment: Alignment.bottomCenter,
                       children: [
-                        cakeSize(context),
-                        colorsSelection(),
-                        decorationSelection(context),
+                        CakeProvider().cakeSize(context,sizeIndex),
+                        CakeProvider().colorsSelection(sizeIndex, colorIndex),
+                        CakeProvider().decorationSelection(
+                            context, sizeIndex, decorationIndex),
                       ],
                     ),
                   ),
@@ -366,43 +106,32 @@ class _DecorationScreenState extends State<DecorationScreen> {
       )),
     );
   }
-}
-
-Widget decorationSelection(context) {
-  selection(double p1, double p2, double p3, double p4, double s1, double s2,
-      double s3, double s4) {
-    return Positioned(
-      bottom: decorationIndex == 1
-          ? p1
-          : decorationIndex == 2
-              ? p2
-              : decorationIndex == 3
-                  ? p3
-                  : p4,
-      child: Image.asset(
-        decorationIndex == 1
-            ? "assets/Custom_Cakes/1/10.png"
-            : decorationIndex == 2
-                ? "assets/Custom_Cakes/1/11.png"
-                : decorationIndex == 3
-                    ? "assets/Custom_Cakes/1/7.png"
-                    : "assets/Custom_Cakes/1/12.png",
-        scale: decorationIndex == 1
-            ? s1
-            : decorationIndex == 2
-                ? s2
-                : decorationIndex == 3
-                    ? s3
-                    : s4,
+  Widget displayChoices(
+    context,
+    array,
+    chooseIndex,
+  ) {
+    return SizedBox(
+      height: dynamicWidth(context, .15),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: array.length,
+        itemBuilder: (BuildContext context, int index) {
+          return coloredButton1(
+            context,
+            array[index],
+            chooseIndex == (index + 1) ? myPink : myLightPink1,
+            width: dynamicWidth(context, 0.3),
+            selectedTick: chooseIndex == (index + 1) ? true : false,
+            function: () {
+              Provider.of<CakeProvider>(context, listen: false)
+                  .changeDecorationIndex(index + 1);
+            },
+          );
+        },
       ),
     );
   }
-
-  return sizeIndex == 1
-      ? selection(110, 110, 100, 105, 50, 20, 2.5, 40)
-      : sizeIndex == 2
-          ? selection(110, 110, 100, 110, 45, 15, 2, 40)
-          : sizeIndex == 3
-              ? selection(120, 120, 105, 120, 30, 10, 1.7, 40)
-              : selection(140, 120, 115, 130, 30, 10, 1.4, 40);
 }
+
+

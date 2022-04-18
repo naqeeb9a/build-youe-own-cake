@@ -1,7 +1,9 @@
 import 'package:build_own_cake/app%20screens/get_started.dart';
+import 'package:build_own_cake/function/cake.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,23 +35,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Build Your Cake',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: primaryColor,
-        textTheme: GoogleFonts.poppinsTextTheme(
-          Theme.of(context).textTheme,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => CakeProvider(),
         ),
-        colorScheme: const ColorScheme.light(),
-      ).copyWith(
-        pageTransitionsTheme: const PageTransitionsTheme(
-          builders: <TargetPlatform, PageTransitionsBuilder>{
-            TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          },
+      ],
+      child: MaterialApp(
+        title: 'Build Your Cake',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: primaryColor,
+          textTheme: GoogleFonts.poppinsTextTheme(
+            Theme.of(context).textTheme,
+          ),
+          colorScheme: const ColorScheme.light(),
+        ).copyWith(
+          pageTransitionsTheme: const PageTransitionsTheme(
+            builders: <TargetPlatform, PageTransitionsBuilder>{
+              TargetPlatform.android: ZoomPageTransitionsBuilder(),
+            },
+          ),
         ),
+        home: const GetStarted(),
       ),
-      home: const GetStarted(),
     );
   }
 }

@@ -4,6 +4,8 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 
 // payment_screen.dart
 class Payment1 extends StatelessWidget {
+  const Payment1({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +20,10 @@ class Payment1 extends StatelessWidget {
           TextButton(
             onPressed: () async {
               // create payment method
-              final paymentMethod = await Stripe.instance
-                  .createPaymentMethod(PaymentMethodParams.card());
+              // final paymentMethod = await Stripe.instance
+              //     .createPaymentMethod(const PaymentMethodParams.card());
             },
-            child: Text('pay'),
+            child: const Text('pay'),
           )
         ],
       ),

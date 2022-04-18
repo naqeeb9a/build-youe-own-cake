@@ -1,5 +1,6 @@
 import 'package:build_own_cake/app%20screens/sponge_screen.dart';
 import 'package:build_own_cake/app%20screens/special_wishes_screen.dart';
+import 'package:build_own_cake/function/cake.dart';
 import 'package:build_own_cake/utils/app_routes.dart';
 import 'package:build_own_cake/utils/config.dart';
 import 'package:build_own_cake/utils/dynamic_sizes.dart';
@@ -9,21 +10,16 @@ import 'package:build_own_cake/widgets/down_bar.dart';
 import 'package:build_own_cake/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:provider/provider.dart';
 
-class SizeScreen extends StatefulWidget {
+class SizeScreen extends StatelessWidget {
   const SizeScreen({Key? key}) : super(key: key);
 
-  @override
-  _SizeScreenState createState() => _SizeScreenState();
-}
-
-int sizeIndex = 1;
-
-class _SizeScreenState extends State<SizeScreen> {
   // int sizeIndex = 0;
-
+  static const List sizes = ["2.5 lbs", "4 lbs"];
   @override
   Widget build(BuildContext context) {
+    int sizeIndex = Provider.of<CakeProvider>(context).sizeIndex;
     return SafeArea(
       child: Scaffold(
         body: Stack(
@@ -52,44 +48,10 @@ class _SizeScreenState extends State<SizeScreen> {
                       ),
                     ),
                     heightBox(context, 0.04),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          coloredButton1(
-                            context,
-                            "2.5 lbs",
-                            sizeIndex == 1 ? myPink : myLightPink1,
-                            width: dynamicWidth(context, 0.3),
-                            selectedTick: sizeIndex == 1 ? true : false,
-                            function: () {
-                              setState(() {
-                                if (sizeIndex == 1) {
-                                  sizeIndex = 1;
-                                } else if (sizeIndex != 1) {
-                                  sizeIndex = 1;
-                                }
-                              });
-                            },
-                          ),
-                          coloredButton1(
-                            context,
-                            "4 lbs",
-                            sizeIndex == 2 ? myPink : myLightPink1,
-                            width: dynamicWidth(context, 0.3),
-                            selectedTick: sizeIndex == 2 ? true : false,
-                            function: () {
-                              setState(() {
-                                if (sizeIndex == 2) {
-                                  sizeIndex = 2;
-                                } else if (sizeIndex != 2) {
-                                  sizeIndex = 2;
-                                }
-                              });
-                            },
-                          )
-                        ],
-                      ),
+                    displayChoices(
+                      context,
+                      sizes,
+                      sizeIndex,
                     ),
                     heightBox(context, .02),
                     SizedBox(
@@ -97,7 +59,8 @@ class _SizeScreenState extends State<SizeScreen> {
                       height: 200,
                       child: Align(
                         alignment: Alignment.bottomCenter,
-                        child: cakeSize(context),
+                        child: CakeProvider()
+                            .cakeSize(context, sizeIndex),
                       ),
                     ),
                     text(
@@ -121,7 +84,7 @@ class _SizeScreenState extends State<SizeScreen> {
                                 ).show(context);
                               }
                             : () {
-                                push(context, const FlavourScreen());
+                                push(context, const SpongeScreen());
                               },
                         price: sizeIndex == 1 ? 4000 : 6000),
                   ],
@@ -133,20 +96,31 @@ class _SizeScreenState extends State<SizeScreen> {
       ),
     );
   }
-}
 
-Widget cakeSize(context) {
-  return AnimatedScale(
-      scale: sizeIndex == 1 ? 0.9 : 1.3,
-      duration: const Duration(milliseconds: 600),
-      curve: Curves.bounceOut,
-      child: sizeIndex == 1
-          ? Image.asset(
-              "assets/cake 2.png",
-              height: 200,
-            )
-          : Image.asset(
-              "assets/cake.png",
-              height: 200,
-            ));
+  Widget displayChoices(
+    context,
+    array,
+    chooseIndex,
+  ) {
+    return SizedBox(
+      height: dynamicWidth(context, .15),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: array.length,
+        itemBuilder: (BuildContext context, int index) {
+          return coloredButton1(
+            context,
+            array[index],
+            chooseIndex == (index + 1) ? myPink : myLightPink1,
+            width: dynamicWidth(context, 0.3),
+            selectedTick: chooseIndex == (index + 1) ? true : false,
+            function: () {
+              Provider.of<CakeProvider>(context, listen: false)
+                  .changeSizeIndex(index + 1);
+            },
+          );
+        },
+      ),
+    );
+  }
 }
